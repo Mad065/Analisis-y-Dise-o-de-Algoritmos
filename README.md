@@ -23,9 +23,14 @@ El contenido estará organizado de forma sencilla en las siguientes carpetas:
 
 ---
 
+
 ## 📚 Índice de Apuntes
 
-*(Aún no hay apuntes disponibles. Los enlaces a las notas teóricas se irán agregando aquí conforme avance el curso)*
+Aquí puedes acceder rápidamente a las notas teóricas más importantes:
+
+1. 📄 [¿Qué es un Algoritmo?](./apuntes/¿Qué%20es%20un%20Algoritmo%3F.md)
+
+*(Más apuntes se irán agregando conforme avance el curso)*
 
 ---
 
