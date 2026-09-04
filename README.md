@@ -29,6 +29,8 @@ El contenido estará organizado de forma sencilla en las siguientes carpetas:
 Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 
 1. 📄 [¿Qué es un Algoritmo?](./apuntes/¿Qué%20es%20un%20Algoritmo%3F.md)
+2. 📄 [Algoritmos de multiplicacion](./apuntes/Algoritmos%20de%20multiplicacion.md)
+
 
 *(Más apuntes se irán agregando conforme avance el curso)*
 
