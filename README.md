@@ -29,8 +29,9 @@ El contenido estará organizado de forma sencilla en las siguientes carpetas:
 Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 
 1. 📄 [¿Qué es un Algoritmo?](./apuntes/¿Qué%20es%20un%20Algoritmo%3F.md)
-2. 📄 [Algoritmos de multiplicacion](./apuntes/Algoritmos%20de%20multiplicacion.md)
-
+2. 📄 [Cálculo de complejidad](./apuntes/Calculo%20de%20complejidad.md)
+3. 📄 [Algoritmos de multiplicación](./apuntes/Algoritmos%20de%20multiplicacion.md)
+4. 📄 [Algoritmos de búsqueda](./apuntes/Algoritmos%20de%20busqueda.md)
 
 *(Más apuntes se irán agregando conforme avance el curso)*
 
