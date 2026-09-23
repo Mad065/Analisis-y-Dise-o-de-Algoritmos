@@ -19,6 +19,7 @@ Durante el desarrollo de este curso, nos enfocaremos casi de manera exclusiva en
 El contenido estará organizado de forma sencilla en las siguientes carpetas:
 
 * [`/apuntes`](./apuntes): Notas de clase, demostraciones matemáticas, análisis de complejidad y resúmenes teóricos en formato Markdown (`.md`).
+* [`/actividades`](./actividades): Tareas, pruebas de escritorio y análisis teórico-práctico de algoritmos.
 * [`/practicas`](./practicas): Implementación de algoritmos, estructuras de datos y programas de laboratorio.
 
 ---
@@ -34,6 +35,16 @@ Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 4. 📄 [Algoritmos de búsqueda](./apuntes/Algoritmos%20de%20busqueda.md)
 
 *(Más apuntes se irán agregando conforme avance el curso)*
+
+---
+
+## 📝 Índice de Actividades
+
+Aquí encontrarás las tareas y resoluciones de las actividades del curso:
+
+1. 💻 [Prueba de Escritorio y Complejidad: Merge Sort](./actividades/merge.md)
+
+*(Más actividades se irán agregando conforme avance el curso)*
 
 ---
 
