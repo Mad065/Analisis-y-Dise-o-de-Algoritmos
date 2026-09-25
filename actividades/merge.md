@@ -173,6 +173,25 @@ Por lo tanto, en lugar de que los `for` anidados den como resultado $n\sqrt{n} \
 
 ## 4. Conclusión
 
-En el cálculo de complejidad, cuando una variable de control en un ciclo no se incrementa sumando de uno en uno, sino que se multiplica repetidamente (como `ancho = 2 * ancho`), el crecimiento de los saltos es mucho más rápido. 
+El análisis de complejidad del algoritmo *Merge Sort* iterativo demuestra cómo interactúan matemáticamente sus tres componentes principales: el ciclo externo, el ciclo interno y la función de fusión (`merge`).
 
-La secuencia de valores ($1, 2, 4, 8, 16 \dots$) significa que el número de iteraciones necesarias para recorrer el arreglo se reduce drásticamente. Matemáticamente, este comportamiento no representa una función exponencial ($2^n$), sino exactamente su operación inversa: un crecimiento logarítmico, denotado como $\log_2(n)$. Por lo tanto, al combinar este ciclo externo logarítmico con el ciclo lineal interno que agrupa los elementos, obtenemos la verdadera complejidad del algoritmo *Merge Sort*: $O(n \log n)$.
+### 1. Crecimiento Logarítmico del Ciclo Externo
+Cuando una variable de control en un ciclo no se incrementa sumando una constante, sino multiplicándose repetidamente (`ancho = 2 * ancho`), la secuencia de valores generada ($1, 2, 4, 8, 16 \dots$) crece exponencialmente. Sin embargo, el **número de iteraciones** requeridas para que `ancho` alcance a $n$ es la función inversa: una escala **logarítmica**, denotada como $\log_2(n)$. Por lo tanto, el ciclo externo se ejecuta en $\Theta(\log_2 n)$ niveles o pasadas.
+
+### 2. Cancelación Algebraica en el Ciclo Interno y `merge`
+En cada pasada del ciclo externo se realiza el trabajo de fusión de subarreglos:
+* **Número de iteraciones del ciclo interno:** El ciclo `for (izq = 0; izq < n; izq += 2 * ancho)` avanza en saltos de $2 \cdot \text{ancho}$, por lo que realiza $\frac{n}{2 \cdot \text{ancho}}$ iteraciones.
+* **Costo de la función `merge`:** En cada iteración, la función de fusión procesa los elementos de dos bloques adyacentes de tamaño `ancho`, por lo que toma un tiempo lineal proporcional al tamaño combinado del bloque, es decir, $O(2 \cdot \text{ancho})$.
+
+Al calcular el costo total de trabajo de cada nivel multiplicando el número de llamadas por el costo de la función `merge`:
+
+$$\text{Trabajo por nivel} = \left( \frac{n}{2 \cdot \text{ancho}} \right) \times O(2 \cdot \text{ancho}) = O(n)$$
+
+El factor $2 \cdot \text{ancho}$ presente en el denominador de las iteraciones se cancela algebraicamente con el $2 \cdot \text{ancho}$ del costo de la función `merge`. Esto demuestra que, sin importar el tamaño del bloque (`ancho = 1, 2, 4, \dots`), **el trabajo total acumulado en cada nivel de fusiones es siempre lineal, $O(n)$**.
+
+### 3. Complejidad Global
+Multiplicando los $\log_2(n)$ niveles del ciclo externo por el trabajo lineal $O(n)$ de cada pasada, obtenemos la complejidad temporal total del algoritmo:
+
+$$\text{Complejidad Temporal Total} = O(n) \times \log_2(n) = O(n \log_2 n)$$
+
+Este comportamiento es determinista y aplica para el peor, mejor y caso promedio ($\Theta(n \log n)$). Finalmente, el algoritmo requiere una **complejidad espacial de $O(n)$** debido a la asignación del arreglo auxiliar `tmp` indispensable para realizar la mezcla de elementos.
