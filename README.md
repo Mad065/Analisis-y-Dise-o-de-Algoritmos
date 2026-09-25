@@ -43,6 +43,7 @@ Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 Aquí encontrarás las tareas y resoluciones de las actividades del curso:
 
 1. 💻 [Prueba de Escritorio y Complejidad: Merge Sort](./actividades/merge.md)
+2. 📝 [Ejercicios ADA 1: Conteo de Operaciones y Complejidad](./actividades/Ejercicios_ADA_1.md)
 
 *(Más actividades se irán agregando conforme avance el curso)*
 

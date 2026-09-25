@@ -1,5 +1,9 @@
 # Actividades: Ejercicios ADA 1
 
+* 📄 **Documento PDF de referencia:** [`Ejercicios_ADA_1.pdf`](./Ejercicios_ADA_1.pdf)
+
+---
+
 ## Ejercicio 1
 
 ```c++
