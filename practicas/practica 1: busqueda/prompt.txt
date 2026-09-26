@@ -1,0 +1,8 @@
+Por favor implementa los algoritmos de busqueda secuencial, binaria, por interpolacion, con tabla hash, genera datasets de numeros aleatorios de tamaño 1000, 10000, 100000, 1000000, 10000000 para probarlos. 
+Ejecuta los algoritmos con implementados y realiza búsquedas contemplando el peor de los casos, el caso ideal en caso donde no exista el elemento y un caso normal. 
+
+Mide los tiempos de ejecución de las operaciones de búsqueda, toma en cuenta que deberás medir por separado el tiempo de ejecución del paso de ordenamiento requerido para la búsqueda binaria y la búsqueda por interpolación.
+
+El programa debe mostrar la tabla de resultados de los distintos algoritmos en cada caso con toda la informacion obtenida
+
+Hazlo en [algoritmos_busqueda_AI.py](file;file:///Users/mad0/Documents/Escuela/ESCOM/Analisis%20y%20Dise%C3%B1o%20de%20Algoritmos/practicas/practica%201%3A%20busqueda/algoritmos_busqueda_AI.py) y [algoritmosBusquedaAI.java](file;file:///Users/mad0/Documents/Escuela/ESCOM/Analisis%20y%20Dise%C3%B1o%20de%20Algoritmos/practicas/practica%201:%20busqueda/algoritmosBusquedaAI.java) y agrega muchos comentarios explicando el codigo
