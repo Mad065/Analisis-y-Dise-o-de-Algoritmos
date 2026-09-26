@@ -9,16 +9,17 @@
 
 Se implementaron y compararon **4 algoritmos de búsqueda** en **Python** y **Java**:
 
-| # | Algoritmo | Complejidad promedio | Requiere ordenamiento | Espacio extra |
-|---|-----------|---------------------|-----------------------|---------------|
-| 1 | Búsqueda Secuencial | O(n) | No | O(1) |
-| 2 | Búsqueda Binaria | O(log n) | **Sí** | O(1) |
-| 3 | Búsqueda por Interpolación | O(log log n) | **Sí** | O(1) |
-| 4 | Tabla Hash (encadenamiento separado) | O(1) | No | O(n+m) |
+| #   | Algoritmo                            | Complejidad promedio | Requiere ordenamiento | Espacio extra |
+| --- | ------------------------------------ | -------------------- | --------------------- | ------------- |
+| 1   | Búsqueda Secuencial                  | O(n)                 | No                    | O(1)          |
+| 2   | Búsqueda Binaria                     | O(log n)             | **Sí**                | O(1)          |
+| 3   | Búsqueda por Interpolación           | O(log log n)         | **Sí**                | O(1)          |
+| 4   | Tabla Hash (encadenamiento separado) | O(1)                 | No                    | O(n+m)        |
 
 **Datasets evaluados:** 1,000 · 10,000 · 100,000 · 1,000,000 · 10,000,000 elementos
 
 **Casos de prueba por algoritmo:**
+
 - **Mejor caso** — objetivo ubicado en la posición óptima para cada algoritmo
 - **Peor caso** — objetivo en la posición que maximiza las comparaciones
 - **No existe** — el objetivo no está en el dataset
@@ -34,54 +35,54 @@ Se implementaron y compararon **4 algoritmos de búsqueda** en **Python** y **Ja
 
 ##### Dataset: 1,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 1.04 µs | 34.79 µs | 34.92 µs | 21.92 µs |
-| Binaria | 2.08 µs | 1.62 µs | 1.67 µs | 1.62 µs |
-| Interpolación | 2.29 µs | 0.71 µs | 0.33 µs | 1.42 µs |
-| Tabla Hash | 1.92 µs | 0.88 µs | 0.58 µs | 0.54 µs |
+| Algoritmo     | Mejor caso | Peor caso | No existe | Caso normal |
+| ------------- | ---------- | --------- | --------- | ----------- |
+| Secuencial    | 1.04 µs    | 34.79 µs  | 34.92 µs  | 21.92 µs    |
+| Binaria       | 2.08 µs    | 1.62 µs   | 1.67 µs   | 1.62 µs     |
+| Interpolación | 2.29 µs    | 0.71 µs   | 0.33 µs   | 1.42 µs     |
+| Tabla Hash    | 1.92 µs    | 0.88 µs   | 0.58 µs   | 0.54 µs     |
 
 ##### Dataset: 10,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 3.71 µs | 357.88 µs | 358.33 µs | 254.46 µs |
-| Binaria | 3.42 µs | 2.83 µs | 2.79 µs | 2.50 µs |
-| Interpolación | 5.17 µs | 0.71 µs | 0.25 µs | 2.12 µs |
-| Tabla Hash | 3.50 µs | 0.75 µs | 0.71 µs | 0.71 µs |
+| Algoritmo     | Mejor caso | Peor caso | No existe | Caso normal |
+| ------------- | ---------- | --------- | --------- | ----------- |
+| Secuencial    | 3.71 µs    | 357.88 µs | 358.33 µs | 254.46 µs   |
+| Binaria       | 3.42 µs    | 2.83 µs   | 2.79 µs   | 2.50 µs     |
+| Interpolación | 5.17 µs    | 0.71 µs   | 0.25 µs   | 2.12 µs     |
+| Tabla Hash    | 3.50 µs    | 0.75 µs   | 0.71 µs   | 0.71 µs     |
 
 ##### Dataset: 100,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 2.79 µs | **10.05 ms** | 7.87 ms | 2.46 ms |
-| Binaria | 4.92 µs | 4.08 µs | 3.67 µs | 3.17 µs |
-| Interpolación | 4.42 µs | 0.54 µs | 0.29 µs | 1.46 µs |
-| Tabla Hash | 3.62 µs | 1.00 µs | 0.83 µs | 0.83 µs |
+| Algoritmo     | Mejor caso | Peor caso    | No existe | Caso normal |
+| ------------- | ---------- | ------------ | --------- | ----------- |
+| Secuencial    | 2.79 µs    | **10.05 ms** | 7.87 ms   | 2.46 ms     |
+| Binaria       | 4.92 µs    | 4.08 µs      | 3.67 µs   | 3.17 µs     |
+| Interpolación | 4.42 µs    | 0.54 µs      | 0.29 µs   | 1.46 µs     |
+| Tabla Hash    | 3.62 µs    | 1.00 µs      | 0.83 µs   | 0.83 µs     |
 
 ##### Dataset: 1,000,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 4.83 µs | **34.06 ms** | 31.86 ms | 23.42 ms |
-| Binaria | 8.33 µs | 6.33 µs | 5.58 µs | 4.96 µs |
-| Interpolación | 4.21 µs | 0.67 µs | 0.25 µs | 2.04 µs |
-| Tabla Hash | 3.67 µs | 1.42 µs | 1.04 µs | 0.79 µs |
+| Algoritmo     | Mejor caso | Peor caso    | No existe | Caso normal |
+| ------------- | ---------- | ------------ | --------- | ----------- |
+| Secuencial    | 4.83 µs    | **34.06 ms** | 31.86 ms  | 23.42 ms    |
+| Binaria       | 8.33 µs    | 6.33 µs      | 5.58 µs   | 4.96 µs     |
+| Interpolación | 4.21 µs    | 0.67 µs      | 0.25 µs   | 2.04 µs     |
+| Tabla Hash    | 3.67 µs    | 1.42 µs      | 1.04 µs   | 0.79 µs     |
 
 ##### Dataset: 10,000,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 8.17 µs | **448.38 ms** | 442.74 ms | 236.64 ms |
-| Binaria | 54.88 µs | 50.25 µs | 45.04 µs | 74.83 µs |
-| Interpolación | 24.29 µs | 0.63 µs | 0.25 µs | 7.96 µs |
-| Tabla Hash | 1.02 ms | 13.08 µs | 5.42 µs | 5.92 µs |
+| Algoritmo     | Mejor caso | Peor caso     | No existe | Caso normal |
+| ------------- | ---------- | ------------- | --------- | ----------- |
+| Secuencial    | 8.17 µs    | **448.38 ms** | 442.74 ms | 236.64 ms   |
+| Binaria       | 54.88 µs   | 50.25 µs      | 45.04 µs  | 74.83 µs    |
+| Interpolación | 24.29 µs   | 0.63 µs       | 0.25 µs   | 7.96 µs     |
+| Tabla Hash    | 1.02 ms    | 13.08 µs      | 5.42 µs   | 5.92 µs     |
 
 #### Tiempos de Preprocesamiento (Python)
 
-| Operación | 1K | 10K | 100K | 1M | 10M |
-|-----------|-----|------|------|------|------|
-| Ordenamiento (Timsort) | 0.10 ms | 1.10 ms | 20.63 ms | 175.69 ms | 2.58 s |
+| Operación               | 1K      | 10K     | 100K     | 1M        | 10M     |
+| ----------------------- | ------- | ------- | -------- | --------- | ------- |
+| Ordenamiento (Timsort)  | 0.10 ms | 1.10 ms | 20.63 ms | 175.69 ms | 2.58 s  |
 | Construcción Tabla Hash | 1.19 ms | 4.82 ms | 64.88 ms | 922.79 ms | 16.45 s |
 
 ---
@@ -92,91 +93,98 @@ Se implementaron y compararon **4 algoritmos de búsqueda** en **Python** y **Ja
 
 ##### Dataset: 1,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 1.21 µs | 8.92 µs | 9.21 µs | 6.71 µs |
-| Binaria | 1.13 µs | 0.63 µs | 0.38 µs | 0.38 µs |
-| Interpolación | 1.08 µs | 0.17 µs | 0.08 µs | 0.33 µs |
-| Tabla Hash | 1.08 µs | 0.79 µs | 0.21 µs | 0.42 µs |
+| Algoritmo     | Mejor caso | Peor caso | No existe | Caso normal |
+| ------------- | ---------- | --------- | --------- | ----------- |
+| Secuencial    | 1.21 µs    | 8.92 µs   | 9.21 µs   | 6.71 µs     |
+| Binaria       | 1.13 µs    | 0.63 µs   | 0.38 µs   | 0.38 µs     |
+| Interpolación | 1.08 µs    | 0.17 µs   | 0.08 µs   | 0.33 µs     |
+| Tabla Hash    | 1.08 µs    | 0.79 µs   | 0.21 µs   | 0.42 µs     |
 
 ##### Dataset: 10,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 1.38 µs | 90.33 µs | 90.25 µs | 42.29 µs |
-| Binaria | 1.58 µs | 0.33 µs | 0.67 µs | 0.71 µs |
-| Interpolación | 0.75 µs | 0.13 µs | 0.08 µs | 0.54 µs |
-| Tabla Hash | 1.08 µs | 0.46 µs | 0.13 µs | 0.29 µs |
+| Algoritmo     | Mejor caso | Peor caso | No existe | Caso normal |
+| ------------- | ---------- | --------- | --------- | ----------- |
+| Secuencial    | 1.38 µs    | 90.33 µs  | 90.25 µs  | 42.29 µs    |
+| Binaria       | 1.58 µs    | 0.33 µs   | 0.67 µs   | 0.71 µs     |
+| Interpolación | 0.75 µs    | 0.13 µs   | 0.08 µs   | 0.54 µs     |
+| Tabla Hash    | 1.08 µs    | 0.46 µs   | 0.13 µs   | 0.29 µs     |
 
 ##### Dataset: 100,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 1.50 µs | 531.63 µs | 226.13 µs | 163.17 µs |
-| Binaria | 2.25 µs | 0.71 µs | 1.08 µs | 0.96 µs |
-| Interpolación | 0.88 µs | 0.13 µs | 0.08 µs | 0.46 µs |
-| Tabla Hash | 1.38 µs | 3.96 µs | 0.21 µs | 0.50 µs |
+| Algoritmo     | Mejor caso | Peor caso | No existe | Caso normal |
+| ------------- | ---------- | --------- | --------- | ----------- |
+| Secuencial    | 1.50 µs    | 531.63 µs | 226.13 µs | 163.17 µs   |
+| Binaria       | 2.25 µs    | 0.71 µs   | 1.08 µs   | 0.96 µs     |
+| Interpolación | 0.88 µs    | 0.13 µs   | 0.08 µs   | 0.46 µs     |
+| Tabla Hash    | 1.38 µs    | 3.96 µs   | 0.21 µs   | 0.50 µs     |
 
 ##### Dataset: 1,000,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 0.25 µs | 393.46 µs | 244.33 µs | 839.96 µs |
-| Binaria | 38.33 µs | 2.00 µs | 7.29 µs | 0.63 µs |
-| Interpolación | 1.25 µs | 0.17 µs | 0.08 µs | 0.25 µs |
-| Tabla Hash | 4.54 µs | 1.46 µs | 0.83 µs | 0.88 µs |
+| Algoritmo     | Mejor caso | Peor caso | No existe | Caso normal |
+| ------------- | ---------- | --------- | --------- | ----------- |
+| Secuencial    | 0.25 µs    | 393.46 µs | 244.33 µs | 839.96 µs   |
+| Binaria       | 38.33 µs   | 2.00 µs   | 7.29 µs   | 0.63 µs     |
+| Interpolación | 1.25 µs    | 0.17 µs   | 0.08 µs   | 0.25 µs     |
+| Tabla Hash    | 4.54 µs    | 1.46 µs   | 0.83 µs   | 0.88 µs     |
 
 ##### Dataset: 10,000,000
 
-| Algoritmo | Mejor caso | Peor caso | No existe | Caso normal |
-|-----------|-----------|-----------|-----------|-------------|
-| Secuencial | 0.04 µs | **3.10 ms** | 2.00 ms | 1.40 ms |
-| Binaria | 12.38 µs | 9.79 µs | 10.46 µs | 8.92 µs |
-| Interpolación | 0.08 µs | 0.04 µs | 0.04 µs | 0.17 µs |
-| Tabla Hash | 74.50 µs | 29.75 µs | 28.54 µs | 23.88 µs |
+| Algoritmo     | Mejor caso | Peor caso   | No existe | Caso normal |
+| ------------- | ---------- | ----------- | --------- | ----------- |
+| Secuencial    | 0.04 µs    | **3.10 ms** | 2.00 ms   | 1.40 ms     |
+| Binaria       | 12.38 µs   | 9.79 µs     | 10.46 µs  | 8.92 µs     |
+| Interpolación | 0.08 µs    | 0.04 µs     | 0.04 µs   | 0.17 µs     |
+| Tabla Hash    | 74.50 µs   | 29.75 µs    | 28.54 µs  | 23.88 µs    |
 
 #### Tiempos de Preprocesamiento (Java)
 
-| Operación | 1K | 10K | 100K | 1M | 10M |
-|-----------|-----|------|------|------|------|
-| Ordenamiento (Dual-Pivot QS) | 3.91 ms | 3.39 ms | 10.69 ms | 70.77 ms | 702.65 ms |
-| Construcción Tabla Hash | 1.80 ms | 1.68 ms | 33.29 ms | 212.63 ms | 1.96 s |
+| Operación                    | 1K      | 10K     | 100K     | 1M        | 10M       |
+| ---------------------------- | ------- | ------- | -------- | --------- | --------- |
+| Ordenamiento (Dual-Pivot QS) | 3.91 ms | 3.39 ms | 10.69 ms | 70.77 ms  | 702.65 ms |
+| Construcción Tabla Hash      | 1.80 ms | 1.68 ms | 33.29 ms | 212.63 ms | 1.96 s    |
 
 ---
 
 ## 3. Gráficas Comparativas
 
 ### 3.1 Tiempos por caso — Python
+
 ![Python por caso](graficas/01_python_por_caso.png)
 
 > Se observa claramente cómo la búsqueda secuencial (roja) escala linealmente O(n) en el peor caso, mientras binaria, interpolación y hash se mantienen prácticamente constantes.
 
 ### 3.2 Tiempos por caso — Java
+
 ![Java por caso](graficas/02_java_por_caso.png)
 
 > Java muestra el mismo patrón pero con tiempos significativamente menores gracias a la compilación JIT del JVM.
 
 ### 3.3 Peor caso comparativo
+
 ![Peor caso](graficas/03_peor_caso_comparativo.png)
 
 > En el peor caso, la búsqueda secuencial es **ordenes de magnitud más lenta** que las demás. Con 10M elementos en Python: secuencial tarda **448 ms** vs interpolación **0.6 µs** (¡~750,000× más lento!).
 
 ### 3.4 Tiempos de preprocesamiento
+
 ![Preprocesamiento](graficas/04_preprocesamiento.png)
 
 > La construcción de la tabla hash es más costosa que el ordenamiento en ambos lenguajes. En Python con 10M: hash tarda 16.4s vs ordenamiento 2.6s.
 
 ### 3.5 Python vs Java — Caso normal
+
 ![Python vs Java](graficas/05_python_vs_java.png)
 
 > Java es consistentemente **10-100× más rápido** que Python en operaciones de búsqueda. La diferencia se amplía con datasets más grandes.
 
 ### 3.6 Barras por algoritmo — Dataset 10M
+
 ![Barras 10M](graficas/06_barras_10m.png)
 
 > Vista consolidada del dataset más grande. La interpolación es la ganadora absoluta en búsqueda pura cuando los datos son uniformes.
 
 ### 3.7 Escalabilidad
+
 ![Escalabilidad](graficas/07_escalabilidad.png)
 
 > La gráfica de escalabilidad confirma las complejidades teóricas: secuencial crece linealmente con n, mientras los demás algoritmos se mantienen esencialmente constantes en el caso normal.
@@ -185,12 +193,12 @@ Se implementaron y compararon **4 algoritmos de búsqueda** en **Python** y **Ja
 
 ## 4. Resumen de Complejidades Teóricas
 
-| Algoritmo | Mejor | Promedio | Peor | Espacio | ¿Ordenado? |
-|-----------|-------|----------|------|---------|------------|
-| Secuencial | O(1) | O(n) | O(n) | O(1) | No |
-| Binaria | O(1) | O(log n) | O(log n) | O(1) | **Sí** |
-| Interpolación | O(1) | O(log log n) | O(n) | O(1) | **Sí** |
-| Tabla Hash | O(1) | O(1) | O(n) | O(n+m) | No |
+| Algoritmo     | Mejor | Promedio     | Peor     | Espacio | ¿Ordenado? |
+| ------------- | ----- | ------------ | -------- | ------- | ---------- |
+| Secuencial    | O(1)  | O(n)         | O(n)     | O(1)    | No         |
+| Binaria       | O(1)  | O(log n)     | O(log n) | O(1)    | **Sí**     |
+| Interpolación | O(1)  | O(log log n) | O(n)     | O(1)    | **Sí**     |
+| Tabla Hash    | O(1)  | O(1)         | O(n)     | O(n+m)  | No         |
 
 ---
 
@@ -205,18 +213,18 @@ Se implementaron y compararon **4 algoritmos de búsqueda** en **Python** y **Ja
 
 #### 📊 Métricas generales
 
-| Métrica | Propio | AI |
-|---------|--------|----|
-| Líneas de código | **132** | **925** |
-| Comentarios/docstrings | ~5 líneas | ~300+ líneas |
-| Algoritmos implementados | ✅ 4 | ✅ 4 |
-| Benchmarking automatizado | ❌ **No** | ✅ Sí |
-| Medición de tiempos | ❌ **No** | ✅ `perf_counter_ns()` |
-| Datasets múltiples | ❌ **No** (1 manual) | ✅ 5 tamaños |
-| Casos de prueba (mejor/peor/no existe/normal) | ❌ **No** | ✅ 4 por algoritmo |
-| Reproducibilidad (semilla fija) | ❌ **No** | ✅ `seed(42)` |
-| Tabla de resultados | ❌ **No** | ✅ Formateada |
-| Medición de ordenamiento separado | ❌ **No** | ✅ Sí |
+| Métrica                                       | Propio               | AI                     |
+| --------------------------------------------- | -------------------- | ---------------------- |
+| Líneas de código                              | **132**              | **925**                |
+| Comentarios/docstrings                        | ~5 líneas            | ~300+ líneas           |
+| Algoritmos implementados                      | ✅ 4                 | ✅ 4                   |
+| Benchmarking automatizado                     | ❌ **No**            | ✅ Sí                  |
+| Medición de tiempos                           | ❌ **No**            | ✅ `perf_counter_ns()` |
+| Datasets múltiples                            | ❌ **No** (1 manual) | ✅ 5 tamaños           |
+| Casos de prueba (mejor/peor/no existe/normal) | ❌ **No**            | ✅ 4 por algoritmo     |
+| Reproducibilidad (semilla fija)               | ❌ **No**            | ✅ `seed(42)`          |
+| Tabla de resultados                           | ❌ **No**            | ✅ Formateada          |
+| Medición de ordenamiento separado             | ❌ **No**            | ✅ Sí                  |
 
 #### 🔴 Errores y problemas graves
 
@@ -227,6 +235,7 @@ Se implementaron y compararon **4 algoritmos de búsqueda** en **Python** y **Ja
 idx_seq = busqueda_secuencial(datos, objetivo)
 print(f"Secuencial: encontrado en índice {idx_seq}")
 ```
+
 La práctica **explícitamente pide medir tiempos de ejecución**. Tu código no mide ningún tiempo. No usa `time`, `timeit`, ni `perf_counter`. Esto incumple el objetivo principal de la práctica.
 
 **2. No genera datasets de los tamaños requeridos (1K, 10K, 100K, 1M, 10M)**
@@ -236,6 +245,7 @@ La práctica **explícitamente pide medir tiempos de ejecución**. Tu código no
 print("Ingrese de que tamaño desea la lista de prueba: ")
 tamano = int(input())
 ```
+
 La práctica pide generar datasets de **tamaños específicos** (1000, 10000, 100000, 1000000, 10000000) y ejecutar automáticamente. Tu código depende de input manual, lo que impide automatización y reproducibilidad.
 
 **3. Datos con posibles duplicados**
@@ -245,10 +255,12 @@ La práctica pide generar datasets de **tamaños específicos** (1000, 10000, 10
 for i in range(tamano):
     datos.append(random.randint(1, tamano * 10))
 ```
+
 ```python
 # AI: random.sample garantiza valores únicos
 dataset = random.sample(range(1, rango_valores + 1), tamanio)
 ```
+
 Con `randint` puedes tener duplicados, lo que puede causar comportamiento indefinido en la búsqueda por interpolación (valores iguales causan división por cero si `arr[der] == arr[izq]`).
 
 **4. Búsqueda secuencial opera sobre datos ORDENADOS**
@@ -258,6 +270,7 @@ Con `randint` puedes tener duplicados, lo que puede causar comportamiento indefi
 datos.sort()  # Línea 102
 idx_seq = busqueda_secuencial(datos, objetivo)  # Línea 112
 ```
+
 Esto es conceptualmente **incorrecto**. La búsqueda secuencial no requiere datos ordenados. Al ordenar previamente, estás midiendo la búsqueda secuencial sobre datos ordenados, lo cual no refleja su uso real. Además, no mides el tiempo de ordenamiento por separado.
 
 **5. Tabla Hash: test hardcodeado con datos completamente diferentes**
@@ -267,6 +280,7 @@ Esto es conceptualmente **incorrecto**. La búsqueda secuencial no requiere dato
 tabla = TablaHash(tamano=5)  # ¡Solo 5 cubetas!
 tabla.insertar("usuario_1", {"nombre": "Ana", "edad": 28})
 ```
+
 La tabla hash se prueba con 3 strings hardcodeados en lugar de con el mismo dataset numérico que los otros algoritmos. Esto hace imposible comparar su rendimiento contra los demás. Además, el tamaño de la tabla es **5** — absurdamente pequeño para cualquier benchmark.
 
 **6. No evalúa mejor caso, peor caso, ni caso "no existe"**
@@ -275,15 +289,15 @@ Tu código solo busca **un** elemento que el usuario ingresa manualmente. No con
 
 #### 🟡 Diferencias de diseño y estilo
 
-| Aspecto | Propio | AI | Evaluación |
-|---------|--------|-----|-----------|
-| Retorno de "no encontrado" | `None` | `-1` | Ambos válidos; `None` es más Pythonic pero `-1` es más tradicional |
-| Type hints | ✅ `List[Any], Optional[int]` | ❌ No | **Punto a favor del propio** |
-| Función hash | `hash(clave) % self.tamano` (usa built-in) | `clave % self.tamanio` (implementación propia) | La versión propia usa el `hash()` genérico de Python, que funciona pero no enseña el concepto |
-| Tamaño tabla hash | Fijo, hardcodeado a 5 o 10 | Primo > 1.3×n calculado dinámicamente | La versión AI es correcta; la propia causa altísimo factor de carga |
-| Hash: almacena pares (clave,valor) | ✅ Sí | ❌ Solo valores | La versión propia es más completa como estructura, pero innecesaria para el benchmark |
-| Verificación de duplicados en hash insert | ✅ Sí (actualiza si existe) | ❌ No | Punto a favor del propio en diseño de estructura |
-| `enumerate()` en búsqueda secuencial | ✅ Más Pythonic | ❌ Usa `range(len())` | Punto menor a favor del propio |
+| Aspecto                                   | Propio                                     | AI                                             | Evaluación                                                                                    |
+| ----------------------------------------- | ------------------------------------------ | ---------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Retorno de "no encontrado"                | `None`                                     | `-1`                                           | Ambos válidos; `None` es más Pythonic pero `-1` es más tradicional                            |
+| Type hints                                | ✅ `List[Any], Optional[int]`              | ❌ No                                          | **Punto a favor del propio**                                                                  |
+| Función hash                              | `hash(clave) % self.tamano` (usa built-in) | `clave % self.tamanio` (implementación propia) | La versión propia usa el `hash()` genérico de Python, que funciona pero no enseña el concepto |
+| Tamaño tabla hash                         | Fijo, hardcodeado a 5 o 10                 | Primo > 1.3×n calculado dinámicamente          | La versión AI es correcta; la propia causa altísimo factor de carga                           |
+| Hash: almacena pares (clave,valor)        | ✅ Sí                                      | ❌ Solo valores                                | La versión propia es más completa como estructura, pero innecesaria para el benchmark         |
+| Verificación de duplicados en hash insert | ✅ Sí (actualiza si existe)                | ❌ No                                          | Punto a favor del propio en diseño de estructura                                              |
+| `enumerate()` en búsqueda secuencial      | ✅ Más Pythonic                            | ❌ Usa `range(len())`                          | Punto menor a favor del propio                                                                |
 
 #### 🟢 Lo que hiciste bien
 
@@ -298,16 +312,16 @@ Tu código solo busca **un** elemento que el usuario ingresa manualmente. No con
 
 #### 📊 Métricas generales
 
-| Métrica | Propio | AI |
-|---------|--------|----|
-| Líneas de código | **187** | **917** |
-| Comentarios/Javadoc | ~10 líneas | ~350+ líneas |
-| Benchmarking automatizado | ❌ **No** | ✅ Sí |
-| Medición de tiempos | ❌ **No** | ✅ `System.nanoTime()` |
-| Datasets múltiples | ❌ **No** (1 manual) | ✅ 5 tamaños |
-| Casos de prueba | ❌ **No** | ✅ 4 por algoritmo |
-| Tipos primitivos (`int[]`) para rendimiento | ❌ **No** (usa `List<Integer>`) | ✅ Sí |
-| Tabla de resultados formateada | ❌ **No** | ✅ Sí |
+| Métrica                                     | Propio                          | AI                     |
+| ------------------------------------------- | ------------------------------- | ---------------------- |
+| Líneas de código                            | **187**                         | **917**                |
+| Comentarios/Javadoc                         | ~10 líneas                      | ~350+ líneas           |
+| Benchmarking automatizado                   | ❌ **No**                       | ✅ Sí                  |
+| Medición de tiempos                         | ❌ **No**                       | ✅ `System.nanoTime()` |
+| Datasets múltiples                          | ❌ **No** (1 manual)            | ✅ 5 tamaños           |
+| Casos de prueba                             | ❌ **No**                       | ✅ 4 por algoritmo     |
+| Tipos primitivos (`int[]`) para rendimiento | ❌ **No** (usa `List<Integer>`) | ✅ Sí                  |
+| Tabla de resultados formateada              | ❌ **No**                       | ✅ Sí                  |
 
 #### 🔴 Errores y problemas graves
 
@@ -320,13 +334,16 @@ public static Integer busquedaBinaria(List<Integer> arr, int objetivo) {
     if (arr.get(medio) == objetivo) { ... }
 }
 ```
+
 ```java
 // AI: Acceso directo a memoria, sin overhead
 static int busquedaBinaria(int[] arregloOrdenado, int objetivo) {
     if (arregloOrdenado[medio] == objetivo) { ... }
 }
 ```
+
 Usar `List<Integer>` introduce:
+
 - **Boxing/Unboxing**: cada `int` se envuelve en un objeto `Integer` (16-40 bytes vs 4 bytes)
 - **Cache misses**: los `Integer` están dispersos en el heap, no contiguos en memoria
 - **Overhead de `.get(i)`**: verificación de límites en cada acceso
@@ -338,6 +355,7 @@ Usar `List<Integer>` introduce:
 // PROPIO: ¡PELIGROSO!
 if (arr.get(medio) == objetivo) { ... }
 ```
+
 En Java, `==` entre objetos `Integer` compara **referencias**, no valores. Funciona para valores entre -128 y 127 (Integer cache), pero **falla para valores mayores**. Debe usarse `.equals()` o comparar con `int` (que fuerza unboxing). En tu código `objetivo` es `int`, así que Java hace unboxing automático y funciona, pero es una práctica arriesgada.
 
 **3. Sin medición de tiempos — Mismo fallo que en Python**
@@ -362,6 +380,7 @@ datos.add(random.nextInt(tamano * 10) + 1);  // Puede repetir
 TablaHash<String, Map<String, Object>> tabla = new TablaHash<>(5);
 tabla.insertar("usuario_1", usr1);
 ```
+
 Mismo problema que en Python: la tabla hash se prueba con 3 strings hardcodeados, no con el dataset numérico.
 
 **6. Usa `Collections.sort(datos)` en vez de `Arrays.sort()` sobre primitivos**
@@ -370,10 +389,12 @@ Mismo problema que en Python: la tabla hash se prueba con 3 strings hardcodeados
 // PROPIO
 Collections.sort(datos);  // Merge sort sobre List<Integer> — más lento
 ```
+
 ```java
 // AI
 Arrays.sort(datasetOrdenado);  // Dual-Pivot Quicksort sobre int[] — más rápido
 ```
+
 `Collections.sort` usa TimSort sobre objetos; `Arrays.sort(int[])` usa Dual-Pivot Quicksort optimizado para primitivos. La diferencia de rendimiento es significativa.
 
 **7. Usa `LinkedList` para las cubetas del hash**
@@ -382,10 +403,12 @@ Arrays.sort(datasetOrdenado);  // Dual-Pivot Quicksort sobre int[] — más ráp
 // PROPIO
 this.tabla.add(new LinkedList<>());  // LinkedList tiene overhead alto
 ```
+
 ```java
 // AI
 this.tabla.add(new ArrayList<>());  // ArrayList es más eficiente para acceso
 ```
+
 `LinkedList` tiene overhead de nodos (cada nodo = objeto con 2 punteros + datos). Para cubetas de hash que típicamente tienen 1-3 elementos, `ArrayList` es significativamente más eficiente por cache locality.
 
 **8. `busquedaSecuencial` es genérica con `.equals()` — ineficiente**
@@ -396,6 +419,7 @@ public static <T> Integer busquedaSecuencial(List<T> arr, T objetivo) {
     if (arr.get(i).equals(objetivo)) { ... }
 }
 ```
+
 ```java
 // AI: Comparación directa de primitivos — mucho más rápido
 static int busquedaSecuencial(int[] arreglo, int objetivo) {
@@ -405,14 +429,14 @@ static int busquedaSecuencial(int[] arreglo, int objetivo) {
 
 #### 🟡 Diferencias de diseño
 
-| Aspecto | Propio | AI | Evaluación |
-|---------|--------|-----|-----------|
-| Genéricos en búsqueda secuencial | ✅ `<T>` | ❌ Solo `int` | Más flexible pero menos eficiente |
-| Tabla Hash genérica | ✅ `<K, V>` con Par | ❌ Solo `int` | Más completa como estructura de datos |
-| Clase `Par<K,V>` personalizada | ✅ | No aplica | Buena implementación de estructura auxiliar |
-| `Math.abs` en hash | ✅ | ✅ | Ambos lo manejan correctamente |
-| Fórmula binaria `inicio + (fin - inicio) / 2` | ✅ Segura contra overflow | ❌ AI también la usa | Ambos correctos |
-| Scanner para input | ✅ Interactivo | ❌ Automatizado | Para benchmark, automatizado es mejor |
+| Aspecto                                       | Propio                    | AI                   | Evaluación                                  |
+| --------------------------------------------- | ------------------------- | -------------------- | ------------------------------------------- |
+| Genéricos en búsqueda secuencial              | ✅ `<T>`                  | ❌ Solo `int`        | Más flexible pero menos eficiente           |
+| Tabla Hash genérica                           | ✅ `<K, V>` con Par       | ❌ Solo `int`        | Más completa como estructura de datos       |
+| Clase `Par<K,V>` personalizada                | ✅                        | No aplica            | Buena implementación de estructura auxiliar |
+| `Math.abs` en hash                            | ✅                        | ✅                   | Ambos lo manejan correctamente              |
+| Fórmula binaria `inicio + (fin - inicio) / 2` | ✅ Segura contra overflow | ❌ AI también la usa | Ambos correctos                             |
+| Scanner para input                            | ✅ Interactivo            | ❌ Automatizado      | Para benchmark, automatizado es mejor       |
 
 #### 🟢 Lo que hiciste bien
 
@@ -426,16 +450,16 @@ static int busquedaSecuencial(int[] arreglo, int objetivo) {
 
 ### 5.3 Resumen de la Comparación: Tabla de Calificación
 
-| Criterio | Peso | Propio Python | Propio Java | AI Python | AI Java |
-|----------|------|:---:|:---:|:---:|:---:|
-| Algoritmos correctos | 20% | ✅ | ✅ | ✅ | ✅ |
-| Medición de tiempos | 20% | ❌ | ❌ | ✅ | ✅ |
-| Datasets requeridos (5 tamaños) | 15% | ❌ | ❌ | ✅ | ✅ |
-| 4 casos de prueba | 15% | ❌ | ❌ | ✅ | ✅ |
-| Tabla de resultados | 10% | ❌ | ❌ | ✅ | ✅ |
-| Ordenamiento medido aparte | 10% | ❌ | ❌ | ✅ | ✅ |
-| Datos únicos (sin duplicados) | 5% | ❌ | ❌ | ✅ | ✅ |
-| Comentarios y documentación | 5% | 🟡 Mínimo | 🟡 Mínimo | ✅ Extenso | ✅ Extenso |
+| Criterio                        | Peso | Propio Python | Propio Java | AI Python  |  AI Java   |
+| ------------------------------- | ---- | :-----------: | :---------: | :--------: | :--------: |
+| Algoritmos correctos            | 20%  |      ✅       |     ✅      |     ✅     |     ✅     |
+| Medición de tiempos             | 20%  |      ❌       |     ❌      |     ✅     |     ✅     |
+| Datasets requeridos (5 tamaños) | 15%  |      ❌       |     ❌      |     ✅     |     ✅     |
+| 4 casos de prueba               | 15%  |      ❌       |     ❌      |     ✅     |     ✅     |
+| Tabla de resultados             | 10%  |      ❌       |     ❌      |     ✅     |     ✅     |
+| Ordenamiento medido aparte      | 10%  |      ❌       |     ❌      |     ✅     |     ✅     |
+| Datos únicos (sin duplicados)   | 5%   |      ❌       |     ❌      |     ✅     |     ✅     |
+| Comentarios y documentación     | 5%   |   🟡 Mínimo   |  🟡 Mínimo  | ✅ Extenso | ✅ Extenso |
 
 > [!WARNING]
 > **Veredicto:** La implementación propia demuestra comprensión de los algoritmos (todos funcionan correctamente), pero **no cumple con los requisitos de la práctica**: no mide tiempos, no genera los datasets requeridos, no evalúa los 4 casos de prueba, no presenta resultados comparativos, y la tabla hash se prueba con datos inconsistentes. Es esencialmente un "proof of concept" de los algoritmos, no un benchmark comparativo.
