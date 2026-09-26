@@ -24,7 +24,6 @@ El contenido estará organizado de forma sencilla en las siguientes carpetas:
 
 ---
 
-
 ## 📚 Índice de Apuntes
 
 Aquí puedes acceder rápidamente a las notas teóricas más importantes:
@@ -46,6 +45,16 @@ Aquí encontrarás las tareas y resoluciones de las actividades del curso:
 2. 📝 [Ejercicios ADA 1: Conteo de Operaciones y Complejidad](./actividades/Ejercicios_ADA_1.md)
 
 *(Más actividades se irán agregando conforme avance el curso)*
+
+---
+
+## 💻 Índice de Prácticas
+
+Aquí encontrarás las implementaciones y comparativas desarrolladas en laboratorio:
+
+1. 🚀 [Práctica 1: Algoritmos de Búsqueda](./practicas/practica%201.%20busqueda)
+
+*(Más prácticas se irán agregando conforme avance el curso)*
 
 ---
 

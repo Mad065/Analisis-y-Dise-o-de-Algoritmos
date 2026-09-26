@@ -3,6 +3,12 @@
 > **Materia:** Análisis y Diseño de Algoritmos — ESCOM IPN  
 > **Fecha de ejecución:** 25 de septiembre de 2026
 
+**Archivos de Código:**
+- 🐍 [Implementación Propia (Python)](./algoritmos_busqueda_propio.py)
+- ☕ [Implementación Propia (Java)](./algoritmosBusquedaPropio.java)
+- 🐍 [Implementación IA Benchmark (Python)](./algoritmos_busqueda_AI.py)
+- ☕ [Implementación IA Benchmark (Java)](./algoritmosBusquedaAI.java)
+
 ---
 
 ## 1. Descripción General
