@@ -907,3 +907,94 @@ int main(void) {
 * Por cada iteración del bucle externo `ancho`: se ejecuta una pasada completa sobre todo el arreglo de tamaño $n$, sumando aproximadamente $15n + 5$ operaciones (1 comparación de condición, 2 operaciones para duplicar `ancho = 2 * ancho`, más todas las fusiones del nivel).
 
 **Complejidad:** es linealítmica en todos los casos (mejor, promedio y peor caso), ya que el bucle externo realiza $\log_2(n)$ iteraciones y en cada una de ellas se procesan linealmente los $n$ elementos del arreglo mediante fusiones sucesivas, por lo tanto su complejidad es $\Theta(n \log n)$ y su cota superior es $O(n \log n)$. Con una complejidad espacial adicional de $O(n)$ debido al arreglo auxiliar `tmp`.
+
+---
+
+# Ejercicios Finales: Análisis y Complejidad Algorítmica
+
+---
+
+## 1. Análisis de Funciones
+
+Ordena la complejidad de las siguientes funciones de la **menor (más rápida)** a la **mayor (más lenta)**:
+
+* a) $5n + 100$
+* b) $0.001n^2$
+* c) $n$
+* d) $1000$
+* e) $n + \log n$
+* f) $100n$
+
+### Solución
+
+Para clasificarlas asintóticamente cuando $n \to \infty$, comparamos sus órdenes de crecimiento dominantes:
+
+1. **$1000$** — Complejidad constante $O(1)$.
+2. **$n$** — Complejidad lineal pura $O(n)$ con coeficiente 1.
+3. **$n + \log n$** — Complejidad lineal $O(n)$ dominada por $n$ (crece ligeramente más rápido que $n$ por sumar $\log n$).
+4. **$5n + 100$** — Complejidad lineal $O(n)$ con constante multiplicativa 5.
+5. **$100n$** — Complejidad lineal $O(n)$ con constante multiplicativa 100.
+6. **$0.001n^2$** — Complejidad cuadrática $O(n^2)$. Aunque el coeficiente sea pequeño ($0.001$), el término $n^2$ eventualmente superará a todas las funciones lineales.
+
+**Orden final (de menor a mayor):**
+
+$$\mathbf{d) < c) < e) < a) < f) < b)}$$
+
+---
+
+## 2. Simplificación
+
+Simplifica las siguientes expresiones a notación **Big-O** aplicando las reglas de descartar términos no dominantes y constantes multiplicativas:
+
+* a) $5n^2 + 3n + 100 = \mathbf{O(n^2)}$
+* b) $n^2/2 + n/2 = \mathbf{O(n^2)}$
+* c) $10n + 500 = \mathbf{O(n)}$
+* d) $0.01n^3 + 1000n^2 = \mathbf{O(n^3)}$
+* e) $\log n + n + n \log n = \mathbf{O(n \log n)}$
+
+---
+
+## 3. Términos Dominantes
+
+Para cada expresión, identifica el término dominante (el componente de mayor tasa de crecimiento que determina el orden asintótico):
+
+* a) $T(n) = 3n^2 + 5n + 10$  
+  **Término dominante:** $\mathbf{3n^2}$ *(determina $O(n^2)$)*
+
+* b) $T(n) = 100n + 50 \log n + 200$  
+  **Término dominante:** $\mathbf{100n}$ *(determina $O(n)$)*
+
+* c) $T(n) = n^3 + n^2 \log n$  
+  **Término dominante:** $\mathbf{n^3}$ *(determina $O(n^3)$)*
+
+* d) $T(n) = 2^n + n^{10}$  
+  **Término dominante:** $\mathbf{2^n}$ *(determina $O(2^n)$ ya que la función exponencial supera a cualquier polinomio)*
+
+---
+
+## 4. Tabla de Comparación de Tiempos de Ejecución (CLRS)
+
+Cada operación toma **$1\ \mu\text{s} = 10^{-6}\ \text{s}$**.
+
+Para un tiempo total $T$, el número máximo de operaciones que se pueden realizar es $t_{\mu\text{s}} = T / 10^{-6}\ \text{s}$:
+
+* **1 second:** $10^6\ \mu\text{s}$
+* **1 minute:** $60 \times 10^6 = 6 \times 10^7\ \mu\text{s}$
+* **1 hour:** $3600 \times 10^6 = 3.6 \times 10^9\ \mu\text{s}$
+* **1 day:** $86400 \times 10^6 = 8.64 \times 10^{10}\ \mu\text{s}$
+* **1 month (30 días):** $30 \times 86400 \times 10^6 = 2.592 \times 10^{12}\ \mu\text{s}$
+* **1 year (365 días):** $365 \times 86400 \times 10^6 = 3.1536 \times 10^{13}\ \mu\text{s}$
+* **1 century (100 años):** $100 \times 3.1536 \times 10^{13} = 3.1536 \times 10^{15}\ \mu\text{s}$
+
+El valor máximo de $n$ se calcula despejando $f(n) \le t_{\mu\text{s}}$:
+
+| $f(n)$ | 1 second | 1 minute | 1 hour | 1 day | 1 month | 1 year | 1 century |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **$\lg n$** | $2^{10^6}$ | $2^{6 \cdot 10^7}$ | $2^{3.6 \cdot 10^9}$ | $2^{8.64 \cdot 10^{10}}$ | $2^{2.592 \cdot 10^{12}}$ | $2^{3.1536 \cdot 10^{13}}$ | $2^{3.1536 \cdot 10^{15}}$ |
+| **$\sqrt{n}$** | $10^{12}$ | $3.6 \times 10^{15}$ | $1.296 \times 10^{19}$ | $7.465 \times 10^{21}$ | $6.718 \times 10^{24}$ | $9.945 \times 10^{26}$ | $9.945 \times 10^{30}$ |
+| **$n$** | $10^6$ | $6 \times 10^7$ | $3.6 \times 10^9$ | $8.64 \times 10^{10}$ | $2.592 \times 10^{12}$ | $3.154 \times 10^{13}$ | $3.154 \times 10^{15}$ |
+| **$n \lg n$** | $6.27 \times 10^4$ | $2.80 \times 10^6$ | $1.33 \times 10^8$ | $2.75 \times 10^9$ | $7.18 \times 10^{10}$ | $7.97 \times 10^{11}$ | $6.86 \times 10^{13}$ |
+| **$n^2$** | $1000$ | $7745$ | $60000$ | $293938$ | $1.609 \times 10^6$ | $5.615 \times 10^6$ | $5.615 \times 10^7$ |
+| **$n^3$** | $100$ | $391$ | $1532$ | $4420$ | $13736$ | $31593$ | $146645$ |
+| **$2^n$** | $19$ | $25$ | $31$ | $36$ | $41$ | $44$ | $51$ |
+| **$n!$** | $9$ | $11$ | $12$ | $13$ | $15$ | $16$ | $17$ |
