@@ -1,1 +1,0 @@
-RESULTADO {"lenguaje": "python", "algoritmo": "heap", "n": 100000, "tiempo_s": 0.413375125, "mem_base_mb": 24.90625, "mem_pico_mb": 24.90625, "mem_extra_mb": 0.0, "verificado": true}

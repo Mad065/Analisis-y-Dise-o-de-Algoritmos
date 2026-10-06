@@ -1,1 +1,0 @@
-RESULTADO {"lenguaje": "python", "algoritmo": "merge", "n": 1000000, "tiempo_s": 6.374482209, "mem_base_mb": 18.921875, "mem_pico_mb": 26.59375, "mem_extra_mb": 7.671875, "verificado": true}

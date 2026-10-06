@@ -1,1 +1,0 @@
-RESULTADO {"lenguaje": "java", "algoritmo": "merge", "n": 10000000, "tiempo_s": 3.965709375, "mem_base_mb": 81.169, "mem_pico_mb": 161.288, "mem_extra_mb": 76.295, "heap_pico_delta_mb": 80.119, "verificado": true}

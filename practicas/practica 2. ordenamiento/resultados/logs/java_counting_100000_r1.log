@@ -1,1 +1,0 @@
-RESULTADO {"lenguaje": "java", "algoritmo": "counting", "n": 100000, "tiempo_s": 0.002333292, "mem_base_mb": 1.932, "mem_pico_mb": 6.182, "mem_extra_mb": 4.578, "heap_pico_delta_mb": 4.250, "verificado": true}
