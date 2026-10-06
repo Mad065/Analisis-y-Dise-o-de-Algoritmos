@@ -1,9 +1,7 @@
 # Práctica 2: Algoritmos de Ordenamiento — Reporte de Resultados y Análisis de Rendimiento
 
-> **Institución:** Escuela Superior de Cómputo (ESCOM) — Instituto Politécnico Nacional (IPN)  
-> **Materia:** Análisis y Diseño de Algoritmos  
-> **Autor:** Mad0  
-> **Fecha de ejecución:** Octubre 2026  
+> **Materia:** Análisis y Diseño de Algoritmos — ESCOM IPN  
+> **Fecha de ejecución:** 6 de octubre de 2026  
 
 **Archivos de Código:**
 - 🐍 [Implementación en Python (Python 3.14 / 3.9)](./ordenamiento.py)
