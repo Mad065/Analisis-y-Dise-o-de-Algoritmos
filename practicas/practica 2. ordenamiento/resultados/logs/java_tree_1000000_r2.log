@@ -1,0 +1,1 @@
+RESULTADO {"lenguaje": "java", "algoritmo": "tree", "n": 1000000, "tiempo_s": 0.577277917, "mem_base_mb": 9.169, "mem_pico_mb": 59.405, "mem_extra_mb": 39.056, "heap_pico_delta_mb": 50.235, "verificado": true}

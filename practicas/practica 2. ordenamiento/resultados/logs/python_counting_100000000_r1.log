@@ -1,0 +1,1 @@
+RESULTADO {"lenguaje": "python", "algoritmo": "counting", "n": 100000000, "tiempo_s": 43.175626542, "mem_base_mb": 774.265625, "mem_pico_mb": 1537.109375, "mem_extra_mb": 762.84375, "verificado": true}

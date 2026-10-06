@@ -1,0 +1,51 @@
+lenguaje,algoritmo,n,estado,estimado,tiempo_s,rss_pico_mb,mem_extra_mb,verificado,motivo
+java,bubble,100000,ok,False,23.439952708,53.796875,0.001,True,
+java,bubble,1000000,omitido_tiempo,True,2343.9952708,60.663330078125,0.001,,predicción 39 min > límite 30 min
+java,bubble,10000000,omitido_tiempo,True,234399.52708,129.327880859375,0.001,,"el tamaño anterior (n=1,000,000) no se ejecutó/terminó"
+java,bubble,100000000,omitido_tiempo,True,23439952.708,815.973388671875,0.001,,"el tamaño anterior (n=10,000,000) no se ejecutó/terminó"
+java,bubble,1000000000,omitido_ram,True,2343995270.7999997,7682.428466796875,0.001,,requiere ~7.6 GB > 75% de 8 GB de RAM
+java,merge,100000,ok,False,0.015563584,57.6875,0.764,True,
+java,merge,1000000,ok,False,0.173248709,68.625,7.63,True,
+java,merge,10000000,ok,False,1.946028375,214.828125,76.295,True,
+java,merge,100000000,ok,False,22.955846125,1082.890625,762.94,True,
+java,merge,1000000000,omitido_ram,True,258.25326890625,14815.80078125,7629.4,,requiere ~15.0 GB > 75% de 8 GB de RAM
+java,tree,100000,ok,False,0.032152333,68.78125,4.389,True,
+java,tree,1000000,ok,False,0.577277917,90.15625,39.056,True,
+java,tree,10000000,ok,False,11.43676,171.625,39.982,True,
+java,tree,100000000,ok,False,92.025633542,843.328125,39.982,True,
+java,tree,1000000000,omitido_ram,True,1035.2883773475,7709.783203125,39.982,,requiere ~7.6 GB > 75% de 8 GB de RAM
+java,heap,100000,ok,False,0.014542,55.546875,0.001,True,
+java,heap,1000000,ok,False,0.397834792,58.28125,0.001,True,
+java,heap,10000000,ok,False,5.337958625,130.28125,0.001,True,
+java,heap,100000000,ok,False,72.011760709,837.171875,0.001,True,
+java,heap,1000000000,omitido_ram,True,810.1323079762501,7703.626953125,0.001,,requiere ~7.6 GB > 75% de 8 GB de RAM
+java,counting,100000,ok,False,0.002333292,94.890625,4.578,True,
+java,counting,1000000,ok,False,0.022581958,101.875,11.445,True,
+java,counting,10000000,ok,False,0.175598041,247.375,80.109,True,
+java,counting,100000000,ok,False,12.240468916,1373.0625,766.755,True,
+java,counting,1000000000,omitido_ram,True,121.31395430609899,15105.97265625,7633.2176865671645,,requiere ~15.1 GB > 75% de 8 GB de RAM
+python,bubble,100000,ok,False,1004.4335,24.8,0.0,True,
+python,bubble,1000000,omitido_tiempo,True,100443.35,31.666455078125,0.0,,"predicción 1,674 min > límite 30 min"
+python,bubble,10000000,omitido_tiempo,True,10044335.0,100.331005859375,0.0,,"el tamaño anterior (n=1,000,000) no se ejecutó/terminó"
+python,bubble,100000000,omitido_tiempo,True,1004433500.0,786.976513671875,0.0,,"el tamaño anterior (n=10,000,000) no se ejecutó/terminó"
+python,bubble,1000000000,omitido_ram,True,100443350000.0,7653.431591796875,0.0,,requiere ~7.5 GB > 75% de 8 GB de RAM
+python,merge,100000,ok,False,0.587797,25.6,0.765625,True,
+python,merge,1000000,ok,False,6.40233425,26.59375,7.671875,True,
+python,merge,10000000,ok,False,71.61147225,160.28125,72.703125,True,
+python,merge,100000000,ok,False,518.705965333,738.765625,89.3125,True,
+python,merge,1000000000,omitido_ram,True,5835.442109996251,14471.67578125,893.125,,requiere ~14.9 GB > 75% de 8 GB de RAM
+python,tree,100000,ok,False,0.369648042,28.9,3.984375,True,
+python,tree,1000000,ok,False,5.362804334,43.46875,23.578125,True,
+python,tree,10000000,ok,False,51.878392,102.84375,14.84375,True,
+python,tree,100000000,ok,False,275.333388167,742.25,145.390625,True,
+python,tree,1000000000,omitido_ram,True,3097.5006168787504,7608.705078125,145.390625,,requiere ~7.5 GB > 75% de 8 GB de RAM
+python,heap,100000,ok,False,0.413375125,24.9,0.0,True,
+python,heap,1000000,ok,False,7.755274792,18.90625,0.0,True,
+python,heap,10000000,ok,False,82.467493125,88.0,0.0,True,
+python,heap,100000000,ok,False,675.414913416,770.671875,4.125,True,
+python,heap,1000000000,omitido_ram,True,7598.41777593,7637.126953125,4.125,,requiere ~7.5 GB > 75% de 8 GB de RAM
+python,counting,100000,ok,False,0.361490042,32.8,7.65625,True,
+python,counting,1000000,ok,False,2.315442,32.046875,13.03125,True,
+python,counting,10000000,ok,False,7.285762167,168.375,80.3125,True,
+python,counting,100000000,ok,False,43.175626542,1537.4375,762.84375,True,
+python,counting,1000000000,omitido_ram,True,427.908932361802,15270.34765625,7560.461324257426,,requiere ~14.9 GB > 75% de 8 GB de RAM

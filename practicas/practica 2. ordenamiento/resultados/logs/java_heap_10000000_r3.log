@@ -1,0 +1,1 @@
+RESULTADO {"lenguaje": "java", "algoritmo": "heap", "n": 10000000, "tiempo_s": 5.337958625, "mem_base_mb": 81.169, "mem_pico_mb": 81.169, "mem_extra_mb": 0.001, "heap_pico_delta_mb": 0.000, "verificado": true}

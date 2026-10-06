@@ -1,0 +1,857 @@
+{
+  "meta": {
+    "fecha": "2026-10-05T20:11:33",
+    "cpu": "Apple M1",
+    "nucleos": 8,
+    "ram_gb": 8.0,
+    "so": "macOS-27.0-arm64-arm-64bit",
+    "python": "3.9.6",
+    "java": "openjdk version \"21.0.12.1\" 2026-08-18",
+    "java_flags": "-Xmx6g",
+    "limite_s": 1800,
+    "fraccion_ram": 0.75
+  },
+  "corridas": [
+    {
+      "lenguaje": "java",
+      "algoritmo": "bubble",
+      "n": 100000,
+      "tiempo_s": 23.439952708,
+      "mem_base_mb": 1.932,
+      "mem_pico_mb": 1.932,
+      "mem_extra_mb": 0.001,
+      "heap_pico_delta_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 53.796875,
+      "pared_s": 24.71664075,
+      "tiempos_s": [
+        23.439952708
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "merge",
+      "n": 100000,
+      "tiempo_s": 0.015563584,
+      "mem_base_mb": 1.932,
+      "mem_pico_mb": 1.932,
+      "mem_extra_mb": 0.764,
+      "heap_pico_delta_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 57.6875,
+      "pared_s": 0.5159628339999998,
+      "tiempos_s": [
+        0.014319542,
+        0.015563584,
+        0.01655375
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "tree",
+      "n": 100000,
+      "tiempo_s": 0.032152333,
+      "mem_base_mb": 1.932,
+      "mem_pico_mb": 3.695,
+      "mem_extra_mb": 4.389,
+      "heap_pico_delta_mb": 1.763,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 68.78125,
+      "pared_s": 0.5112012920000026,
+      "tiempos_s": [
+        0.031138833,
+        0.032152333,
+        0.035990291
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "heap",
+      "n": 100000,
+      "tiempo_s": 0.014542,
+      "mem_base_mb": 1.932,
+      "mem_pico_mb": 1.932,
+      "mem_extra_mb": 0.001,
+      "heap_pico_delta_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 55.546875,
+      "pared_s": 0.5106328750000024,
+      "tiempos_s": [
+        0.013671583,
+        0.014542,
+        0.0163105
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "counting",
+      "n": 100000,
+      "tiempo_s": 0.002333292,
+      "mem_base_mb": 1.932,
+      "mem_pico_mb": 6.182,
+      "mem_extra_mb": 4.578,
+      "heap_pico_delta_mb": 4.25,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 94.890625,
+      "pared_s": 0.34785066699999945,
+      "tiempos_s": [
+        0.001772292,
+        0.002333292,
+        0.002465208
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "bubble",
+      "n": 100000,
+      "tiempo_s": 1004.4335,
+      "mem_base_mb": 24.8,
+      "mem_pico_mb": 24.8,
+      "mem_extra_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 24.8,
+      "pared_s": 1005.0,
+      "tiempos_s": [
+        1004.4335
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "merge",
+      "n": 100000,
+      "tiempo_s": 0.587797,
+      "mem_base_mb": 24.8125,
+      "mem_pico_mb": 25.578125,
+      "mem_extra_mb": 0.765625,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 25.6,
+      "pared_s": 0.65,
+      "tiempos_s": [
+        0.521003541,
+        0.587797,
+        2.043974375
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "tree",
+      "n": 100000,
+      "tiempo_s": 0.369648042,
+      "mem_base_mb": 24.890625,
+      "mem_pico_mb": 28.875,
+      "mem_extra_mb": 3.984375,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 28.9,
+      "pared_s": 0.45,
+      "tiempos_s": [
+        0.247746792,
+        0.369648042,
+        0.68755175
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "heap",
+      "n": 100000,
+      "tiempo_s": 0.413375125,
+      "mem_base_mb": 24.90625,
+      "mem_pico_mb": 24.90625,
+      "mem_extra_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 24.9,
+      "pared_s": 0.48,
+      "tiempos_s": [
+        0.401145333,
+        0.413375125,
+        1.340537417
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "counting",
+      "n": 100000,
+      "tiempo_s": 0.361490042,
+      "mem_base_mb": 25.15625,
+      "mem_pico_mb": 32.8125,
+      "mem_extra_mb": 7.65625,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 32.8,
+      "pared_s": 0.42,
+      "tiempos_s": [
+        0.3091645,
+        0.361490042,
+        0.590084208
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "bubble",
+      "n": 1000000,
+      "estado": "omitido_tiempo",
+      "prediccion_s": 2343.9952708,
+      "motivo": "predicción 39 min > límite 30 min",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 2343.9952708,
+      "rss_est_mb": 60.663330078125,
+      "mem_extra_est_mb": 0.001
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "merge",
+      "n": 1000000,
+      "tiempo_s": 0.173248709,
+      "mem_base_mb": 9.169,
+      "mem_pico_mb": 17.419,
+      "mem_extra_mb": 7.63,
+      "heap_pico_delta_mb": 8.25,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 68.625,
+      "pared_s": 0.5177441660000001,
+      "tiempos_s": [
+        0.151383167,
+        0.173248709,
+        0.245845583
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "tree",
+      "n": 1000000,
+      "tiempo_s": 0.577277917,
+      "mem_base_mb": 9.169,
+      "mem_pico_mb": 59.405,
+      "mem_extra_mb": 39.056,
+      "heap_pico_delta_mb": 50.235,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 90.15625,
+      "pared_s": 1.178932041,
+      "tiempos_s": [
+        0.508881917,
+        0.577277917,
+        0.968207083
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "heap",
+      "n": 1000000,
+      "tiempo_s": 0.397834792,
+      "mem_base_mb": 9.169,
+      "mem_pico_mb": 9.169,
+      "mem_extra_mb": 0.001,
+      "heap_pico_delta_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 58.28125,
+      "pared_s": 1.7493540420000002,
+      "tiempos_s": [
+        0.268771375,
+        0.397834792,
+        0.468436459
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "counting",
+      "n": 1000000,
+      "tiempo_s": 0.022581958,
+      "mem_base_mb": 9.169,
+      "mem_pico_mb": 21.419,
+      "mem_extra_mb": 11.445,
+      "heap_pico_delta_mb": 12.25,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 101.875,
+      "pared_s": 1.626968208000001,
+      "tiempos_s": [
+        0.01630125,
+        0.022581958,
+        0.02693375
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "bubble",
+      "n": 1000000,
+      "estado": "omitido_tiempo",
+      "prediccion_s": 100443.35,
+      "motivo": "predicción 1,674 min > límite 30 min",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 100443.35,
+      "rss_est_mb": 31.666455078125,
+      "mem_extra_est_mb": 0.0
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "merge",
+      "n": 1000000,
+      "tiempo_s": 6.40233425,
+      "mem_base_mb": 18.921875,
+      "mem_pico_mb": 26.59375,
+      "mem_extra_mb": 7.671875,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 26.59375,
+      "pared_s": 7.625409333999997,
+      "tiempos_s": [
+        6.374482209,
+        6.40233425,
+        9.547606291
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "tree",
+      "n": 1000000,
+      "tiempo_s": 5.362804334,
+      "mem_base_mb": 18.90625,
+      "mem_pico_mb": 42.484375,
+      "mem_extra_mb": 23.578125,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 43.46875,
+      "pared_s": 6.619610958000003,
+      "tiempos_s": [
+        4.701842125,
+        5.362804334,
+        7.058828708
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "heap",
+      "n": 1000000,
+      "tiempo_s": 7.755274792,
+      "mem_base_mb": 18.90625,
+      "mem_pico_mb": 18.90625,
+      "mem_extra_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 18.90625,
+      "pared_s": 8.631546291,
+      "tiempos_s": [
+        7.669856334,
+        7.755274792,
+        7.818192834
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "counting",
+      "n": 1000000,
+      "tiempo_s": 2.315442,
+      "mem_base_mb": 19.015625,
+      "mem_pico_mb": 32.046875,
+      "mem_extra_mb": 13.03125,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 32.046875,
+      "pared_s": 3.632550667000004,
+      "tiempos_s": [
+        0.902331084,
+        2.315442,
+        3.763376917
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "bubble",
+      "n": 10000000,
+      "estado": "omitido_tiempo",
+      "motivo": "el tamaño anterior (n=1,000,000) no se ejecutó/terminó",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 234399.52708,
+      "rss_est_mb": 129.327880859375,
+      "mem_extra_est_mb": 0.001
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "merge",
+      "n": 10000000,
+      "tiempo_s": 1.946028375,
+      "mem_base_mb": 81.169,
+      "mem_pico_mb": 161.288,
+      "mem_extra_mb": 76.295,
+      "heap_pico_delta_mb": 80.119,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 214.828125,
+      "pared_s": 2.617565084000006,
+      "tiempos_s": [
+        1.791188542,
+        1.946028375,
+        3.965709375
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "tree",
+      "n": 10000000,
+      "tiempo_s": 11.43676,
+      "mem_base_mb": 81.169,
+      "mem_pico_mb": 143.779,
+      "mem_extra_mb": 39.982,
+      "heap_pico_delta_mb": 62.61,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 171.625,
+      "pared_s": 12.706882708000009,
+      "tiempos_s": [
+        11.43676
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "heap",
+      "n": 10000000,
+      "tiempo_s": 5.337958625,
+      "mem_base_mb": 81.169,
+      "mem_pico_mb": 81.169,
+      "mem_extra_mb": 0.001,
+      "heap_pico_delta_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 130.28125,
+      "pared_s": 6.635920999999996,
+      "tiempos_s": [
+        4.724102042,
+        5.337958625,
+        7.302327958
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "counting",
+      "n": 10000000,
+      "tiempo_s": 0.175598041,
+      "mem_base_mb": 81.169,
+      "mem_pico_mb": 165.295,
+      "mem_extra_mb": 80.109,
+      "heap_pico_delta_mb": 84.126,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 247.375,
+      "pared_s": 0.7716818330000024,
+      "tiempos_s": [
+        0.154506708,
+        0.175598041,
+        0.176667375
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "bubble",
+      "n": 10000000,
+      "estado": "omitido_tiempo",
+      "motivo": "el tamaño anterior (n=1,000,000) no se ejecutó/terminó",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 10044335.0,
+      "rss_est_mb": 100.331005859375,
+      "mem_extra_est_mb": 0.0
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "merge",
+      "n": 10000000,
+      "tiempo_s": 71.61147225,
+      "mem_base_mb": 87.578125,
+      "mem_pico_mb": 160.28125,
+      "mem_extra_mb": 72.703125,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 160.28125,
+      "pared_s": 76.375369334,
+      "tiempos_s": [
+        71.61147225
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "tree",
+      "n": 10000000,
+      "tiempo_s": 51.878392,
+      "mem_base_mb": 87.5625,
+      "mem_pico_mb": 102.40625,
+      "mem_extra_mb": 14.84375,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 102.84375,
+      "pared_s": 57.28480608300001,
+      "tiempos_s": [
+        51.878392
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "heap",
+      "n": 10000000,
+      "tiempo_s": 82.467493125,
+      "mem_base_mb": 88.0,
+      "mem_pico_mb": 88.0,
+      "mem_extra_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 88.0,
+      "pared_s": 87.916058583,
+      "tiempos_s": [
+        82.467493125
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "counting",
+      "n": 10000000,
+      "tiempo_s": 7.285762167,
+      "mem_base_mb": 88.0,
+      "mem_pico_mb": 168.3125,
+      "mem_extra_mb": 80.3125,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 168.375,
+      "pared_s": 11.638618957999995,
+      "tiempos_s": [
+        7.01011125,
+        7.285762167,
+        7.45725125
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "bubble",
+      "n": 100000000,
+      "estado": "omitido_tiempo",
+      "motivo": "el tamaño anterior (n=10,000,000) no se ejecutó/terminó",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 23439952.708,
+      "rss_est_mb": 815.973388671875,
+      "mem_extra_est_mb": 0.001
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "merge",
+      "n": 100000000,
+      "tiempo_s": 22.955846125,
+      "mem_base_mb": 765.169,
+      "mem_pico_mb": 1529.287,
+      "mem_extra_mb": 762.94,
+      "heap_pico_delta_mb": 764.117,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 1082.890625,
+      "pared_s": 25.768295416,
+      "tiempos_s": [
+        22.955846125
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "tree",
+      "n": 100000000,
+      "tiempo_s": 92.025633542,
+      "mem_base_mb": 765.169,
+      "mem_pico_mb": 827.783,
+      "mem_extra_mb": 39.982,
+      "heap_pico_delta_mb": 62.614,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 843.328125,
+      "pared_s": 94.19712675,
+      "tiempos_s": [
+        92.025633542
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "heap",
+      "n": 100000000,
+      "tiempo_s": 72.011760709,
+      "mem_base_mb": 765.169,
+      "mem_pico_mb": 765.169,
+      "mem_extra_mb": 0.001,
+      "heap_pico_delta_mb": 0.0,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 837.171875,
+      "pared_s": 75.25556379199998,
+      "tiempos_s": [
+        72.011760709
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "counting",
+      "n": 100000000,
+      "tiempo_s": 12.240468916,
+      "mem_base_mb": 765.169,
+      "mem_pico_mb": 1533.28,
+      "mem_extra_mb": 766.755,
+      "heap_pico_delta_mb": 768.111,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 1373.0625,
+      "pared_s": 15.934522415999936,
+      "tiempos_s": [
+        5.560372917,
+        12.240468916,
+        25.871160708
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "bubble",
+      "n": 100000000,
+      "estado": "omitido_tiempo",
+      "motivo": "el tamaño anterior (n=10,000,000) no se ejecutó/terminó",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 1004433500.0,
+      "rss_est_mb": 786.976513671875,
+      "mem_extra_est_mb": 0.0
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "merge",
+      "n": 100000000,
+      "tiempo_s": 518.705965333,
+      "mem_base_mb": 649.453125,
+      "mem_pico_mb": 738.765625,
+      "mem_extra_mb": 89.3125,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 738.765625,
+      "pared_s": 571.793099375,
+      "tiempos_s": [
+        518.705965333
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "tree",
+      "n": 100000000,
+      "tiempo_s": 275.333388167,
+      "mem_base_mb": 547.6875,
+      "mem_pico_mb": 693.078125,
+      "mem_extra_mb": 145.390625,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 742.25,
+      "pared_s": 299.7512314589999,
+      "tiempos_s": [
+        275.333388167
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "heap",
+      "n": 100000000,
+      "tiempo_s": 675.414913416,
+      "mem_base_mb": 760.90625,
+      "mem_pico_mb": 765.03125,
+      "mem_extra_mb": 4.125,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 770.671875,
+      "pared_s": 697.8693302500001,
+      "tiempos_s": [
+        675.414913416
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "counting",
+      "n": 100000000,
+      "tiempo_s": 43.175626542,
+      "mem_base_mb": 774.265625,
+      "mem_pico_mb": 1537.109375,
+      "mem_extra_mb": 762.84375,
+      "verificado": true,
+      "estado": "ok",
+      "rss_pico_mb": 1537.4375,
+      "pared_s": 64.89631633399995,
+      "tiempos_s": [
+        43.175626542
+      ],
+      "estimado": false
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "bubble",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 7779.39453125,
+      "motivo": "requiere ~7.6 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 2343995270.7999997,
+      "rss_est_mb": 7682.428466796875,
+      "mem_extra_est_mb": 0.001
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "merge",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 15408.7890625,
+      "motivo": "requiere ~15.0 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 258.25326890625,
+      "rss_est_mb": 14815.80078125,
+      "mem_extra_est_mb": 7629.4
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "tree",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 7817.54150390625,
+      "motivo": "requiere ~7.6 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 1035.2883773475,
+      "rss_est_mb": 7709.783203125,
+      "mem_extra_est_mb": 39.982
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "heap",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 7779.39453125,
+      "motivo": "requiere ~7.6 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 810.1323079762501,
+      "rss_est_mb": 7703.626953125,
+      "mem_extra_est_mb": 0.001
+    },
+    {
+      "lenguaje": "java",
+      "algoritmo": "counting",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 15412.603759765625,
+      "motivo": "requiere ~15.1 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 121.31395430609899,
+      "rss_est_mb": 15105.97265625,
+      "mem_extra_est_mb": 7633.2176865671645
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "bubble",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 7669.39453125,
+      "motivo": "requiere ~7.5 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000,
+      "tiempo_est_s": 100443350000.0,
+      "rss_est_mb": 7653.431591796875,
+      "mem_extra_est_mb": 0.0
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "merge",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 15298.7890625,
+      "motivo": "requiere ~14.9 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 5835.442109996251,
+      "rss_est_mb": 14471.67578125,
+      "mem_extra_est_mb": 893.125
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "tree",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 7715.1708984375,
+      "motivo": "requiere ~7.5 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 3097.5006168787504,
+      "rss_est_mb": 7608.705078125,
+      "mem_extra_est_mb": 145.390625
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "heap",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 7669.39453125,
+      "motivo": "requiere ~7.5 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 7598.41777593,
+      "rss_est_mb": 7637.126953125,
+      "mem_extra_est_mb": 4.125
+    },
+    {
+      "lenguaje": "python",
+      "algoritmo": "counting",
+      "n": 1000000000,
+      "estado": "omitido_ram",
+      "memoria_requerida_mb": 15306.41845703125,
+      "motivo": "requiere ~14.9 GB > 75% de 8 GB de RAM",
+      "estimado": true,
+      "base_estimacion_n": 100000000,
+      "tiempo_est_s": 427.908932361802,
+      "rss_est_mb": 15270.34765625,
+      "mem_extra_est_mb": 7560.461324257426
+    }
+  ]
+}

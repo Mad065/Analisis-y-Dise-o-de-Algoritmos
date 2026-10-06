@@ -1,0 +1,1 @@
+RESULTADO {"lenguaje": "python", "algoritmo": "tree", "n": 100000, "tiempo_s": 0.247746792, "mem_base_mb": 24.828125, "mem_pico_mb": 28.3125, "mem_extra_mb": 3.484375, "verificado": true}
