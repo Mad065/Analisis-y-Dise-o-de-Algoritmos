@@ -1,5 +1,22 @@
-.vscode/
+# Archivos del sistema operativo y editores
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Entornos virtuales y artefactos de Python
 .venv/
-*.class
+venv/
+env/
 __pycache__/
+*.pyc
+*.pyo
+
+# Archivos compilados de Java
+*.class
+
+# Datasets pesados y logs de ejecución de prácticas
+practicas/practica 2. ordenamiento/datos/
+practicas/practica 2. ordenamiento/resultados/logs/
+*.log
+*.tmp
