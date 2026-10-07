@@ -10,7 +10,7 @@ Este repositorio está dedicado a almacenar apuntes y las prácticas en código.
 
 Durante el desarrollo de este curso, nos enfocaremos casi de manera exclusiva en el siguiente lenguaje para la implementación y prueba de nuestros algoritmos:
 
-* **Lenguaje Principal:** `Python`
+* **Lenguajes Principales:** `Python` `Java`
 
 ---
 
