@@ -32,6 +32,9 @@ Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 2. 📄 [Cálculo de complejidad](./apuntes/Calculo%20de%20complejidad.md)
 3. 📄 [Algoritmos de multiplicación](./apuntes/Algoritmos%20de%20multiplicacion.md)
 4. 📄 [Algoritmos de búsqueda](./apuntes/Algoritmos%20de%20busqueda.md)
+5. 📄 [Recursividad](./apuntes/Recursividad.md)
+6. 📄 [Divide y vencerás](./apuntes/Divide%20y%20venceras.md)
+7. 📄 [Teorema Maestro](./apuntes/Teorema%20Maestro.md)
 
 *(Más apuntes se irán agregando conforme avance el curso)*
 
