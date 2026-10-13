@@ -196,21 +196,151 @@ Sea $T(n) = a\,T(n/b) + f(n)$ con constantes $a \ge 1$ y $b > 1$. Calculamos la 
 
 ---
 
-## 5. Método Rápido (Fórmula de Bolsillo para Exámenes)
+## 5. Comparativa de Formulaciones y Método Rápido (Versión Básica vs. Versión Extendida)
 
-En más del $95\%$ de los problemas prácticos y de examen, la función $f(n)$ tiene la forma polinómica-logarítmica:
+En cursos universitarios, exámenes y libros conviven **dos presentaciones comunes** del Teorema Maestro:
+1. **La Versión Básica (frecuente en diapositivas e infografías):** Expresada con $O(n^d)$ y comparando directamente $a$ contra $b^d$.
+2. **La Versión Extendida / Método Rápido (estándar CLRS y literatura avanzada):** Expresada con $\Theta(n^k \log^p n)$ y comparando los exponentes $\log_b a$ contra $k$.
 
-$$f(n) = \Theta\!\left(n^k \log^p n\right) \quad \text{con } k \ge 0$$
+A continuación se presentan ambas versiones estructuradas en tablas, seguidas de su tabla de conversión directa, la explicación rigurosa de sus diferencias y recomendaciones prácticas para exámenes.
 
-En este escenario, ni siquiera necesitas buscar $\varepsilon$ ni verificar la condición de regularidad (pues se cumple automáticamente para polinomios). Solo debes comparar dos números: **$\log_b a$** contra **$k$**:
+---
 
-| Comparación entre $\log_b a$ y $k$ | Caso | Complejidad resultante $T(n)$ |
-|------------------------------------|------|-------------------------------|
-| **$\log_b a > k$** | **Caso 1** (Ganan las hojas) | $\Theta\!\left(n^{\log_b a}\right)$ |
-| **$\log_b a = k$** (con $p \ge 0$) | **Caso 2** (Empate) | $\Theta\!\left(n^k \log^{p+1} n\right)$ |
-| **$\log_b a = k$** (con $p = -1$) | **Caso 2 esp.** | $\Theta\!\left(n^k \log \log n\right)$ |
-| **$\log_b a = k$** (con $p < -1$) | **Caso 2 esp.** | $\Theta\!\left(n^k\right)$ |
-| **$\log_b a < k$** | **Caso 3** (Gana $f(n)$) | $\Theta\!\left(n^k \log^p n\right) = \Theta(f(n))$ |
+### 5.1 Versión Básica
+
+Esta versión simplificada se aplica cuando la relación de recurrencia tiene la forma:
+$$T(n) = a\,T\!\left(\frac{n}{b}\right) + O(n^d) \quad \text{con } a \ge 1, \; b > 1, \; d \ge 0$$
+
+| Condición | Caso (según diapositivas básicas) | Complejidad resultante $T(n)$ | Intuición de dominancia |
+|:---:|:---:|:---:|:---|
+| **$a = b^d$** | **Caso 1** | $O(n^d \log n)$ | **Empate:** El trabajo se distribuye de forma homogénea en los $\log_b n$ niveles. |
+| **$a < b^d$** | **Caso 2** | $O(n^d)$ | **Domina la raíz:** El trabajo local $n^d$ decrece rápido y la raíz acapara el costo. |
+| **$a > b^d$** | **Caso 3** | $O(n^{\log_b a})$ | **Dominan las hojas:** Las llamadas recursivas explotan y las hojas dominan el total. |
+
+> [!NOTE]
+> En algunas presentaciones básicas la condición $a < b^d$ se lista antes o después, pero la característica distintiva es que compara directamente la base $a$ con la potencia $b^d$.
+
+---
+
+### 5.2 Versión Extendida (Método Rápido de Bolsillo / CLRS Generalizado)
+
+Esta versión generalizada se aplica cuando la función de división/combinación tiene términos polinomial-logarítmicos:
+$$f(n) = \Theta\!\left(n^k \log^p n\right) \quad \text{con } a \ge 1, \; b > 1, \; k \ge 0, \; p \in \mathbb{R}$$
+
+Calculamos el exponente crítico de hojas $c_{\text{crit}} = \log_b a$ y lo comparamos contra el exponente polinomial $k$:
+
+| Comparación entre $\log_b a$ y $k$ | Caso (convención canónica CLRS) | Complejidad resultante $T(n)$ | Comportamiento |
+|:---:|:---:|:---:|:---|
+| **$\log_b a > k$** | **Caso 1** (Ganan las hojas) | $\Theta\!\left(n^{\log_b a}\right)$ | Las hojas dominan polinomialmente a $f(n)$. |
+| **$\log_b a = k$** $(p > -1)$ | **Caso 2** (Empate estándar) | $\Theta\!\left(n^k \log^{p+1} n\right)$ | Si $p=0$, resulta el clásico $\Theta(n^k \log n)$. |
+| **$\log_b a = k$** $(p = -1)$ | **Caso 2 especial** (Hueco armónico) | $\Theta\!\left(n^k \log \log n\right)$ | Aparece la suma de la serie armónica $\sum 1/i$. |
+| **$\log_b a = k$** $(p < -1)$ | **Caso 2 especial** (Serie convergente) | $\Theta\!\left(n^k\right)$ | La sumatoria converge a una constante finita. |
+| **$\log_b a < k$** | **Caso 3** (Gana la raíz $f(n)$) | $\Theta\!\left(n^k \log^p n\right) = \Theta(f(n))$ | El trabajo en la raíz domina polinomialmente. |
+
+---
+
+### 5.3 Tabla de Equivalencias Directas entre Ambas Versiones
+
+Matemáticamente, ambas formas de comparar son idénticas gracias a la monotonía del logaritmo:
+$$a \gtreqqless b^d \iff \log_b a \gtreqqless \log_b(b^d) \iff \log_b a \gtreqqless d$$
+
+| Situación algorítmica | Condición Versión Básica | Condición Versión Extendida ($k = d$) | Nombre del Caso en Versión Básica | Nombre del Caso en CLRS / Extendida | Resultado asintótico (asumiendo $p=0$) |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Las hojas dominan** | $a > b^d$ | $\log_b a > k$ | **Caso 3** | **Caso 1** | $\Theta(n^{\log_b a})$ |
+| **Equilibrio / Empate** | $a = b^d$ | $\log_b a = k$ | **Caso 1** | **Caso 2** | $\Theta(n^k \log n)$ |
+| **La raíz domina** | $a < b^d$ | $\log_b a < k$ | **Caso 2** | **Caso 3** | $\Theta(n^k)$ |
+
+---
+
+### 5.4 Explicación Detallada de las 5 Diferencias Clave
+
+#### 1. Enfoque de la comparación matemática (Bases vs. Exponentes)
+* **Versión Básica (Imagen/Diapositivas):** Compara directamente el número de subproblemas $a$ contra la tasa de reducción elevada al costo polinomial $b^d$.
+  * *Ventaja:* Es muy rápida si los números son enteros pequeños (ej. ¿$4 > 2^1$? Sí, $4 > 2$).
+* **Versión Extendida (Apunte):** Aplica propiedades logarítmicas a esa misma comparación. En lugar de comparar $a$ con $b^k$, compara $\log_b a$ con $k$.
+  * *Ventaja:* Trabajar en el espacio de exponentes suele ser mucho más intuitivo al graficar o razonar en papel, pues $\log_b a$ indica de inmediato la dimensión fractal del número de hojas ($n^{\log_b a}$).
+
+#### 2. Tolerancia a logaritmos (La variable $p$)
+* **Versión Básica:** Está rígidamente limitada a costos no recursivos polinomiales simples de la forma $n^d$. No puede resolver funciones comunes como $f(n) = n \log n$ o $f(n) = n / \log n$.
+* **Versión Extendida:** Introduce el parámetro $p$ para funciones de orden $n^k \log^p n$. Esto amplía drásticamente su campo de aplicación a algoritmos reales (como algoritmos que ordenan internamente antes de dividir o combinaciones más complejas).
+
+#### 3. Desglose del caso de equilibrio (Empate)
+* **Versión Básica:** Ante el empate ($a = b^d$), asume ciegamente que no existen logaritmos en $f(n)$ ($p = 0$) y simplemente multiplica por $\log n \implies O(n^d \log n)$.
+* **Versión Extendida:** Modela exhaustivamente la naturaleza del empate para cualquier valor de $p$:
+  * Si $p \ge 0$ (o $p > -1$): suma una potencia más al logaritmo ($\log^{p+1} n$).
+  * Si $p = -1$: resuelve el "hueco armónico" que genera un término $\log \log n$.
+  * Si $p < -1$: la serie geométrica converge y el costo queda en $\Theta(n^k)$.
+
+#### 4. Precisión de la Notación Asintótica ($O$ vs. $\Theta$)
+* **Versión Básica:** Utiliza comúnmente la cota superior Big-$O$ ($O$). Aunque suele ser una cota ajustada en la práctica, formalmente solo garantiza un techo (el algoritmo no tardará más que eso, pero podría ser menor).
+* **Versión Extendida:** Emplea Notación Big-Theta ($\Theta$), que establece una cota ajustada exacta (techo y piso simultáneamente: $c_1 g(n) \le T(n) \le c_2 g(n)$). Es el estándar riguroso exigido en ciencias de la computación teórica.
+
+#### 5. Numeración invertida de los Casos (¡Peligro en Exámenes!)
+* **Versión Básica:** Frecuentemente numera como **Caso 1** al empate ($a = b^d$), **Caso 2** a la dominancia de la raíz ($a < b^d$), y **Caso 3** a la dominancia de hojas ($a > b^d$).
+* **Versión Extendida (CLRS):** Sigue la taxonomía clásica del libro *Introduction to Algorithms* de Cormen, Leiserson, Rivest y Stein:
+  * **Caso 1:** Dominan las hojas ($n^{\log_b a}$ vence polinomialmente a $f(n)$).
+  * **Caso 2:** Empate asintótico con factor logarítmico.
+  * **Caso 3:** Domina la función de combinación/división $f(n)$.
+
+---
+
+### 5.5 Diagrama de Flujo: ¿Cómo Resolver en Menos de 30 Segundos?
+
+```mermaid
+flowchart TD
+    Inicio(["Dada T(n) = a T(n/b) + f(n)"]) --> Params["Extraer a, b y f(n)<br/>Verificar a >= 1, b > 1, f(n) >= 0"]
+    Params --> TieneLog{"¿f(n) tiene factores logarítmicos<br/>o fracciones como 1/log n?"}
+    
+    TieneLog -- "No: f(n) = Θ(n^k) o O(n^d)" --> CheckBasica{"Elige tu método preferido:<br/>¿Comparar a vs b^k ó log_b(a) vs k?"}
+    
+    CheckBasica --> Comp1{"log_b(a) > k  ó  a > b^k"}
+    Comp1 -- Sí --> ResHojas["Dominan las HOJAS<br/>CLRS: Caso 1 | Básica: Caso 3<br/><b>T(n) = Θ(n^{log_b a})</b>"]
+    
+    Comp1 -- No --> Comp2{"log_b(a) = k  ó  a = b^k"}
+    Comp2 -- Sí --> ResEmpate["EMPATE homogéneo<br/>CLRS: Caso 2 | Básica: Caso 1<br/><b>T(n) = Θ(n^k log n)</b>"]
+    
+    Comp2 -- No --> ResRaiz["Domina la RAÍZ f(n)<br/>CLRS: Caso 3 | Básica: Caso 2<br/><b>T(n) = Θ(n^k)</b>"]
+    
+    TieneLog -- "Sí: f(n) = Θ(n^k log^p n)" --> CalcCrit["Calcular log_b(a) y comparar con k"]
+    CalcCrit --> CompExt1{"¿log_b(a) > k?"}
+    CompExt1 -- Sí --> ResHojas
+    CompExt1 -- No --> CompExt2{"¿log_b(a) < k?"}
+    CompExt2 -- Sí --> ResRaizLog["Domina f(n)<br/>CLRS: Caso 3<br/><b>T(n) = Θ(n^k log^p n)</b>"]
+    CompExt2 -- No --> CompP{"log_b(a) = k<br/>Evaluar exponente p"}
+    CompP -- "p > -1" --> ResPpos["<b>T(n) = Θ(n^k log^{p+1} n)</b>"]
+    CompP -- "p = -1" --> ResParm["<b>T(n) = Θ(n^k log log n)</b>"]
+    CompP -- "p < -1" --> ResPneg["<b>T(n) = Θ(n^k)</b>"]
+```
+
+---
+
+### 5.6 Tips Prácticos y Recomendaciones para Exámenes
+
+> [!TIP]
+> **Tip 1: Cómo justificar en un examen para asegurar la máxima calificación**  
+> Si tu profesor sigue las diapositivas con la versión básica, o si no estás seguro de qué convención sigue la rúbrica de evaluación, redacta tu respuesta con la justificación conceptual antes que con el número de caso:
+> * *"Dado que $\log_b a = 2 > k = 1$, las hojas dominan asintóticamente a la raíz. Por tanto, aplica el Caso 1 según la convención canónica de Cormen (o Caso 3 según la versión básica con $a > b^d$), resultando en $T(n) = \Theta(n^2)$."*  
+> Así es imposible que te califiquen como incorrecto, sin importar la tabla que tenga el profesor en su pauta.
+
+> [!TIP]
+> **Tip 2: Regla mental rápida para potencias de 2 comunes**  
+> * $\log_2 1 = 0 \implies n^0 = 1$
+> * $\log_2 2 = 1 \implies n^1 = n$
+> * $\log_2 3 \approx 1.585 \implies n^{1.585}$ *(Multiplicación de Karatsuba)*
+> * $\log_2 4 = 2 \implies n^2$
+> * $\log_2 7 \approx 2.807 \implies n^{2.807}$ *(Multiplicación de matrices de Strassen)*
+> * $\log_2 8 = 3 \implies n^3$
+
+> [!TIP]
+> **Tip 3: Cuidado con la trampa del $O$ vs $\Theta$ en opciones múltiples**  
+> Si un examen de opción múltiple tiene como opciones $O(n \log n)$ y $\Theta(n \log n)$ para Merge Sort ($T(n) = 2T(n/2) + n$), la respuesta **más precisa y rigurosa** es $\Theta(n \log n)$. Sin embargo, si la pregunta está formulada explícitamente como "¿Cuál es la cota superior en notación Big-O?", $O(n \log n)$ es correcta.
+
+> [!WARNING]
+> **Tip 4: El error de omitir la condición $f(n) \ge 0$ o $a \ge 1$**  
+> Antes de calcular cualquier logaritmo, cerciórate de que:
+> 1. $a \ge 1$: No se pueden tener $0.5$ llamadas recursivas ni números negativos.
+> 2. $b > 1$: Si $b = 1$, el problema no se reduce y cae en bucle infinito.
+> 3. $f(n)$ debe ser positiva para $n$ suficientemente grande (un tiempo de ejecución no puede ser negativo).
 
 ---
 
