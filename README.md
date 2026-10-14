@@ -44,8 +44,9 @@ Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 
 Aquí encontrarás las tareas y resoluciones de las actividades del curso:
 
-1. 💻 [Prueba de Escritorio y Complejidad: Merge Sort](./actividades/merge.md)
-2. 📝 [Ejercicios ADA 1: Conteo de Operaciones y Complejidad](./actividades/Ejercicios_ADA_1.md)
+1. 💻 [Prueba de Escritorio y Complejidad: Merge Sort](./actividades/actividad%201.%20merge/merge.md)
+2. 📝 [Ejercicios ADA 1: Conteo de Operaciones y Complejidad](./actividades/actividad%202.%20ejercicios_ada_1/Ejercicios_ADA_1.md)
+3. 📐 [Actividad 3: Teorema Maestro y Divide y Vencerás](./actividades/actividad%203.%20teorema_maestro/teorema_maestro.md)
 
 *(Más actividades se irán agregando conforme avance el curso)*
 
