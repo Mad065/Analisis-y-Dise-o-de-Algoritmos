@@ -463,38 +463,111 @@ flowchart TD
 
 ## 7. ¿Cuándo NO se puede aplicar el Teorema Maestro? (Limitaciones y Trampas)
 
-Es tan importante saber usar el Teorema Maestro como reconocer las ecuaciones donde **es inválido aplicarlo**:
+Para que el Teorema Maestro funcione en $T(n) = a\,T\!\left(\frac{n}{b}\right) + f(n)$, debemos cumplir ciertas reglas estrictas sobre sus componentes. Si se rompe alguna, el teorema no se puede aplicar.
 
-### 1. Reducción aritmética en lugar de geométrica (*Subtract and Conquer*)
-* **Ejemplo:** $T(n) = 2\,T(n - 1) + 1$ (Torres de Hanoi) o $T(n) = T(n - 1) + n$ (Insertion Sort recursivo).
-* **Por qué no aplica:** El tamaño no se divide por $b$ ($n/b$), sino que se resta una constante ($n - c$).
-* **Cómo se resuelve:** Por expansión/sustitución hacia atrás. Sus complejidades son $\Theta(2^n)$ y $\Theta(n^2)$ respectivamente.
+Aquí tienes las **4 trampas más comunes**:
 
-### 2. Parámetros $a$ o $b$ que no son constantes válidas
-* **Ejemplo:** $T(n) = 2^n T(n/2) + n^n$ o $T(n) = 0.5\,T(n/2) + n$.
-* **Por qué no aplica:** En el primero, $a = 2^n$ depende de $n$ (no es constante); en el segundo, $a = 0.5 < 1$ (no puedes hacer media llamada recursiva).
+1. **El problema no se divide ($b \le 1$):** En $T(n - 1) + 1$, el tamaño solo se reduce restando (*Subtract and Conquer*), no dividiendo entre un factor $b > 1$.
+   * *Cómo se resuelve:* Expansión iterativa / sustitución hacia atrás.
+2. **El número de subproblemas no es constante ($a$ varía o depende de $n$):** En $n\,T\!\left(\frac{n}{2}\right) + n$, tenemos $a = n$. Como $a$ cambia según el tamaño de la entrada, no es una constante fija.
+3. **Trabajo negativo o subproblemas fraccionarios sin sentido ($a < 1$ o $f(n)$ negativa):** En $T(n) = 0.5\,T\!\left(\frac{n}{2}\right) + n$, tenemos $a = 0.5 < 1$ (no puedes realizar media llamada recursiva física). Del mismo modo, un tiempo de ejecución no recursivo $f(n)$ no puede ser negativo.
+4. **La "brecha polinomial" (*Polynomial Gap* entre casos):** Para ganar en el Caso 1 o Caso 3, un término debe ser polinomialmente mayor que el otro (es decir, mayor por una potencia estricta $n^\varepsilon$, como $n^{1.01}$ vs $n^1$). Si la diferencia es únicamente un factor logarítmico (por ejemplo, $n \log n$ vs $n$), ¡ninguno gana polinomialmente y tampoco es un empate exacto en la versión clásica!
 
-### 3. El "Hueco Polinómico" (*Polynomial Gap*)
-El Caso 1 y el Caso 3 exigen una diferencia **polinómica** ($n^{\pm \varepsilon}$), no simplemente una diferencia logarítmica.
-* **Ejemplo clásico de examen:**
-  $$T(n) = 2\,T(n/2) + \frac{n}{\log n}$$
-* **Análisis:**
-  * Aquí $a = 2, b = 2 \implies n^{\log_2 2} = n$.
-  * $f(n) = \frac{n}{\log n} = n^1 \log^{-1} n$.
-  * ¿Es Caso 1? La razón $\frac{n}{f(n)} = \log n$. Pero $\log n$ crece **más lento que cualquier polinomio $n^\varepsilon$** para todo $\varepsilon > 0$. Por lo tanto, $f(n)$ **no** es polinomialmente menor que $n$; cae en el "hueco" entre el Caso 1 y el Caso 2 estándar.
-* **Solución mediante la extensión de Caso 2 ($p = -1$):**
-  Al sumar el árbol de recursión nivel por nivel:
-  $$T(n) = \sum_{i=0}^{\log_2 n - 1} 2^i \frac{n/2^i}{\log_2(n/2^i)} = n \sum_{i=0}^{\log_2 n - 1} \frac{1}{\log_2 n - i} = n \sum_{j=1}^{\log_2 n} \frac{1}{j} = \Theta(n \log \log n)$$
-  *(Pues $\sum_{j=1}^m \frac{1}{j} = H_m = \Theta(\log m)$ es la serie armónica con $m = \log_2 n$).*
+### Pongamos esto a prueba con estas tres ecuaciones:
 
-### 4. Violación de la Condición de Regularidad en el Caso 3
-* **Ejemplo:** $T(n) = 2\,T(n/2) + n^2(2 - \cos n)$.
-* Aunque $f(n) = \Omega(n^{1+\varepsilon})$, la oscilación trigonométrica impide que exista una constante fija $c < 1$ tal que $2 f(n/2) \le c f(n)$ para todo $n$.
+* ⚬ **Ecuación A:** $T(n) = 2^n\,T\!\left(\frac{n}{2}\right) + n^n$
+* ⚬ **Ecuación B:** $T(n) = 2\,T\!\left(\frac{n}{2}\right) + n \log n$
+* ⚬ **Ecuación C:** $T(n) = 16\,T\!\left(\frac{n}{4}\right) + n!$
 
-### 5. Subproblemas de tamaños desiguales
-* **Ejemplo:** $T(n) = T(n/3) + T(2n/3) + n$ (Quick Sort con partición desbalanceada 1:2).
-* **Por qué no aplica:** Los subproblemas tienen factores de división distintos ($b_1 = 3$ y $b_2 = 3/2$).
-* **Cómo se resuelve:** Con la generalización del Teorema Maestro llamada **Método de Akra-Bazzi**.
+#### Resolución y Diagnóstico:
+
+> **¿Por qué se rompe la Ecuación A?**  
+> Se rompe por la **Trampa 2**: el factor de ramificación $a = 2^n$ **no es una constante**, sino una función exponencial que crece desproporcionadamente con $n$. El Teorema Maestro exige rigurosamente que $a \ge 1$ sea un número constante independiente de la entrada. *(Además, $f(n) = n^n$ es super-exponencial).*
+
+> **¿Cuál sí respeta las reglas básicas de $a$ y $b$, pero cae en la trampa de la brecha polinomial?**  
+> Es la **Ecuación B**:
+> * **Respeta las reglas de $a$ y $b$:** $a = 2 \ge 1$ (constante) y $b = 2 > 1$ (constante).
+> * **Cálculo de hojas:** $n^{\log_b a} = n^{\log_2 2} = n^1 = n$.
+> * **Costo externo:** $f(n) = n \log n$.
+> * **¿Por qué cae en la brecha polinomial?**  
+>   Al comparar $f(n) = n \log n$ con las hojas $n$:
+>   $$\frac{f(n)}{n^{\log_b a}} = \frac{n \log n}{n} = \log n$$
+>   Para clasificar en el **Caso 3 del Teorema Maestro clásico**, se exige que $f(n) = \Omega(n^{1 + \varepsilon})$ para algún $\varepsilon > 0$ (es decir, que $f(n)$ sea **polinomialmente mayor**). Pero $\log n$ crece **más lento que cualquier potencia polinómica $n^\varepsilon$** (incluso más lento que $n^{0.0001}$).  
+>   Tampoco aplica el **Caso 2 clásico**, pues este exige $f(n) = \Theta(n)$ (empate exacto sin logaritmos).  
+>   **Conclusión:** En el Teorema Maestro clásico de 3 casos, la Ecuación B **cae exactamente en el hueco/brecha polinomial entre el Caso 2 y el Caso 3**.  
+>   *(Nota: Solo la [Versión Extendida de la Sección 5.2](#52-versión-extendida-método-rápido-de-bolsillo--clrs-generalizado) logra resolverla reconociendo que es un Caso 2 con $p = 1$, dando $T(n) = \Theta(n \log^2 n)$).*
+
+> **¿Qué ocurre con la Ecuación C?**  
+> * **Parámetros:** $a = 16 \ge 1$, $b = 4 > 1 \implies n^{\log_4 16} = n^2$.
+> * **Costo externo:** $f(n) = n!$ (factorial).
+> * Como el factorial crece más rápido que cualquier función polinomial ($n! = \Omega(n^{2 + \varepsilon})$ con cualquier $\varepsilon > 0$), y satisface holgadamente la condición de regularidad:
+>   $$a\,f(n/b) = 16 \left(\frac{n}{4}\right)! \le c \, n! \quad (\text{para cualquier } c < 1 \text{ con } n \ge 4)$$
+> * La Ecuación C **sí se puede resolver con el Teorema Maestro clásico (Caso 3)**:
+>   $$\mathbf{T(n) = \Theta(n!)}$$
+
+---
+
+### Catálogo Extendido de Limitaciones y Trampas Avanzadas
+
+Además de las 4 reglas básicas, en problemas avanzados de exámenes aparecen escenarios especiales que invalidan la aplicación directa:
+
+#### 5. Violación de la Condición de Regularidad en el Caso 3 (Funciones oscilatorias o no monótonas)
+* **Ecuación típica:** $T(n) = 2\,T(n/2) + n^2(2 - \cos n)$ o $T(n) = T(n/2) + n(2 - \cos n)$.
+* **Por qué falla:** Aunque aparentemente $f(n) = \Omega(n^{1+\varepsilon})$ supera a las hojas, la oscilación periódica del coseno entre $-1$ y $1$ hace que la razón $\frac{a\,f(n/b)}{f(n)}$ oscile periódicamente, impidiendo la existencia de una constante fija $c < 1$ que satisfaga:
+  $$a\,f\!\left(\frac{n}{b}\right) \le c\,f(n) \quad \text{para todo } n \ge n_0$$
+* **Cómo se resuelve:** Dibujando el árbol de recursión de forma explícita o calculando cotas $\Omega$ y $O$ por separado.
+
+#### 6. Subproblemas de tamaños desiguales (Partición asimétrica)
+* **Ecuación típica:** $T(n) = T(n/3) + T(2n/3) + n$ (como en Quick Sort con partición fija 1:2 o algoritmos con ramas asimétricas).
+* **Por qué falla:** No existe una base única de reducción $b$; cada subproblema reduce el tamaño con una fracción diferente ($b_1 = 3$ y $b_2 = 1.5$).
+* **Cómo se resuelve:** Mediante el [Método de Akra-Bazzi](#8-generalización-el-método-de-akra-bazzi) o sumando los niveles del árbol de recursión geométricamente.
+
+#### 7. Reducción no lineal o por raíz cuadrada ($T(\sqrt{n})$) — La "falsa imposibilidad"
+* **Ecuación típica:** $T(n) = 2\,T(\sqrt{n}) + \log n$ o $T(n) = 2\,T(\sqrt{n}) + 1$.
+* **Por qué parece fallar:** La reducción no es lineal ($n/b$), sino exponencialmente fraccionaria ($\sqrt{n} = n^{1/2}$). A primera vista el Teorema Maestro es inaplicable.
+* **El truco de examen (Cambio de Variable):**
+  1. Hacemos el cambio de variable $m = \log_2 n \implies n = 2^m$.
+  2. Entonces $\sqrt{n} = n^{1/2} = (2^m)^{1/2} = 2^{m/2}$.
+  3. Reescribimos la recurrencia: $T(2^m) = 2\,T(2^{m/2}) + m$.
+  4. Renombramos $S(m) = T(2^m)$:
+     $$S(m) = 2\,S\!\left(\frac{m}{2}\right) + m$$
+  5. ¡A $S(m)$ **sí se le aplica el Teorema Maestro**! Es el clásico Caso 2 ($a=2, b=2, k=1 \implies \Theta(m \log m)$).
+  6. Regresando a la variable original $m = \log_2 n$:
+     $$T(n) = \Theta(\log n \cdot \log \log n)$$
+
+#### 8. Recursión con historia completa (Suma sobre todos los tamaños anteriores)
+* **Ecuación típica:** $T(n) = \frac{2}{n} \sum_{i=0}^{n-1} T(i) + \Theta(n)$ *(Caso promedio de QuickSort)*.
+* **Por qué falla:** Las llamadas recursivas no son una cantidad constante $a$, sino una sumatoria sobre **todos** los subproblemas de tamaño $0, 1, \dots, n-1$.
+* **Cómo se resuelve:** Despeje algebraico multiplicando por $n$, restando la ecuación evaluada en $n-1$, y resolviendo la ecuación en diferencias resultante mediante telescopía $\implies \Theta(n \log n)$.
+
+#### 9. La trampa de las apariencias algebraicas (No simplificar antes de clasificar)
+* **Ejemplos engañosos comunes:**
+  * **$T(n) = 4\,T(n/2) + 2^{2 \log_2 n}$:** Parece exponencial por la base 2, pero aplicando leyes de logaritmos: $2^{2 \log_2 n} = (2^{\log_2 n})^2 = n^2$. Por tanto, la ecuación es $T(n) = 4\,T(n/2) + n^2$ $\implies$ Caso 2: $\mathbf{\Theta(n^2 \log n)}$.
+  * **$T(n) = 8\,T(n/4) + (\sqrt{n})^3$:** El término $(\sqrt{n})^3 = n^{3/2} = n^{1.5}$. Con $\log_4 8 = \frac{\log_2 8}{\log_2 4} = \frac{3}{2} = 1.5$, ¡los exponentes son idénticos! $\implies$ Caso 2: $\mathbf{\Theta(n^{1.5} \log n)}$.
+  * **$T(n) = 2\,T(n/2) + n^{\sin n}$:** El exponente varía continuamente en el rango $[-1, 1]$. La función $f(n)$ no tiene un orden polinomial constante y el teorema no aplica.
+
+#### 10. La trampa de las cotas holgadas ($O$ vs $\Theta$) en el término no recursivo
+* **Ecuación típica:** $T(n) = 2\,T(n/2) + O(n)$.
+* **Por qué es peligroso:** Si el enunciado solo proporciona una cota superior $O(n)$ para el costo local, **no se puede concluir estrictamente que $T(n) = \Theta(n \log n)$**. Formalmente, $f(n)$ podría ser $0$ o constante, en cuyo caso $T(n) = \Theta(n)$. La conclusión matemáticamente correcta es únicamente:
+  $$T(n) = O(n \log n)$$
+  Para obtener una cota ajustada $\Theta$, la función $f(n)$ debe estar delimitada estrictamente por arriba y por abajo ($\Theta$).
+
+---
+
+### Tabla Resumen: Diagnóstico Rápido de Inaplicabilidad
+
+| # | Limitación / Trampa | Ecuación de Ejemplo | Causa por la que falla | Alternativa de Solución |
+|:---:|---|---|---|---|
+| **1** | Reducción aditiva | $T(n) = 2\,T(n - 1) + 1$ | $b$ no divide ($n - c$) | Expansión hacia atrás / Sustitución |
+| **2** | Ramificación dependiente de $n$ | $T(n) = n\,T(n/2) + n$ | $a = n$ no es constante | Árbol de recursión manual |
+| **3** | Ramificación fraccionaria / subunitaria | $T(n) = 0.5\,T(n/2) + n$ | $a < 1$ no tiene sentido físico | Expansión telescópica |
+| **4** | Brecha polinomial inferior | $T(n) = 2\,T(n/2) + \frac{n}{\log n}$ | $f(n)$ no es $O(n^{\log_b a - \varepsilon})$ | Versión extendida Caso 2 ($p=-1$) |
+| **5** | Brecha polinomial superior | $T(n) = 2\,T(n/2) + n \log n$ | $f(n)$ no es $\Omega(n^{\log_b a + \varepsilon})$ | Versión extendida Caso 2 ($p=1$) |
+| **6** | Violación de regularidad | $T(n) = 2\,T(n/2) + n^2(2 - \cos n)$ | Oscilación en $a f(n/b) \le c f(n)$ | Árbol de recursión / Cotas sueltas |
+| **7** | División desigual | $T(n) = T(n/3) + T(2n/3) + n$ | Múltiples factores $b_1 \ne b_2$ | **Método de Akra-Bazzi** |
+| **8** | Reducción con raíz cuadrada | $T(n) = 2\,T(\sqrt{n}) + \log n$ | Tamaño fraccionario $\sqrt{n}$ | Cambio de variable $m = \log n$ |
+| **9** | Historia recursiva completa | $T(n) = \frac{2}{n} \sum T(i) + n$ | Sumatoria de estados anteriores | Ecuación en diferencias / Telescopía |
+| **10** | Exponente oscilatorio en $f(n)$ | $T(n) = 2\,T(n/2) + n^{\sin n}$ | Exponente no converge | Acotamiento superior e inferior |
 
 ---
 
