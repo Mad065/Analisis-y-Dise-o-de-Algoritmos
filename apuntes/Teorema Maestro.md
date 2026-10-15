@@ -196,13 +196,14 @@ Sea $T(n) = a\,T(n/b) + f(n)$ con constantes $a \ge 1$ y $b > 1$. Calculamos la 
 
 ---
 
-## 5. Comparativa de Formulaciones y Método Rápido (Versión Básica vs. Versión Extendida)
+## 5. Comparativa de Formulaciones: Las Tres Versiones del Teorema Maestro
 
-En cursos universitarios, exámenes y libros conviven **dos presentaciones comunes** del Teorema Maestro:
+En cursos universitarios, exámenes y literatura de algoritmos conviven **tres perspectivas de presentación** del Teorema Maestro:
 1. **La Versión Básica (frecuente en diapositivas e infografías):** Expresada con $O(n^d)$ y comparando directamente $a$ contra $b^d$.
 2. **La Versión Extendida / Método Rápido (estándar CLRS y literatura avanzada):** Expresada con $\Theta(n^k \log^p n)$ y comparando los exponentes $\log_b a$ contra $k$.
+3. **La Versión Conceptual o de Competencia Asintótica ($f(n)$ vs. $n^{\log_b a}$):** Enfocada en la competencia directa entre el costo de las hojas ($n^{\log_b a}$) y el trabajo de combinación/división externo ($f(n)$), formalizado en la [Sección 4](#4-enunciado-formal-de-los-tres-casos).
 
-A continuación se presentan ambas versiones estructuradas en tablas, seguidas de su tabla de conversión directa, la explicación rigurosa de sus diferencias y recomendaciones prácticas para exámenes.
+A continuación se presentan las tres versiones estructuradas en tablas, seguidas de su tabla de conversión y equivalencia directa, la explicación rigurosa de sus diferencias y recomendaciones prácticas para exámenes.
 
 ---
 
@@ -237,22 +238,85 @@ Calculamos el exponente crítico de hojas $c_{\text{crit}} = \log_b a$ y lo comp
 | **$\log_b a = k$** $(p < -1)$ | **Caso 2 especial** (Serie convergente) | $\Theta\!\left(n^k\right)$ | La sumatoria converge a una constante finita. |
 | **$\log_b a < k$** | **Caso 3** (Gana la raíz $f(n)$) | $\Theta\!\left(n^k \log^p n\right) = \Theta(f(n))$ | El trabajo en la raíz domina polinomialmente. |
 
+#### El Parámetro $p$: Definición, Extracción y Comportamiento Matemático
+
+En la formulación extendida del Teorema Maestro, la función no recursiva de división y combinación $f(n)$ se desglosa en dos factores:
+$$f(n) = \Theta\!\left(n^k \log^p n\right)$$
+
+* **$k$ (Exponente polinomial):** Cuantifica la potencia principal de la entrada $n$ ($n^0=1$, $n^1$, $n^2$, etc.).
+* **$p$ (Exponente polilogarítmico):** Cuantifica cuántos factores logarítmicos modulan a la función ($p \in \mathbb{R}$). Puede ser un número positivo ($p > 0$), cero ($p = 0$) o negativo ($p < 0$).
+
+##### 1. Regla de extracción rápida de $k$ y $p$
+
+Para determinar los valores de $k$ y $p$ en cualquier problema, se reescribe $f(n)$ agrupando la parte polinómica y la parte logarítmica:
+
+| Función no recursiva $f(n)$ | Forma normalizada $n^k \log^p n$ | Valor de $k$ | Valor de $p$ | Justificación analítica |
+|---|:---:|:---:|:---:|---|
+| **$f(n) = 1$** (o constante) | $n^0 \log^0 n$ | $0$ | $0$ | Costo constante $O(1)$; sin factores $n$ ni $\log n$. |
+| **$f(n) = \log n$** | $n^0 \log^1 n$ | $0$ | $1$ | El logaritmo está en el numerador a la 1; $n^0 = 1$. |
+| **$f(n) = n$** (lineal) | $n^1 \log^0 n$ | $1$ | $0$ | Caso clásico sin logaritmos ($\log^0 n = 1$). |
+| **$f(n) = n \log n$** | $n^1 \log^1 n$ | $1$ | $1$ | Un factor lineal ($n^1$) y un logaritmo multiplicando ($\log^1 n$). |
+| **$f(n) = n \log^2 n$** | $n^1 \log^2 n$ | $1$ | $2$ | Un factor lineal y el logaritmo al cuadrado. |
+| **$f(n) = n^2$** (cuadrático) | $n^2 \log^0 n$ | $2$ | $0$ | Cuadrático puro; sin términos logarítmicos ($p=0$). |
+| **$f(n) = \frac{n}{\log n}$** | $n^1 \log^{-1} n$ | $1$ | $-1$ | El logaritmo está en el denominador $\implies$ exponente negativo $p = -1$. |
+| **$f(n) = \frac{n^2}{\log^3 n}$** | $n^2 \log^{-3} n$ | $2$ | $-3$ | División entre $\log^3 n \implies p = -3$. |
+
+##### 2. ¿Por qué $p$ altera el resultado principalmente en el Caso 2 (Empate)?
+
+* **En el Caso 1 ($\log_b a > k$) y Caso 3 ($\log_b a < k$):**  
+  Existe una brecha polinomial estricta entre las hojas y la raíz. La diferencia polinomial ($n^\varepsilon$) absorbe asintóticamente a cualquier logaritmo; por tanto, **el valor de $p$ no altera quién gana la competencia**.
+* **En el Caso 2 ($\log_b a = k$):**  
+  Las hojas y la raíz empatan exactamente en su tasa polinomial ($n^k$). El costo total del algoritmo se obtiene sumando el trabajo no recursivo a través de los $h = \log_b n$ niveles del árbol de recursión:
+  $$T(n) = \Theta\!\left(n^k \sum_{i=1}^{\log_b n} \frac{1}{i^{-p}}\right)$$
+  * **Si $p > -1$ (incluye el caso estándar $p = 0$):**  
+    La sumatoria acumula una potencia adicional de logaritmo:
+    $$T(n) = \Theta\!\left(n^k \log^{p+1} n\right)$$
+    *(Si $p=0$, se tiene $\log^{0+1} n = \log n \implies \Theta(n^k \log n)$, que es el caso clásico de Merge Sort).*  
+    *(Si $p=1$, como en $T(n) = 2T(n/2) + n \log n$, se tiene $\log_2 2 = 1 = k$ y $p=1 \implies \Theta(n \log^2 n)$).*
+  * **Si $p = -1$ (Hueco armónico):**  
+    La sumatoria corresponde a la serie armónica $\sum_{i=1}^{\log n} \frac{1}{i} \approx \ln(\log n)$. Por lo tanto:
+    $$T(n) = \Theta\!\left(n^k \log \log n\right)$$
+    *(Permite resolver casos como $T(n) = 2T(n/2) + \frac{n}{\log n} \implies \Theta(n \log \log n)$, imposibles de clasificar con el teorema básico).*
+  * **Si $p < -1$ (Serie convergente):**  
+    La serie $\sum_{i=1}^\infty \frac{1}{i^{|p|}}$ con exponente $|p| > 1$ converge a una constante finita. Los niveles internos decrecen tan rápido que no alcanzan a generar un logaritmo completo:
+    $$T(n) = \Theta\!\left(n^k\right)$$
+    *(Ejemplo: $T(n) = 2T(n/2) + \frac{n}{\log^2 n} \implies \Theta(n)$).*
+
 ---
 
-### 5.3 Tabla de Equivalencias Directas entre Ambas Versiones
+### 5.3 Versión Conceptual: La Competencia Asintótica ($f(n)$ vs. $n^{\log_b a}$)
 
-Matemáticamente, ambas formas de comparar son idénticas gracias a la monotonía del logaritmo:
+Esta perspectiva formaliza de manera intuitiva y rigurosa la teoría expuesta en la [Sección 4](#4-enunciado-formal-de-los-tres-casos). El Teorema Maestro modela una **competencia asintótica** entre dos fuerzas fundamentales del árbol de recursión:
+1. **La función de trabajo en las hojas ($n^{\log_b a}$):** Representa el costo total acumulado en el nivel base ($i = \log_b n$), producto de la proliferación de subproblemas ($a^{\log_b n} = n^{\log_b a}$).
+2. **La función de trabajo externo ($f(n)$):** Representa el costo no recursivo invertido en dividir la entrada y combinar los resultados en los niveles internos (concentrado prioritariamente en la raíz).
+
+| Caso | Quién gana la competencia (Dominancia asintótica) | Condición (comparando exponentes y órdenes de crecimiento) | Complejidad final $T(n)$ |
+|:---:|:---|:---|:---:|
+| **Caso 1** | **Dominan las hojas del árbol**<br>$\mathbf{n^{\log_b a} > f(n)}$<br>($n^{\log_b a}$ es polinomialmente dominante sobre $f(n)$) | **$f(n)$ crece más lento que $n^{\log_b a}$** por una brecha polinomial estricta $n^\varepsilon$:<br>Existe $\varepsilon > 0$ tal que $f(n) = O\!\left(n^{\log_b a - \varepsilon}\right)$<br>*(En términos de exponentes: $\log_b a > k$ con $\log_b a \ge k + \varepsilon$)* | $\Theta\!\left(n^{\log_b a}\right)$ |
+| **Caso 2** | **Equilibrio asintótico (Empate)**<br>$\mathbf{n^{\log_b a} = f(n)}$<br>($f(n) = \Theta(n^{\log_b a})$; costo homogéneo en los $\log_b n$ niveles) | **$f(n)$ tiene el mismo orden de crecimiento que $n^{\log_b a}$** (salvo factores polilogarítmicos $\log^p n$ con $p \ge 0$):<br>$f(n) = \Theta\!\left(n^{\log_b a} \log^p n\right)$<br>*(En términos de exponentes: $\log_b a = k$; si $p=0 \implies f(n) = \Theta(n^{\log_b a})$)* | $\Theta\!\left(n^{\log_b a} \log^{p+1} n\right)$<br><br>*(Si $p=0$: $\Theta(n^{\log_b a} \log n)$)* |
+| **Caso 3** | **Domina el trabajo externo (Raíz)**<br>$\mathbf{f(n) > n^{\log_b a}}$<br>($f(n)$ es polinomialmente dominante sobre $n^{\log_b a}$) | **$f(n)$ crece más rápido que $n^{\log_b a}$** por una brecha polinomial $n^\varepsilon$ y satisface regularidad:<br>Existe $\varepsilon > 0$ tal que $f(n) = \Omega\!\left(n^{\log_b a + \varepsilon}\right)$<br>y condición de regularidad: $a\,f\!\left(\frac{n}{b}\right) \le c\,f(n)$ para alguna constante $c < 1$<br>*(En términos de exponentes: $k > \log_b a$ con $k \ge \log_b a + \varepsilon$)* | $\Theta\!\left(f(n)\right)$ |
+
+> [!NOTE]
+> **Fundamento técnico de la brecha polinomial ($n^\varepsilon$) y la condición de regularidad:**  
+> * **Brecha polinomial ($\varepsilon > 0$):** Para que una función domine a la otra de manera estricta (Casos 1 y 3), no basta una discrepancia asintótica sub-polinomial (por ejemplo, diferencias puramente logarítmicas como $f(n) = n / \log n$ frente a $n^1$). Si la relación entre ambas funciones no difiere al menos por un factor de escala $n^\varepsilon$, el teorema cae en una brecha de inaplicabilidad (ver [Sección 7](#7-casos-donde-el-teorema-maestro-falla-casos-inaplicables)).
+> * **Condición de regularidad en el Caso 3 ($a f(n/b) \le c f(n)$ con $c < 1$):** Garantiza que el trabajo realizado en los nodos hijos decrezca geométricamente respecto al nodo padre, asegurando que la raíz absorba asintóticamente el costo total.
+
+---
+
+### 5.4 Tabla de Equivalencias Directas entre las Tres Versiones
+
+Matemáticamente, comparar las bases ($a$ vs $b^d$), comparar los exponentes ($\log_b a$ vs $k$, asumiendo $d = k$), o contrastar rigurosamente las tasas de crecimiento de $f(n)$ contra $n^{\log_b a}$ representan exactamente el mismo fenómeno algorítmico debido a la monotonía de la función logaritmo:
 $$a \gtreqqless b^d \iff \log_b a \gtreqqless \log_b(b^d) \iff \log_b a \gtreqqless d$$
 
-| Situación algorítmica | Condición Versión Básica | Condición Versión Extendida ($k = d$) | Nombre del Caso en Versión Básica | Nombre del Caso en CLRS / Extendida | Resultado asintótico (asumiendo $p=0$) |
-|---|:---:|:---:|:---:|:---:|:---:|
-| **Las hojas dominan** | $a > b^d$ | $\log_b a > k$ | **Caso 3** | **Caso 1** | $\Theta(n^{\log_b a})$ |
-| **Equilibrio / Empate** | $a = b^d$ | $\log_b a = k$ | **Caso 1** | **Caso 2** | $\Theta(n^k \log n)$ |
-| **La raíz domina** | $a < b^d$ | $\log_b a < k$ | **Caso 2** | **Caso 3** | $\Theta(n^k)$ |
+| Situación algorítmica | Perspectiva Conceptual (Dominancia) | Condición Básica ($a$ vs $b^d$) | Condición Extendida ($\log_b a$ vs $k$) | Condición Formal ($f(n)$ vs $n^{\log_b a}$) | Caso Básica | Caso CLRS | Complejidad $T(n)$ ($p=0$) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Las hojas dominan** | **Caso 1**<br>($n^{\log_b a} > f(n)$) | $a > b^d$ | $\log_b a > k$ | $f(n) = O(n^{\log_b a - \varepsilon})$ | **Caso 3** | **Caso 1** | $\Theta(n^{\log_b a})$ |
+| **Equilibrio / Empate** | **Caso 2**<br>($n^{\log_b a} = f(n)$) | $a = b^d$ | $\log_b a = k$ | $f(n) = \Theta(n^{\log_b a})$ | **Caso 1** | **Caso 2** | $\Theta(n^k \log n)$ |
+| **La raíz domina** | **Caso 3**<br>($f(n) > n^{\log_b a}$) | $a < b^d$ | $\log_b a < k$ | $f(n) = \Omega(n^{\log_b a + \varepsilon})$ + reg. | **Caso 2** | **Caso 3** | $\Theta(f(n)) = \Theta(n^k)$ |
 
 ---
 
-### 5.4 Explicación Detallada de las 5 Diferencias Clave
+### 5.5 Explicación Detallada de las 5 Diferencias Clave
 
 #### 1. Enfoque de la comparación matemática (Bases vs. Exponentes)
 * **Versión Básica (Imagen/Diapositivas):** Compara directamente el número de subproblemas $a$ contra la tasa de reducción elevada al costo polinomial $b^d$.
@@ -284,7 +348,7 @@ $$a \gtreqqless b^d \iff \log_b a \gtreqqless \log_b(b^d) \iff \log_b a \gtreqql
 
 ---
 
-### 5.5 Diagrama de Flujo: ¿Cómo Resolver en Menos de 30 Segundos?
+### 5.6 Diagrama de Flujo: ¿Cómo Resolver en Menos de 30 Segundos?
 
 ```mermaid
 flowchart TD
@@ -314,7 +378,7 @@ flowchart TD
 
 ---
 
-### 5.6 Tips Prácticos y Recomendaciones para Exámenes
+### 5.7 Tips Prácticos y Recomendaciones para Exámenes
 
 > [!TIP]
 > **Tip 1: Cómo justificar en un examen para asegurar la máxima calificación**  
