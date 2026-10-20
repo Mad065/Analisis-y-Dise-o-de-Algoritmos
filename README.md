@@ -60,6 +60,7 @@ Aquí encontrarás las implementaciones y comparativas desarrolladas en laborato
 
 1. 🚀 [Práctica 1: Algoritmos de Búsqueda](./practicas/practica%201.%20busqueda)
 2. ⚡ [Práctica 2: Algoritmos de Ordenamiento](./practicas/practica%202.%20ordenamiento)
+3. ⚔️ [Práctica 3: Divide y Vencerás (Quickselect y Strassen)](./practicas/practica%203.%20divide%20y%20venceras)
 
 *(Más prácticas se irán agregando conforme avance el curso)*
 

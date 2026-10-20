@@ -18,5 +18,7 @@ __pycache__/
 # Datasets pesados y logs de ejecución de prácticas
 practicas/practica 2. ordenamiento/datos/
 practicas/practica 2. ordenamiento/resultados/logs/
+practicas/practica 3. divide y venceras/datos/
+practicas/practica 3. divide y venceras/resultados/logs/
 *.log
 *.tmp
