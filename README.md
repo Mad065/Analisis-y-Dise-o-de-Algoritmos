@@ -37,6 +37,7 @@ Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 7. 📄 [Divide y vencerás](./apuntes/Divide%20y%20venceras.md)
 8. 📄 [Teorema Maestro](./apuntes/Teorema%20Maestro.md)
 9. 📄 [Algoritmos voraces](./apuntes/Algoritmos%20voraces.md)
+10. 📄 [Codificación de Huffman](./apuntes/Codificacion%20de%20Huffman.md)
 
 *(Más apuntes se irán agregando conforme avance el curso)*
 
