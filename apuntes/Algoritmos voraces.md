@@ -375,9 +375,17 @@ Es un algoritmo fundamental de **compresión de datos sin pérdida**. Los sistem
                    [ 'c': 12 ][ 'd': 13 ]
 ```
 
-#### Análisis de Complejidad
-* **Temporal:** $O(k \log k)$ donde $k$ es el número de caracteres únicos (alfabeto), ya que realizamos $k-1$ extracciones e inserciones en el heap de tamaño $k$.
-* **Espacial:** $O(k)$ para almacenar los nodos del árbol y la tabla de códigos.
+#### Análisis de Complejidad y Propiedades Fundamentales
+* **Temporal:** $O(N + k \log k)$ donde $N$ es la longitud del texto y $k$ es el número de caracteres únicos (alfabeto), ya que realizamos $k-1$ extracciones dobles e inserciones en el *Min-Heap* de tamaño inicial $k$.
+* **Espacial:** $O(k)$ para almacenar los $2k - 1$ nodos del árbol ($k$ hojas y $k - 1$ nodos internos) y la tabla de códigos.
+* **Cotas Teóricas (Teorema de Shannon y Desigualdad de Kraft):**
+  - Entropía de Shannon: $H(X) = -\sum_{i=1}^k p_i \log_2(p_i)$.
+  - Longitud promedio de palabra: $\overline{L} = \sum_{i=1}^k p_i l_i$, cumpliendo siempre $H(X) \le \overline{L} < H(X) + 1$.
+  - Desigualdad de Kraft-McMillan en árbol binario estricto: $\sum_{i=1}^k 2^{-l_i} = 1$.
+* **Serialización y Empaquetado Binario Real:**
+  - Serializar el árbol en preorden (`0` = nodo interno, `1` + $8\text{ bits ASCII}$ = hoja) requiere exactamente $10k - 1\text{ bits}$ ($\lceil (10k - 1)/8 \rceil\text{ bytes}$), frente a los $1024\text{ bytes}$ fijos de guardar una tabla de 256 frecuencias `uint32_t`.
+  - En producción (C++/Python), los códigos no deben guardarse como cadenas de texto `"0101"` (`1 byte` por carácter, lo que infla el tamaño $8\times$), sino empaquetarse a nivel de bits en bloques `uint8_t` mediante desplazamientos (`<<`, `>>`) y máscaras (`&`, `|`), registrando en la cabecera el tamaño original (`uint64_t`) o los bits válidos del último byte para evitar *The Padding Trap*.
+  - *(Véase el apunte dedicado [Codificación de Huffman](Codificacion%20de%20Huffman.md) para demostraciones formales y formulario completo).*
 
 #### Implementación en Python
 
