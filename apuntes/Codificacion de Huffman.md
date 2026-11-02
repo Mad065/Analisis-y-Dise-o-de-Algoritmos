@@ -87,38 +87,60 @@ Cualquier código libre de prefijo sobre un alfabeto binario $\{0, 1\}$ puede re
                 B [010]  C [011]
 ```
 
-### 2.4 Árboles Binarios Estrictos (Completos)
-Un árbol binario para un código de prefijo óptimo debe ser **estricto**: **todo nodo interno debe tener exactamente dos hijos**. Si existiese un nodo interno con un único hijo, podríamos eliminar dicho nodo intermedio y subir al hijo directamente, reduciendo la longitud de código de al menos un símbolo sin alterar la validez del código.
+### 2.4 Árboles Binarios Estrictos (Completos) y sus Propiedades Topológicas
+Un árbol binario para un código de prefijo óptimo debe ser **estricto** (*full binary tree*): **todo nodo interno debe tener exactamente dos hijos**. Si existiese un nodo interno con un único hijo, podríamos eliminar dicho nodo intermedio y subir al hijo directamente, reduciendo la longitud de código de al menos un símbolo sin alterar la validez del código.
 
-### 2.5 Entropía de Shannon y la Desigualdad de Kraft
-¿Cuál es el límite físico absoluto de compresión? 
+Todo árbol binario estricto con $k \ge 2$ hojas (símbolos únicos del alfabeto) satisface invariablemente las siguientes relaciones algebraicas:
+* **Número de nodos internos ($I$):** Dado que el algoritmo inicia con $k$ árboles disjuntos y cada fusión combina $2$ raíces en $1$ nuevo nodo interno (reduciendo en $1$ el número de árboles del bosque), se requieren exactamente:
+  $$I = k - 1 \text{ nodos internos}$$
+* **Número total de nodos del árbol ($N_{\text{nodos}}$):**
+  $$N_{\text{nodos}} = k + I = k + (k - 1) = 2k - 1 \text{ nodos totales}$$
+* **Número total de aristas ($E$):**
+  $$E = N_{\text{nodos}} - 1 = 2k - 2 \text{ aristas}$$
+
+### 2.5 Autoinformación, Entropía de Shannon, Eficiencia y Desigualdad de Kraft
+¿Cuál es el límite físico absoluto de compresión?
+
+#### 0. Frecuencia Relativa y Autoinformación de un Símbolo ($I(s_i)$)
+En un mensaje de longitud total $N$ caracteres sobre un alfabeto de $k = \lvert\Sigma\rvert$ símbolos únicos donde cada símbolo $s_i$ aparece $f_i$ veces ($\sum_{i=1}^k f_i = N$), su probabilidad empírica es:
+$$p_i = \frac{f_i}{N}$$
+La **autoinformación** (o sorpresa) asociada a la ocurrencia individual del símbolo $s_i$ mide cuántos bits teóricos de información aporta dicho símbolo:
+$$I(s_i) = -\log_2(p_i) = \log_2\left(\frac{1}{p_i}\right) \text{ bits (shannons)}$$
 
 #### 1. Entropía de Shannon ($H$)
-Dada una variable aleatoria discreta $X$ que emite símbolos del alfabeto $\Sigma = \{s_1, \dots, s_k\}$ con probabilidades $P(X = s_i) = p_i$, la **entropía** mide la cantidad promedio de información (en bits por símbolo) inherente a la fuente:
+Dada una variable aleatoria discreta $X$ que emite símbolos del alfabeto $\Sigma = \{s_1, \dots, s_k\}$ con probabilidades $P(X = s_i) = p_i$, la **entropía** es el valor esperado de la autoinformación y mide la cantidad promedio de información (en bits por símbolo) inherente a la fuente:
 
-$$H(X) = - \sum_{i=1}^k p_i \log_2(p_i) = \sum_{i=1}^k p_i \log_2\left(\frac{1}{p_i}\right)$$
+$$H(X) = \mathbb{E}[I(X)] = - \sum_{i=1}^k p_i \log_2(p_i) = \sum_{i=1}^k p_i \log_2\left(\frac{1}{p_i}\right) \text{ bits/símbolo}$$
 
-#### 2. Longitud Media Ponderada ($L$)
+* **Cota inferior absoluta de bits para un mensaje completo de longitud $N$:**
+  $$B_{\min} = N \cdot H(X) \text{ bits}$$
+
+#### 2. Longitud Media Ponderada ($\overline{L}$) y Costo Total en Bits ($B(T)$)
 La longitud media del código por símbolo es el valor esperado de la longitud de las palabras de código:
 
-$$L(C) = \sum_{i=1}^k p_i \cdot l_i$$
+$$\overline{L} = L(C) = \sum_{i=1}^k p_i \cdot l_i = \frac{1}{N} \sum_{i=1}^k f_i \cdot l_i \text{ bits/símbolo}$$
 
-Donde $l_i = |c(s_i)|$ es la cantidad de bits asignada al símbolo $s_i$.
+Donde $l_i = \lvert c(s_i)\rvert$ es la cantidad de bits asignada al símbolo $s_i$, y el **costo total en bits útiles** del mensaje codificado es:
+$$B(T) = N \cdot \overline{L} = \sum_{i=1}^k f_i \cdot l_i \text{ bits}$$
 
-#### 3. Teorema de Codificación de Fuente de Shannon
-Shannon demostró que para cualquier código decodificable de manera unívoca:
+#### 3. Teorema de Codificación de Fuente de Shannon, Redundancia y Eficiencia
+Shannon demostró que para cualquier código instantáneo (libre de prefijo) decodificable de manera unívoca se cumple la desigualdad fundamental:
 
-$$H(X) \le L(C) < H(X) + 1$$
+$$H(X) \le \overline{L} < H(X) + 1$$
 
 * La entropía $H(X)$ representa la **cota inferior infranqueable**. Es imposible comprimir sin pérdida por debajo de $H(X)$ bits por símbolo.
-* El algoritmo de Huffman minimiza $L(C)$ y garantiza que la solución construida sea la más cercana posible a $H(X)$ entre todos los códigos libres de prefijo símbolo a símbolo.
+* El algoritmo de Huffman minimiza $\overline{L}$ y garantiza que la solución construida sea la más cercana posible a $H(X)$ entre todos los códigos libres de prefijo símbolo a símbolo.
+* **Redundancia absoluta del código ($R$):** Exceso de bits promedio respecto al límite ideal:
+  $$R = \overline{L} - H(X) \quad (0 \le R < 1\text{ bit/símbolo})$$
+* **Eficiencia del código ($\eta$):** Qué tan cerca está el código del óptimo teórico de Shannon:
+  $$\eta = \frac{H(X)}{\overline{L}} \quad (0 < \eta \le 1, \text{ expresado porcentualmente como } \eta \times 100\%)$$
 
 #### 4. Desigualdad de Kraft-McMillan
 Una condición matemática necesaria y suficiente para que exista un código libre de prefijo con longitudes de palabra $\{l_1, l_2, \dots, l_k\}$ sobre un alfabeto binario es:
 
 $$\sum_{i=1}^k 2^{-l_i} \le 1$$
 
-En un árbol binario estricto (completo), la suma cumple la igualdad exacta: $\sum_{i=1}^k 2^{-l_i} = 1$.
+En un árbol binario estricto (completo) como el generado por Huffman (para $k \ge 2$), la suma cumple la **igualdad estricta**: $\sum_{i=1}^k 2^{-l_i} = 1$, lo que indica que el espacio de códigos está saturado de forma óptima.
 
 ---
 
@@ -525,6 +547,60 @@ En procesadores empotrados y protocolos de hardware, procesar códigos de longit
 
 ---
 
+### 7.5 Diseño Formal del Protocolo de Serialización de la Cabecera (*Header*)
+En Huffman estático, el descompresor necesita reconstruir el árbol sin conocer de antemano el alfabeto ni las probabilidades de la fuente. Por ello, todo archivo comprimido consta de **Cabecera (*Header*)** + **Cuerpo de Bits (*Payload*)**. Existen dos enfoques fundamentales para serializar esta información:
+
+#### Opción A: Guardar la Tabla de Frecuencias Completa
+* Se reserva un arreglo estático de $256$ entradas (para ASCII extendido `0x00` a `0xFF`), donde cada frecuencia se almacena como un entero sin signo de $4\text{ bytes}$ (`uint32_t`).
+* **Sobrecarga fija (*Overhead*):**
+  $$\text{Overhead}_{\text{Tabla}} = 256 \times 4\text{ bytes} = \mathbf{1024\text{ bytes}} \quad (8192\text{ bits})$$
+* **Desventaja:** En archivos pequeños o medianos ($N < 1024\text{ bytes}$) produce una expansión masiva debido a almacenar ceros para símbolos ausentes, además de obligar al descompresor a volver a ejecutar el *Min-Heap* en $O(k \log k)$.
+
+#### Opción B: Guardar el Árbol Serializado mediante Recorrido en Preorden a Nivel de Bits
+* Se recorre el árbol binario estricto en **Preorden (Raíz $\to$ Izquierda $\to$ Derecha)**:
+  1. Si el nodo es **interno**, se escribe un único bit **`0`** y se desciende recursivamente a sus dos hijos.
+  2. Si el nodo es **hoja**, se escribe un bit **`1`** seguido inmediatamente de los **$8\text{ bits}$** (`uint8_t`) del carácter ASCII.
+* **Cálculo exacto de sobrecarga en función de $k$ símbolos únicos:**
+  Como el árbol tiene $k$ hojas y $I = k - 1$ nodos internos ($N_{\text{nodos}} = 2k - 1$ nodos totales):
+  $$\text{Bits}_{\text{Preorden}}(k) = \underbrace{(2k - 1) \times 1\text{ bit}}_{\text{Estructura topológica}} + \underbrace{k \times 8\text{ bits}}_{\text{Caracteres en hojas}} = \mathbf{10k - 1\text{ bits}}$$
+  $$\text{Overhead}_{\text{Preorden}}(k) = \left\lceil \frac{10k - 1}{8} \right\rceil \text{ bytes}$$
+* **Ventaja:** Escala linealmente con los símbolos activos ($k \le 256$; incluso en el peor caso $k = 256$ ocupa solo $320\text{ bytes}$ frente a $1024\text{ bytes}$), permite reconstruir el árbol recursivamente en tiempo $\Theta(k)$ sin usar *Min-Heap*, y elimina cualquier discrepancia de desempates entre compresor y descompresor.
+
+---
+
+### 7.6 Ingeniería de Bajo Nivel y Auditoría de Trampas Comunes
+
+#### 1. La Trampa de las "Cadenas de Texto Binarias" (`std::string` de `'0'` y `'1'`)
+Un error frecuente al programar Huffman por primera vez es concatenar los códigos en un `std::string` (ej. `"01011"`) y volcarlos a disco:
+* Cada carácter `'0'` (`0x30`) o `'1'` (`0x31`) en un `std::string` ocupa **$1\text{ byte completo} = 8\text{ bits}$**, no $1\text{ bit}$.
+* Esto multiplica el tamaño del flujo comprimido por **$8\times$** ($\text{Tamaño} = N \cdot \overline{L}\text{ bytes}$ en lugar de $\lceil N \cdot \overline{L} / 8 \rceil\text{ bytes}$), expandiendo el archivo original en lugar de comprimirlo.
+* En memoria RAM, debido al factor de crecimiento geométrico ($\alpha = 2$) de `std::string` durante realocaciones dinámicas en el *heap*, llega a consumir hasta **$24\times$ más memoria** que un buffer empaquetado `std::vector<uint8_t>`, además de sufrir degradación temporal $\Theta(N^2)$ si se concatena por copia (`s = s + code`).
+* **Solución (`BitWriter` / `BitReader`):** Empaquetar los bits sobre un registro acumulador `uint8_t current_byte` usando desplazamientos (`<<`, `>>`) y máscaras a nivel de bits (`|`, `&`):
+  ```cpp
+  // Escribir 1 bit (MSB-first):
+  current_byte = (current_byte << 1) | (bit & 1U);
+  // Leer 1 bit en posición bit_idx (0..7):
+  uint8_t bit = (byte >> (7 - bit_idx)) & 1U;
+  ```
+
+#### 2. El Bug del Último Byte (*The Padding Trap*)
+Como los archivos en disco solo pueden escribirse en múltiplos enteros de $1\text{ byte}$ ($8\text{ bits}$), cuando el total de bits comprimidos $B(T)$ no es múltiplo de $8$, el último byte contiene $v = (B(T) \bmod 8)$ bits útiles y se rellena con $p = (8 - v) \bmod 8$ ceros a la derecha (*padding*):
+$$\text{Ejemplo: Flujo } \texttt{10110011 010} \implies \text{Byte 0: }\texttt{10110011},\quad \text{Último Byte: }\texttt{010}\underbrace{\texttt{00000}}_{\text{padding}}$$
+* **El problema:** Si el decodificador lee ciegamente los $8\text{ bits}$ del último byte, recorrerá la rama izquierda (`0`) cinco veces seguidas durante el *padding*, alcanzando hojas válidas e inyectando **caracteres espurios (*garbage characters*)** al final del archivo descomprimido.
+* **Soluciones formales en cabecera:**
+  1. Almacenar el número total de caracteres originales como entero de 64 bits (`uint64_t original_size`) y detener el bucle exactamente al emitir `original_size` símbolos.
+  2. Almacenar en $1\text{ byte}$ (`uint8_t valid_bits_last_byte`) cuántos bits son válidos en el último byte ($1 \dots 8$).
+
+#### 3. Casos Borde Críticos (*Edge Cases*)
+* **Archivos Homogéneos Extremos ($k = 1$, ej. $10^7$ repeticiones de `'A'`):**
+  - La entropía es $H(X) = 0\text{ bits/símbolo}$, pero Huffman asigna longitud mínima $l_A = 1\text{ bit/símbolo}$ ($\overline{L} = 1.0$, logrando compresión de $8:1$ o ratio del $12.5\%$).
+  - Se debe cuidar no asignar longitud $0$ (cadena vacía `""`), lo que causaría un **bucle infinito** al descomprimir, y verificar que el nodo raíz especial para $k = 1$ no desreferencie un hijo derecho nulo (`nullptr->frequency` $\implies$ `SIGSEGV`).
+* **Archivos Previamente Comprimidos o Aleatorios (`.zip`, `.png`, `.jpg`, `.mp4`):**
+  - Presentan distribución uniforme sobre los $256$ bytes ($p_i \approx 1/256$), por lo que su entropía es máxima: $H(X) \approx 8.0\text{ bits/byte}$ y $\overline{L} = 8.0\text{ bits/byte}$.
+  - El cuerpo comprimido mide exactamente lo mismo que el original y, al sumar los bytes de la cabecera, **el archivo siempre se expande** (manifestación directa del *Principio del Palomar*).
+
+---
+
 ## 8. Implementaciones en Código
 
 A continuación se presentan implementaciones de nivel profesional en **Python** y **Java**, los dos lenguajes centrales del curso.
@@ -923,3 +999,70 @@ Shannon-Fano trabaja *top-down*: divide el conjunto en dos mitades con pesos lo 
   2. *Optimal Substructure:* Al sustituir los dos hermanos por su padre, el árbol resultante es óptimo para el alfabeto reducido.
 * **Límite Teórico:** Entropía de Shannon $H(X) \le L < H(X) + 1$.
 * **Estándar en Producción:** DEFLATE (ZIP/GZIP/PNG), JPEG, MP3, HTTP/2 HPACK, HTTP/3 QPACK.
+
+---
+
+## 13. Formulario General de Teoría de la Información y Codificación de Huffman
+
+Esta sección concentra todas las expresiones matemáticas, cotas teóricas, relaciones topológicas y métricas de rendimiento utilizadas en la resolución de problemas y prácticas de laboratorio.
+
+### 13.1 Frecuencias, Probabilidad y Autoinformación
+Dado un mensaje $\mathcal{M}$ de longitud total $N$ caracteres sobre un alfabeto $\Sigma = \{c_1, c_2, \dots, c_k\}$ de $k = \lvert\Sigma\rvert$ símbolos únicos, donde $f_i$ es la frecuencia absoluta del símbolo $c_i$:
+
+| Concepto / Métrica | Expresión Matemática | Unidades / Dominio |
+| :--- | :---: | :---: |
+| **Restricción de frecuencias absolutas** | $\displaystyle \sum_{i=1}^{k} f_i = N$ | Caracteres / Símbolos |
+| **Frecuencia relativa (Probabilidad empírica)** | $\displaystyle p_i = \frac{f_i}{N}$ | $0 < p_i \le 1, \quad \sum_{i=1}^{k} p_i = 1$ |
+| **Autoinformación de un símbolo individual** | $\displaystyle I(c_i) = -\log_2(p_i) = \log_2\left(\frac{1}{p_i}\right) = \log_2\left(\frac{N}{f_i}\right)$ | $\text{bits}$ (*shannons*) |
+| **Entropía Empírica de Shannon** | $\displaystyle H(X) = -\sum_{i=1}^{k} p_i \log_2(p_i) = \sum_{i=1}^{k} \frac{f_i}{N} \log_2\left(\frac{N}{f_i}\right)$ | $\text{bits/símbolo}$ ($0 \le H(X) \le \log_2 k$) |
+| **Entropía Máxima (Distribución Uniforme)** | $\displaystyle H_{\max}(X) = \log_2(k) \quad (\text{cuando } p_i = 1/k \;\;\forall i)$ | $\text{bits/símbolo}$ ($8\text{ bits/byte}$ si $k=256$) |
+| **Entropía Mínima (Archivo Homogéneo)** | $\displaystyle H_{\min}(X) = 0 \quad (\text{cuando } k = 1, \; p_1 = 1)$ | $\text{bits/símbolo}$ |
+| **Cota inferior teórica de bits del mensaje** | $\displaystyle B_{\min} = N \cdot H(X)$ | $\text{bits totales}$ |
+
+---
+
+### 13.2 Longitud del Código, Costo del Árbol y Cotas Fundamentales
+Sea $l_i = \lvert c_i \rvert = d_T(c_i)$ la longitud en bits del código binario asignado al símbolo $c_i$ (igual a la profundidad de su hoja en el árbol $T$):
+
+| Concepto / Teorema | Expresión Matemática | Interpretación |
+| :--- | :---: | :--- |
+| **Longitud de código fijo mínimo** | $\displaystyle L_{\text{fijo}} = \lceil \log_2(k) \rceil$ | $\text{bits/símbolo}$ sin compresión estadística |
+| **Longitud promedio de palabra de código** | $\displaystyle \overline{L} = \sum_{i=1}^{k} p_i \cdot l_i = \frac{1}{N} \sum_{i=1}^{k} f_i \cdot l_i$ | $\text{bits/símbolo}$ |
+| **Costo ponderado total del árbol (Bits útiles)** | $\displaystyle B(T) = N \cdot \overline{L} = \sum_{i=1}^{k} f_i \cdot l_i$ | $\text{bits totales del cuerpo}$ |
+| **Desigualdad Fundamental de Shannon** | $\displaystyle H(X) \le \overline{L} < H(X) + 1$ | Teorema de Codificación de Fuente |
+| **Desigualdad de Kraft-McMillan** | $\displaystyle \sum_{i=1}^{k} 2^{-l_i} \le 1$ | Condición necesaria y suficiente de código libre de prefijo |
+| **Condición de Árbol Binario Estricto Completo** | $\displaystyle \sum_{i=1}^{k} 2^{-l_i} = 1$ | El espacio de códigos de prefijo está saturado ($k \ge 2$) |
+| **Redundancia absoluta del código** | $\displaystyle R = \overline{L} - H(X)$ | $\text{bits/símbolo}$ ($0 \le R < 1$) |
+| **Redundancia relativa porcentual** | $\displaystyle R_{\%} = \frac{\overline{L} - H(X)}{H(X)} \times 100\%$ | $\%$ de exceso sobre la entropía |
+| **Eficiencia de codificación** | $\displaystyle \eta = \frac{H(X)}{\overline{L}} \times 100\%$ | $\%$ de cercanía al límite de Shannon ($0\% < \eta \le 100\%$) |
+
+---
+
+### 13.3 Propiedades Topológicas del Árbol de Huffman y Serialización de Cabecera
+Para un alfabeto activo con $k \ge 2$ símbolos únicos (hojas):
+
+| Propiedad / Esquema de Serialización | Fórmula Exacta | Notas de Implementación |
+| :--- | :---: | :--- |
+| **Número de hojas del árbol** | $\displaystyle H_{\text{hojas}} = k$ | $1$ hoja por cada símbolo único presente |
+| **Número de nodos internos (fusiones)** | $\displaystyle I = k - 1$ | Cada iteración del *Min-Heap* crea $1$ nodo interno |
+| **Número total de nodos del árbol** | $\displaystyle N_{\text{nodos}} = k + I = 2k - 1$ | Árbol binario estricto (*full binary tree*) |
+| **Número total de aristas del árbol** | $\displaystyle E = N_{\text{nodos}} - 1 = 2k - 2$ | Mitad etiquetadas con `0` y mitad con `1` |
+| **Sobrecarga Opción A (Tabla Frecuencias 256)** | $\displaystyle \text{Overhead}_A = 256 \times 4\text{ B} = 1024\text{ bytes}$ | $8192\text{ bits}$ fijos (usando `uint32_t` por entrada ASCII) |
+| **Sobrecarga Opción B (Árbol en Preorden — Bits)** | $\displaystyle \text{Bits}_B(k) = (2k - 1)\cdot 1 + 8k = 10k - 1\text{ bits}$ | `0` = nodo interno ($1\text{ bit}$), `1` + ASCII = hoja ($9\text{ bits}$) |
+| **Sobrecarga Opción B (Árbol en Preorden — Bytes)** | $\displaystyle \text{Overhead}_B(k) = \left\lceil \frac{10k - 1}{8} \right\rceil \text{ bytes}$ | Para $k=17$: $169\text{ bits} \implies 22\text{ bytes}$ |
+
+---
+
+### 13.4 Empaquetado en Bytes, Padding y Métricas de Compresión de Archivos
+
+| Métrica de Archivo / Empaquetado | Fórmula Exacta | Descripción |
+| :--- | :---: | :--- |
+| **Tamaño del cuerpo comprimido en bytes** | $\displaystyle \text{Bytes}_{\text{payload}} = \left\lceil \frac{B(T)}{8} \right\rceil = \left\lceil \frac{N \cdot \overline{L}}{8} \right\rceil$ | Empaquetado real en arreglo de `uint8_t` |
+| **Bits válidos en el último byte** | $\displaystyle v = \begin{cases} 8 & \text{si } B(T) \bmod 8 = 0 \\ B(T) \bmod 8 & \text{si } B(T) \bmod 8 \ne 0 \end{cases}$ | Almacenado en cabecera para evitar *The Padding Trap* |
+| **Bits de relleno (*padding*) en el último byte** | $\displaystyle p = (8 - (B(T) \bmod 8)) \bmod 8 = 8 - v$ | Cantidad de ceros añadidos al LSB del último byte ($0 \le p \le 7$) |
+| **Tamaño total del archivo comprimido** | $\displaystyle \text{Bytes}_{\text{comp}} = \text{Bytes}_{\text{header}} + \text{Bytes}_{\text{payload}}$ | Suma de cabecera serializada más datos empaquetados |
+| **Ratio de Compresión (Proporción Final)** | $\displaystyle \text{Ratio} = \frac{\text{Bytes}_{\text{comp}}}{\text{Bytes}_{\text{orig}}} \times 100\%$ | $< 100\%$ indica compresión efectiva; $> 100\%$ indica expansión |
+| **Tasa de Ahorro de Espacio** | $\displaystyle \text{Ahorro} = \left(1 - \frac{\text{Bytes}_{\text{comp}}}{\text{Bytes}_{\text{orig}}}\right) \times 100\% = 100\% - \text{Ratio}$ | Porcentaje de bytes eliminados respecto al original |
+| **Factor / Razón de Compresión** | $\displaystyle C_R = \frac{\text{Bytes}_{\text{orig}}}{\text{Bytes}_{\text{comp}}} = \frac{8}{\overline{L}_{\text{efectivo}}}$ | Ejemplo: para archivo homogéneo ($k=1$), $C_R \approx 8:1$ |
+| **Desperdicio por trampa de `std::string`** | $\displaystyle \text{Bytes}_{\text{string}} = 8 \times \text{Bytes}_{\text{payload}} = N \cdot \overline{L}\text{ bytes}$ | Multiplicación por $8$ en disco y hasta $24\times$ en RAM por realocación |
+
