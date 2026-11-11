@@ -1,0 +1,180 @@
+{
+  "pequenos": [
+    {
+      "nombre": "cambio_peq_m6",
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "monto": 6
+    },
+    {
+      "nombre": "cambio_peq_m9",
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "monto": 9
+    },
+    {
+      "nombre": "cambio_peq_m12",
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "monto": 12
+    },
+    {
+      "nombre": "cambio_peq_m15",
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "monto": 15
+    },
+    {
+      "nombre": "cambio_peq_m18",
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "monto": 18
+    }
+  ],
+  "medianos": [
+    {
+      "nombre": "cambio_med_m100",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 100
+    },
+    {
+      "nombre": "cambio_med_m250",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 250
+    },
+    {
+      "nombre": "cambio_med_m500",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 500
+    },
+    {
+      "nombre": "cambio_med_m1000",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 1000
+    }
+  ],
+  "grandes": [
+    {
+      "nombre": "cambio_gran_m2500",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 2500
+    },
+    {
+      "nombre": "cambio_gran_m5000",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 5000
+    },
+    {
+      "nombre": "cambio_gran_m10000",
+      "monedas": [
+        1,
+        2,
+        5,
+        10,
+        20
+      ],
+      "monto": 10000
+    }
+  ],
+  "no_canonicos_vs_voraz": [
+    {
+      "nombre": "no_canonico_1_3_4_m6",
+      "descripcion": "Monedas [1, 3, 4], monto 6. Voraz elige 4+1+1 (3 monedas). DP elige 3+3 (2 monedas).",
+      "monedas": [
+        1,
+        3,
+        4
+      ],
+      "monto": 6,
+      "optimo_esperado": 2,
+      "voraz_esperado": 3
+    },
+    {
+      "nombre": "no_canonico_1_15_25_m30",
+      "descripcion": "Monedas [1, 15, 25], monto 30. Voraz elige 25+1*5 (6 monedas). DP elige 15+15 (2 monedas).",
+      "monedas": [
+        1,
+        15,
+        25
+      ],
+      "monto": 30,
+      "optimo_esperado": 2,
+      "voraz_esperado": 6
+    },
+    {
+      "nombre": "no_canonico_1_6_10_m12",
+      "descripcion": "Monedas [1, 6, 10], monto 12. Voraz elige 10+1+1 (3 monedas). DP elige 6+6 (2 monedas).",
+      "monedas": [
+        1,
+        6,
+        10
+      ],
+      "monto": 12,
+      "optimo_esperado": 2,
+      "voraz_esperado": 3
+    }
+  ],
+  "imposibles": [
+    {
+      "nombre": "imposible_pares_monto_impar",
+      "monedas": [
+        2,
+        4,
+        6
+      ],
+      "monto": 15,
+      "optimo_esperado": -1
+    }
+  ]
+}

@@ -1,0 +1,1041 @@
+{
+  "mochila_pequena": [
+    {
+      "n": 4,
+      "capacidad": 13,
+      "recursivo": {
+        "tiempo_ms": 0.0036,
+        "memoria_kib": 4.438,
+        "valor_optimo": 42,
+        "llamadas": 20,
+        "subproblemas": 20,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00437,
+        "memoria_kib": 5.859,
+        "valor_optimo": 42,
+        "llamadas": 20,
+        "subproblemas": 11,
+        "tamanio_tabla": 11
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00747,
+        "memoria_kib": 2.844,
+        "valor_optimo": 42,
+        "llamadas": 0,
+        "subproblemas": 70,
+        "tamanio_tabla": 70
+      }
+    },
+    {
+      "n": 8,
+      "capacidad": 36,
+      "recursivo": {
+        "tiempo_ms": 0.03077,
+        "memoria_kib": 5.152,
+        "valor_optimo": 138,
+        "llamadas": 305,
+        "subproblemas": 305,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.02734,
+        "memoria_kib": 16.695,
+        "valor_optimo": 138,
+        "llamadas": 193,
+        "subproblemas": 107,
+        "tamanio_tabla": 107
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.02787,
+        "memoria_kib": 4.273,
+        "valor_optimo": 138,
+        "llamadas": 0,
+        "subproblemas": 333,
+        "tamanio_tabla": 333
+      }
+    },
+    {
+      "n": 12,
+      "capacidad": 46,
+      "recursivo": {
+        "tiempo_ms": 0.43733,
+        "memoria_kib": 7.213,
+        "valor_optimo": 185,
+        "llamadas": 4575,
+        "subproblemas": 4575,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.08137,
+        "memoria_kib": 33.527,
+        "valor_optimo": 185,
+        "llamadas": 572,
+        "subproblemas": 304,
+        "tamanio_tabla": 304
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.05694,
+        "memoria_kib": 6.664,
+        "valor_optimo": 185,
+        "llamadas": 0,
+        "subproblemas": 611,
+        "tamanio_tabla": 611
+      }
+    },
+    {
+      "n": 16,
+      "capacidad": 60,
+      "recursivo": {
+        "tiempo_ms": 6.55875,
+        "memoria_kib": 9.117,
+        "valor_optimo": 306,
+        "llamadas": 71458,
+        "subproblemas": 71458,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.1485,
+        "memoria_kib": 60.578,
+        "valor_optimo": 306,
+        "llamadas": 1129,
+        "subproblemas": 589,
+        "tamanio_tabla": 589
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.08913,
+        "memoria_kib": 11.566,
+        "valor_optimo": 306,
+        "llamadas": 0,
+        "subproblemas": 1037,
+        "tamanio_tabla": 1037
+      }
+    },
+    {
+      "n": 20,
+      "capacidad": 81,
+      "recursivo": {
+        "tiempo_ms": 109.31356,
+        "memoria_kib": 11.086,
+        "valor_optimo": 413,
+        "llamadas": 1170310,
+        "subproblemas": 1170310,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.28143,
+        "memoria_kib": 109.195,
+        "valor_optimo": 413,
+        "llamadas": 2056,
+        "subproblemas": 1061,
+        "tamanio_tabla": 1061
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.14916,
+        "memoria_kib": 22.277,
+        "valor_optimo": 413,
+        "llamadas": 0,
+        "subproblemas": 1722,
+        "tamanio_tabla": 1722
+      }
+    }
+  ],
+  "mochila_escalabilidad": [
+    {
+      "n": 50,
+      "capacidad": 250,
+      "memo": {
+        "tiempo_ms": 2.81308,
+        "memoria_kib": 1012.316,
+        "valor_optimo": 2195,
+        "llamadas": 19038,
+        "subproblemas": 9711,
+        "tamanio_tabla": 9711
+      },
+      "tabulacion": {
+        "tiempo_ms": 1.15738,
+        "memoria_kib": 293.992,
+        "valor_optimo": 2195,
+        "llamadas": 0,
+        "subproblemas": 12801,
+        "tamanio_tabla": 12801
+      }
+    },
+    {
+      "n": 100,
+      "capacidad": 500,
+      "memo": {
+        "tiempo_ms": 13.04842,
+        "memoria_kib": 4720.641,
+        "valor_optimo": 3493,
+        "llamadas": 82621,
+        "subproblemas": 41749,
+        "tamanio_tabla": 41749
+      },
+      "tabulacion": {
+        "tiempo_ms": 4.96092,
+        "memoria_kib": 1125.738,
+        "valor_optimo": 3493,
+        "llamadas": 0,
+        "subproblemas": 50601,
+        "tamanio_tabla": 50601
+      }
+    },
+    {
+      "n": 150,
+      "capacidad": 750,
+      "memo": {
+        "tiempo_ms": 29.67346,
+        "memoria_kib": 15330.562,
+        "valor_optimo": 4522,
+        "llamadas": 183361,
+        "subproblemas": 92421,
+        "tamanio_tabla": 92421
+      },
+      "tabulacion": {
+        "tiempo_ms": 11.22533,
+        "memoria_kib": 2483.891,
+        "valor_optimo": 4522,
+        "llamadas": 0,
+        "subproblemas": 113401,
+        "tamanio_tabla": 113401
+      }
+    },
+    {
+      "n": 200,
+      "capacidad": 1000,
+      "memo": {
+        "tiempo_ms": 54.53604,
+        "memoria_kib": 20021.547,
+        "valor_optimo": 7380,
+        "llamadas": 328794,
+        "subproblemas": 165430,
+        "tamanio_tabla": 165430
+      },
+      "tabulacion": {
+        "tiempo_ms": 20.21367,
+        "memoria_kib": 4555.098,
+        "valor_optimo": 7380,
+        "llamadas": 0,
+        "subproblemas": 201201,
+        "tamanio_tabla": 201201
+      }
+    },
+    {
+      "n": 300,
+      "capacidad": 1500,
+      "memo": {
+        "tiempo_ms": 128.11596,
+        "memoria_kib": 63566.57,
+        "valor_optimo": 11041,
+        "llamadas": 731454,
+        "subproblemas": 367113,
+        "tamanio_tabla": 367113
+      },
+      "tabulacion": {
+        "tiempo_ms": 46.80933,
+        "memoria_kib": 10441.195,
+        "valor_optimo": 11041,
+        "llamadas": 0,
+        "subproblemas": 451801,
+        "tamanio_tabla": 451801
+      }
+    }
+  ],
+  "cambio_pequeno": [
+    {
+      "monto": 6,
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "recursivo": {
+        "tiempo_ms": 0.00925,
+        "memoria_kib": 4.953,
+        "valor_optimo": 2,
+        "llamadas": 64,
+        "subproblemas": 64,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00403,
+        "memoria_kib": 5.727,
+        "valor_optimo": 2,
+        "llamadas": 19,
+        "subproblemas": 6,
+        "tamanio_tabla": 6
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00276,
+        "memoria_kib": 1.719,
+        "valor_optimo": 2,
+        "llamadas": 0,
+        "subproblemas": 7,
+        "tamanio_tabla": 7
+      }
+    },
+    {
+      "monto": 9,
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "recursivo": {
+        "tiempo_ms": 0.0375,
+        "memoria_kib": 5.434,
+        "valor_optimo": 3,
+        "llamadas": 319,
+        "subproblemas": 319,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00528,
+        "memoria_kib": 6.18,
+        "valor_optimo": 3,
+        "llamadas": 28,
+        "subproblemas": 9,
+        "tamanio_tabla": 9
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00309,
+        "memoria_kib": 1.32,
+        "valor_optimo": 3,
+        "llamadas": 0,
+        "subproblemas": 10,
+        "tamanio_tabla": 10
+      }
+    },
+    {
+      "monto": 12,
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "recursivo": {
+        "tiempo_ms": 0.17123,
+        "memoria_kib": 6.84,
+        "valor_optimo": 3,
+        "llamadas": 1582,
+        "subproblemas": 1582,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00663,
+        "memoria_kib": 7.883,
+        "valor_optimo": 3,
+        "llamadas": 37,
+        "subproblemas": 12,
+        "tamanio_tabla": 12
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00352,
+        "memoria_kib": 1.438,
+        "valor_optimo": 3,
+        "llamadas": 0,
+        "subproblemas": 13,
+        "tamanio_tabla": 13
+      }
+    },
+    {
+      "monto": 15,
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "recursivo": {
+        "tiempo_ms": 0.84669,
+        "memoria_kib": 8.375,
+        "valor_optimo": 3,
+        "llamadas": 7843,
+        "subproblemas": 7843,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.0085,
+        "memoria_kib": 9.312,
+        "valor_optimo": 3,
+        "llamadas": 46,
+        "subproblemas": 15,
+        "tamanio_tabla": 15
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00439,
+        "memoria_kib": 1.555,
+        "valor_optimo": 3,
+        "llamadas": 0,
+        "subproblemas": 16,
+        "tamanio_tabla": 16
+      }
+    },
+    {
+      "monto": 18,
+      "monedas": [
+        1,
+        2,
+        5
+      ],
+      "recursivo": {
+        "tiempo_ms": 4.21313,
+        "memoria_kib": 9.922,
+        "valor_optimo": 5,
+        "llamadas": 38869,
+        "subproblemas": 38869,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00932,
+        "memoria_kib": 10.742,
+        "valor_optimo": 5,
+        "llamadas": 55,
+        "subproblemas": 18,
+        "tamanio_tabla": 18
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00486,
+        "memoria_kib": 1.703,
+        "valor_optimo": 5,
+        "llamadas": 0,
+        "subproblemas": 19,
+        "tamanio_tabla": 19
+      }
+    }
+  ],
+  "cambio_escalabilidad": [
+    {
+      "monto": 100,
+      "memo": {
+        "tiempo_ms": 0.09275,
+        "memoria_kib": 55.887,
+        "valor_optimo": 1,
+        "llamadas": 701,
+        "subproblemas": 100,
+        "tamanio_tabla": 100
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.0305,
+        "memoria_kib": 4.875,
+        "valor_optimo": 1,
+        "llamadas": 0,
+        "subproblemas": 101,
+        "tamanio_tabla": 101
+      }
+    },
+    {
+      "monto": 500,
+      "memo": {
+        "tiempo_ms": 0.47429,
+        "memoria_kib": 274.797,
+        "valor_optimo": 5,
+        "llamadas": 3501,
+        "subproblemas": 500,
+        "tamanio_tabla": 500
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.16975,
+        "memoria_kib": 20.613,
+        "valor_optimo": 5,
+        "llamadas": 0,
+        "subproblemas": 501,
+        "tamanio_tabla": 501
+      }
+    },
+    {
+      "monto": 1000,
+      "memo": {
+        "tiempo_ms": 0.97054,
+        "memoria_kib": 550.188,
+        "valor_optimo": 10,
+        "llamadas": 7001,
+        "subproblemas": 1000,
+        "tamanio_tabla": 1000
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.35025,
+        "memoria_kib": 40.207,
+        "valor_optimo": 10,
+        "llamadas": 0,
+        "subproblemas": 1001,
+        "tamanio_tabla": 1001
+      }
+    },
+    {
+      "monto": 2500,
+      "memo": {
+        "tiempo_ms": 2.4155,
+        "memoria_kib": 1376.359,
+        "valor_optimo": 25,
+        "llamadas": 17501,
+        "subproblemas": 2500,
+        "tamanio_tabla": 2500
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.89692,
+        "memoria_kib": 98.926,
+        "valor_optimo": 25,
+        "llamadas": 0,
+        "subproblemas": 2501,
+        "tamanio_tabla": 2501
+      }
+    },
+    {
+      "monto": 5000,
+      "memo": {
+        "tiempo_ms": 4.79958,
+        "memoria_kib": 2753.312,
+        "valor_optimo": 50,
+        "llamadas": 35001,
+        "subproblemas": 5000,
+        "tamanio_tabla": 5000
+      },
+      "tabulacion": {
+        "tiempo_ms": 1.77913,
+        "memoria_kib": 196.738,
+        "valor_optimo": 50,
+        "llamadas": 0,
+        "subproblemas": 5001,
+        "tamanio_tabla": 5001
+      }
+    }
+  ],
+  "cambio_optimalidad": [
+    {
+      "nombre": "no_canonico_1_3_4_m6",
+      "monedas": [
+        1,
+        3,
+        4
+      ],
+      "monto": 6,
+      "dp_optimo": 2,
+      "dp_monedas": [
+        3,
+        3
+      ],
+      "voraz_monedas_total": 3,
+      "voraz_monedas": [
+        4,
+        1,
+        1
+      ],
+      "es_suboptimo_voraz": true
+    },
+    {
+      "nombre": "no_canonico_1_15_25_m30",
+      "monedas": [
+        1,
+        15,
+        25
+      ],
+      "monto": 30,
+      "dp_optimo": 2,
+      "dp_monedas": [
+        15,
+        15
+      ],
+      "voraz_monedas_total": 6,
+      "voraz_monedas": [
+        25,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "es_suboptimo_voraz": true
+    },
+    {
+      "nombre": "no_canonico_1_6_10_m12",
+      "monedas": [
+        1,
+        6,
+        10
+      ],
+      "monto": 12,
+      "dp_optimo": 2,
+      "dp_monedas": [
+        6,
+        6
+      ],
+      "voraz_monedas_total": 3,
+      "voraz_monedas": [
+        10,
+        1,
+        1
+      ],
+      "es_suboptimo_voraz": true
+    }
+  ],
+  "lcsq_pequeno": [
+    {
+      "longitud": 3,
+      "recursivo": {
+        "tiempo_ms": 0.00433,
+        "memoria_kib": 4.5,
+        "valor_optimo": 1,
+        "llamadas": 27,
+        "subproblemas": 27,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00365,
+        "memoria_kib": 5.852,
+        "valor_optimo": 1,
+        "llamadas": 17,
+        "subproblemas": 9,
+        "tamanio_tabla": 9
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00397,
+        "memoria_kib": 2.305,
+        "valor_optimo": 1,
+        "llamadas": 0,
+        "subproblemas": 16,
+        "tamanio_tabla": 16
+      }
+    },
+    {
+      "longitud": 4,
+      "recursivo": {
+        "tiempo_ms": 0.00704,
+        "memoria_kib": 4.469,
+        "valor_optimo": 2,
+        "llamadas": 63,
+        "subproblemas": 63,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00479,
+        "memoria_kib": 5.883,
+        "valor_optimo": 2,
+        "llamadas": 26,
+        "subproblemas": 14,
+        "tamanio_tabla": 14
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00477,
+        "memoria_kib": 1.55,
+        "valor_optimo": 2,
+        "llamadas": 0,
+        "subproblemas": 25,
+        "tamanio_tabla": 25
+      }
+    },
+    {
+      "longitud": 5,
+      "recursivo": {
+        "tiempo_ms": 0.00579,
+        "memoria_kib": 4.469,
+        "valor_optimo": 2,
+        "llamadas": 49,
+        "subproblemas": 49,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00468,
+        "memoria_kib": 6.43,
+        "valor_optimo": 2,
+        "llamadas": 26,
+        "subproblemas": 15,
+        "tamanio_tabla": 15
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00582,
+        "memoria_kib": 1.69,
+        "valor_optimo": 2,
+        "llamadas": 0,
+        "subproblemas": 36,
+        "tamanio_tabla": 36
+      }
+    },
+    {
+      "longitud": 6,
+      "recursivo": {
+        "tiempo_ms": 0.036,
+        "memoria_kib": 5.902,
+        "valor_optimo": 3,
+        "llamadas": 382,
+        "subproblemas": 382,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00847,
+        "memoria_kib": 9.25,
+        "valor_optimo": 3,
+        "llamadas": 54,
+        "subproblemas": 30,
+        "tamanio_tabla": 30
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00795,
+        "memoria_kib": 1.848,
+        "valor_optimo": 3,
+        "llamadas": 0,
+        "subproblemas": 49,
+        "tamanio_tabla": 49
+      }
+    },
+    {
+      "longitud": 7,
+      "recursivo": {
+        "tiempo_ms": 0.1069,
+        "memoria_kib": 6.84,
+        "valor_optimo": 4,
+        "llamadas": 1233,
+        "subproblemas": 1233,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.01213,
+        "memoria_kib": 12.633,
+        "valor_optimo": 4,
+        "llamadas": 85,
+        "subproblemas": 48,
+        "tamanio_tabla": 48
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00872,
+        "memoria_kib": 2.021,
+        "valor_optimo": 4,
+        "llamadas": 0,
+        "subproblemas": 64,
+        "tamanio_tabla": 64
+      }
+    }
+  ],
+  "lcsq_escalabilidad": [
+    {
+      "longitud": 50,
+      "memo": {
+        "tiempo_ms": 0.39975,
+        "memoria_kib": 225.809,
+        "valor_optimo": 31,
+        "llamadas": 2827,
+        "subproblemas": 1643,
+        "tamanio_tabla": 1643
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.26225,
+        "memoria_kib": 24.836,
+        "valor_optimo": 31,
+        "llamadas": 0,
+        "subproblemas": 2601,
+        "tamanio_tabla": 2601
+      }
+    },
+    {
+      "longitud": 100,
+      "memo": {
+        "tiempo_ms": 1.6005,
+        "memoria_kib": 815.59,
+        "valor_optimo": 63,
+        "llamadas": 11530,
+        "subproblemas": 6641,
+        "tamanio_tabla": 6641
+      },
+      "tabulacion": {
+        "tiempo_ms": 1.01846,
+        "memoria_kib": 87.664,
+        "valor_optimo": 63,
+        "llamadas": 0,
+        "subproblemas": 10201,
+        "tamanio_tabla": 10201
+      }
+    },
+    {
+      "longitud": 200,
+      "memo": {
+        "tiempo_ms": 7.01533,
+        "memoria_kib": 3187.652,
+        "valor_optimo": 130,
+        "llamadas": 47384,
+        "subproblemas": 27373,
+        "tamanio_tabla": 27373
+      },
+      "tabulacion": {
+        "tiempo_ms": 4.09417,
+        "memoria_kib": 330.761,
+        "valor_optimo": 130,
+        "llamadas": 0,
+        "subproblemas": 40401,
+        "tamanio_tabla": 40401
+      }
+    },
+    {
+      "longitud": 350,
+      "memo": {
+        "tiempo_ms": 21.69958,
+        "memoria_kib": 7726.828,
+        "valor_optimo": 223,
+        "llamadas": 146902,
+        "subproblemas": 84560,
+        "tamanio_tabla": 84560
+      },
+      "tabulacion": {
+        "tiempo_ms": 12.70138,
+        "memoria_kib": 987.578,
+        "valor_optimo": 223,
+        "llamadas": 0,
+        "subproblemas": 123201,
+        "tamanio_tabla": 123201
+      }
+    },
+    {
+      "longitud": 500,
+      "memo": {
+        "tiempo_ms": 48.30146,
+        "memoria_kib": 27537.414,
+        "valor_optimo": 319,
+        "llamadas": 304687,
+        "subproblemas": 175431,
+        "tamanio_tabla": 175431
+      },
+      "tabulacion": {
+        "tiempo_ms": 26.13279,
+        "memoria_kib": 2119.746,
+        "valor_optimo": 319,
+        "llamadas": 0,
+        "subproblemas": 251001,
+        "tamanio_tabla": 251001
+      }
+    }
+  ],
+  "subcadena_pequena": [
+    {
+      "longitud": 3,
+      "recursivo": {
+        "tiempo_ms": 0.00658,
+        "memoria_kib": 4.656,
+        "valor_optimo": 1,
+        "llamadas": 48,
+        "subproblemas": 48,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00318,
+        "memoria_kib": 3.836,
+        "valor_optimo": 1,
+        "llamadas": 11,
+        "subproblemas": 9,
+        "tamanio_tabla": 9
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00266,
+        "memoria_kib": 2.219,
+        "valor_optimo": 1,
+        "llamadas": 0,
+        "subproblemas": 16,
+        "tamanio_tabla": 16
+      }
+    },
+    {
+      "longitud": 4,
+      "recursivo": {
+        "tiempo_ms": 0.01833,
+        "memoria_kib": 4.648,
+        "valor_optimo": 1,
+        "llamadas": 180,
+        "subproblemas": 180,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00417,
+        "memoria_kib": 3.469,
+        "valor_optimo": 1,
+        "llamadas": 20,
+        "subproblemas": 16,
+        "tamanio_tabla": 16
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00288,
+        "memoria_kib": 1.414,
+        "valor_optimo": 1,
+        "llamadas": 0,
+        "subproblemas": 25,
+        "tamanio_tabla": 25
+      }
+    },
+    {
+      "longitud": 5,
+      "recursivo": {
+        "tiempo_ms": 0.07794,
+        "memoria_kib": 5.753,
+        "valor_optimo": 1,
+        "llamadas": 826,
+        "subproblemas": 826,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00544,
+        "memoria_kib": 4.539,
+        "valor_optimo": 1,
+        "llamadas": 30,
+        "subproblemas": 25,
+        "tamanio_tabla": 25
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00354,
+        "memoria_kib": 1.555,
+        "valor_optimo": 1,
+        "llamadas": 0,
+        "subproblemas": 36,
+        "tamanio_tabla": 36
+      }
+    },
+    {
+      "longitud": 6,
+      "recursivo": {
+        "tiempo_ms": 0.27823,
+        "memoria_kib": 6.645,
+        "valor_optimo": 2,
+        "llamadas": 2978,
+        "subproblemas": 2978,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.00724,
+        "memoria_kib": 5.086,
+        "valor_optimo": 2,
+        "llamadas": 44,
+        "subproblemas": 36,
+        "tamanio_tabla": 36
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.00441,
+        "memoria_kib": 1.761,
+        "valor_optimo": 2,
+        "llamadas": 0,
+        "subproblemas": 49,
+        "tamanio_tabla": 49
+      }
+    },
+    {
+      "longitud": 7,
+      "recursivo": {
+        "tiempo_ms": 1.39015,
+        "memoria_kib": 7.629,
+        "valor_optimo": 4,
+        "llamadas": 15355,
+        "subproblemas": 15355,
+        "tamanio_tabla": 0
+      },
+      "memo": {
+        "tiempo_ms": 0.0094,
+        "memoria_kib": 7.031,
+        "valor_optimo": 4,
+        "llamadas": 62,
+        "subproblemas": 49,
+        "tamanio_tabla": 49
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.0052,
+        "memoria_kib": 1.935,
+        "valor_optimo": 4,
+        "llamadas": 0,
+        "subproblemas": 64,
+        "tamanio_tabla": 64
+      }
+    }
+  ],
+  "subcadena_escalabilidad": [
+    {
+      "longitud": 50,
+      "memo": {
+        "tiempo_ms": 0.3995,
+        "memoria_kib": 210.855,
+        "valor_optimo": 5,
+        "llamadas": 3129,
+        "subproblemas": 2500,
+        "tamanio_tabla": 2500
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.13662,
+        "memoria_kib": 24.506,
+        "valor_optimo": 5,
+        "llamadas": 0,
+        "subproblemas": 2601,
+        "tamanio_tabla": 2601
+      }
+    },
+    {
+      "longitud": 100,
+      "memo": {
+        "tiempo_ms": 1.60808,
+        "memoria_kib": 837.012,
+        "valor_optimo": 6,
+        "llamadas": 12502,
+        "subproblemas": 10000,
+        "tamanio_tabla": 10000
+      },
+      "tabulacion": {
+        "tiempo_ms": 0.55558,
+        "memoria_kib": 87.054,
+        "valor_optimo": 6,
+        "llamadas": 0,
+        "subproblemas": 10201,
+        "tamanio_tabla": 10201
+      }
+    },
+    {
+      "longitud": 200,
+      "memo": {
+        "tiempo_ms": 6.20571,
+        "memoria_kib": 3469.637,
+        "valor_optimo": 7,
+        "llamadas": 50020,
+        "subproblemas": 40000,
+        "tamanio_tabla": 40000
+      },
+      "tabulacion": {
+        "tiempo_ms": 2.08954,
+        "memoria_kib": 329.43,
+        "valor_optimo": 7,
+        "llamadas": 0,
+        "subproblemas": 40401,
+        "tamanio_tabla": 40401
+      }
+    },
+    {
+      "longitud": 350,
+      "memo": {
+        "tiempo_ms": 20.48771,
+        "memoria_kib": 13100.285,
+        "valor_optimo": 9,
+        "llamadas": 152788,
+        "subproblemas": 122500,
+        "tamanio_tabla": 122500
+      },
+      "tabulacion": {
+        "tiempo_ms": 7.09162,
+        "memoria_kib": 985.557,
+        "valor_optimo": 9,
+        "llamadas": 0,
+        "subproblemas": 123201,
+        "tamanio_tabla": 123201
+      }
+    },
+    {
+      "longitud": 500,
+      "memo": {
+        "tiempo_ms": 44.34304,
+        "memoria_kib": 27256.684,
+        "valor_optimo": 9,
+        "llamadas": 312632,
+        "subproblemas": 250000,
+        "tamanio_tabla": 250000
+      },
+      "tabulacion": {
+        "tiempo_ms": 14.62112,
+        "memoria_kib": 1993.537,
+        "valor_optimo": 9,
+        "llamadas": 0,
+        "subproblemas": 251001,
+        "tamanio_tabla": 251001
+      }
+    }
+  ]
+}

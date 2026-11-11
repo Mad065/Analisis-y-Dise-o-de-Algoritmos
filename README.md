@@ -62,6 +62,8 @@ Aquí encontrarás las implementaciones y comparativas desarrolladas en laborato
 1. 🚀 [Práctica 1: Algoritmos de Búsqueda](./practicas/practica%201.%20busqueda)
 2. ⚡ [Práctica 2: Algoritmos de Ordenamiento](./practicas/practica%202.%20ordenamiento)
 3. ⚔️ [Práctica 3: Divide y Vencerás (Quickselect y Strassen)](./practicas/practica%203.%20divide%20y%20venceras)
+4. 🌲 [Práctica 4: Algoritmos Voraces y Codificación de Huffman](./practicas/practica%204.%20algoritmos%20voraces)
+5. 🧩 [Práctica 5: Programación Dinámica (Mochila, Cambio, LCSq y LCS)](./practicas/practica%205.%20programacion%20dinamica)
 
 *(Más prácticas se irán agregando conforme avance el curso)*
 
