@@ -1,3 +1,14 @@
+/**
+ * Práctica 3 — Divide y Vencerás
+ * Escuela Superior de Cómputo (ESCOM - IPN)
+ * Materia: Análisis y Diseño de Algoritmos
+ *
+ * Implementaciones canónicas en Java (OpenJDK) de:
+ *   Parte 1: Quickselect con partición de Hoare y pivote Mediana de Tres (32 y 64 bits).
+ *   Parte 2: Multiplicación de Matrices Tradicional vs Strassen (2D vs 1D plano).
+ *   Parte 3: Suite de Benchmarking con telemetría de memoria Heap y RSS real.
+ */
+
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;

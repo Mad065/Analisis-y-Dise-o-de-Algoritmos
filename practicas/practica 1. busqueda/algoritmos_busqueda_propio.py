@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+"""
+Práctica 1 — Algoritmos de Búsqueda
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
+
+Implementación canónica en Python de algoritmos de búsqueda:
+  1. Búsqueda Secuencial (Sequential Search / Linear Search)
+  2. Búsqueda Binaria (Binary Search)
+
+Versión base para evaluación empírica y cálculo de complejidad computacional.
+"""
 from typing import Any, List, Optional
 import random
 

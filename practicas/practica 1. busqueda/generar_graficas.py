@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
+Práctica 1 — Algoritmos de Búsqueda
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
+
 Generador de gráficas comparativas para los algoritmos de búsqueda.
-Genera PNGs en la carpeta 'graficas/' con los resultados de Python y Java.
+Genera figuras PNG en la carpeta 'graficas/' con los resultados de Python y Java.
 """
 import matplotlib
 matplotlib.use('Agg')

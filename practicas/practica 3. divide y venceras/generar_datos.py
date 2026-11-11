@@ -1,26 +1,12 @@
 #!/usr/bin/env python3
 """
-Generador de datasets compartidos para la Práctica 3 (Divide y Vencerás).
+Práctica 3 — Divide y Vencerás
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Genera archivos binarios little-endian en `datos/` para que tanto Python como
-Java operen exactamente sobre los mismos datos de entrada:
-
-1. Quickselect (Selección de Hoare):
-   - Tamaños: n in {1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000}
-   - Valores: enteros en el rango [1, 10^7] distribuidos en permutación
-     pseudoaleatoria uniforme (muestreo estratificado sin reemplazo en [1, 10^7]
-     seguido de barajado de Fisher-Yates con semilla determinista).
-   - `datos/qs32_n_<N>.bin`: codificado en 32 bits con signo (int32, 4 bytes/elem).
-   - `datos/qs64_n_<N>.bin`: codificado en 64 bits con signo (int64, 8 bytes/elem),
-     conteniendo exactamente la misma permutación numérica que el archivo de 32 bits.
-
-2. Multiplicación de Matrices (Tradicional vs Strassen, 2D vs 1D):
-   - Tamaños: matrices cuadradas n x n con n in {16, 32, 64, 128, 256, 512}
-   - Valores: enteros pseudoaleatorios en [-100, 100] (evita desbordamiento en int32
-     incluso tras sumas/productos de tamaño 512).
-   - `datos/mat_n_<N>.bin`: 2 * N * N enteros de 32 bits (int32 little-endian),
-     donde los primeros N^2 elementos corresponden a la matriz A y los siguientes
-     N^2 elementos a la matriz B en orden por filas (row-major).
+Generador de datasets compartidos binarios para la Práctica 3:
+  1. Quickselect: Permutaciones pseudoaleatorias en int32 (4 bytes) e int64 (8 bytes).
+  2. Matrices Cuadradas: Matrices A y B en row-major binario de 32 bits con signo.
 """
 import os
 import random

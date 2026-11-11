@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
-Práctica 5 — Generador de Datasets y Casos de Prueba
-Genera instancias reproducibles para el análisis de eficiencia y optimalidad:
-  - Mochila 0/1 (pequeños, medianos, grandes, correlaciones)
-  - Cambio de Monedas (canónicos, no canónicos, casos patológicos para Greedy)
-  - LCSq y Subcadena LCS (ADN, cadenas sintéticas, bordes)
+Práctica 5 — Programación Dinámica
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
+
+Generador de datasets y casos de prueba reproducibles para:
+  1. Problema de la Mochila 0/1 (pequeños, medianos, grandes, correlaciones)
+  2. Problema del Cambio de Monedas (canónicos, no canónicos y patológicos para Greedy)
+  3. Subsecuencia Común Más Larga LCSq y Subcadena Común LCS (ADN y sintéticos)
 """
 from __future__ import annotations
 

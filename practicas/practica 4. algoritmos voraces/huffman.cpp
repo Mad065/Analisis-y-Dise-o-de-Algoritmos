@@ -1,14 +1,14 @@
 /**
- * Práctica 4: Algoritmos Voraces y Codificación de Huffman
+ * Práctica 4 — Algoritmos Voraces y Codificación de Huffman
  * Escuela Superior de Cómputo (ESCOM - IPN)
- * Análisis y Diseño de Algoritmos
+ * Materia: Análisis y Diseño de Algoritmos
  *
- * Implementación completa en C++17 con:
- *  - Empaquetado real a nivel de bits (BitWriter / BitReader) usando <<, >>, &, |
- *  - Serialización compacta del árbol en Preorden (10k - 1 bits) y Opción A (Tabla)
- *  - Resolución de "The Padding Trap" (uint64_t original_size + uint8_t valid_last_bits)
- *  - Corrección del bug de puntero nulo (nullptr->frequency) en archivos homogéneos (k = 1)
- *  - Suite de Benchmarking automatizada para los 3 casos de prueba de la Fase 2
+ * Implementación completa en C++17 de la Codificación de Huffman:
+ *   - Empaquetado real a nivel de bits (BitWriter / BitReader) usando <<, >>, &, |
+ *   - Serialización compacta del árbol en Preorden (10k - 1 bits) y Opción A (Tabla)
+ *   - Resolución de "The Padding Trap" (uint64_t original_size + uint8_t valid_last_bits)
+ *   - Corrección del bug de puntero nulo en archivos homogéneos (k = 1)
+ *   - Suite de Benchmarking automatizada para los casos de prueba de la práctica
  */
 
 #include <iostream>

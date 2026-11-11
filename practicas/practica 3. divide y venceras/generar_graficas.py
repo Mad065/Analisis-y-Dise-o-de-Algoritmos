@@ -1,19 +1,13 @@
 #!/usr/bin/env python3
 """
-Generador de gráficas y tablas Markdown para la Práctica 3 (Divide y Vencerás).
+Práctica 3 — Divide y Vencerás
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Lee `resultados/resultados.json` (generado por `benchmark.py`) y produce:
-  * `graficas/01_quickselect_tiempo.png`
-  * `graficas/02_quickselect_32_vs_64_comparativa.png`
-  * `graficas/03_quickselect_memoria.png`
-  * `graficas/04_quickselect_complejidad_speedup.png`
-  * `graficas/05_matrices_tiempo_python.png`
-  * `graficas/06_matrices_tiempo_java.png`
-  * `graficas/07_matrices_2d_vs_1d.png`
-  * `graficas/08_matrices_memoria.png`
-  * `graficas/09_matrices_complejidad_cruce.png`
-  * `graficas/10_evidencia_estres_recursos.png`
-  * `resultados/tablas.md`
+Generador de gráficas y tablas Markdown para la Práctica 3.
+Lee `resultados/resultados.json` y genera:
+  * graficas/*.png: 10 figuras comparativas de tiempo, memoria y speedup
+  * resultados/tablas.md: tablas consolidadas en formato Markdown
 """
 from __future__ import annotations
 

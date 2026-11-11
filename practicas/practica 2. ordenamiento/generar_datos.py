@@ -1,19 +1,12 @@
 #!/usr/bin/env python3
 """
-Generador de datasets para la Práctica 2 (Algoritmos de Ordenamiento).
+Práctica 2 — Algoritmos de Ordenamiento
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Cada dataset es un archivo binario `datos/n_<N>.bin` con N números reales
-codificados como float64 little-endian. Python y Java leen EXACTAMENTE el mismo
-archivo, por lo que ambos lenguajes ordenan los mismos datos.
-
-Los valores son reales con 2 decimales fijos en el rango [0, 10 000):
-    x = randrange(0, 1_000_000) / 100
-Esto permite aplicar Counting Sort sobre reales mediante la clave entera
-round(x * 100), con un arreglo de conteo de k = 1 000 000 casillas.
-
-Uso:
-    python generar_datos.py                 # genera 10^5 .. 10^8
-    python generar_datos.py 100000 1000000  # genera solo los tamaños indicados
+Generador de datasets compartidos para la Práctica 2.
+Produce archivos binarios little-endian con floats de doble precisión en `datos/`
+para ser leídos y ordenados de forma idéntica por Python y Java.
 """
 import os
 import random

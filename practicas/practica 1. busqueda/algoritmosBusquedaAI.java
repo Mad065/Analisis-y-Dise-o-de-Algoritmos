@@ -1,16 +1,15 @@
 /**
- * ============================================================================
- * PRÁCTICA 1: ALGORITMOS DE BÚSQUEDA
- * Análisis y Diseño de Algoritmos - ESCOM IPN
- * ============================================================================
+ * Práctica 1 — Algoritmos de Búsqueda
+ * Escuela Superior de Cómputo (ESCOM - IPN)
+ * Materia: Análisis y Diseño de Algoritmos
  *
- * Este programa implementa y compara cuatro algoritmos de búsqueda:
+ * Implementación y evaluación comparativa en Java de cuatro algoritmos de búsqueda:
  *   1. Búsqueda Secuencial (Sequential Search / Linear Search)
  *   2. Búsqueda Binaria (Binary Search)
  *   3. Búsqueda por Interpolación (Interpolation Search)
  *   4. Búsqueda con Tabla Hash (Hash Table Search)
  *
- * Se generan datasets aleatorios de tamaños: 1K, 10K, 100K, 1M, 10M
+ * Se generan datasets aleatorios de tamaños: 1K, 10K, 100K, 1M, 10M.
  * Se evalúan cuatro escenarios para cada algoritmo:
  *   - Caso ideal (mejor caso específico para cada algoritmo)
  *   - Peor caso (peor caso específico para cada algoritmo)
@@ -22,11 +21,9 @@
  *   - El tiempo de construcción de la tabla hash
  *   - El tiempo de búsqueda para cada algoritmo en cada caso
  *
- * COMPILACIÓN Y EJECUCIÓN:
+ * Compilación y ejecución:
  *   javac algoritmosBusquedaAI.java
  *   java -Xmx4g algoritmosBusquedaAI
- *   (se recomienda -Xmx4g para datasets de 10M elementos)
- * ============================================================================
  */
 
 import java.util.Arrays;   // Para Arrays.sort() (Dual-Pivot Quicksort)

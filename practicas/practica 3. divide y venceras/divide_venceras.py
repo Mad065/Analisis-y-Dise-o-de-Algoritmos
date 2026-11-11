@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
 """
-Práctica 3 — Divide y Vencerás (Python).
+Práctica 3 — Divide y Vencerás
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Implementaciones en Python puro (sin numpy, sin funciones de ordenamiento/selección
-nativas) de:
+Implementación canónica en Python puro (sin numpy, sin funciones nativas de selección) de:
 
 Parte 1 — Selección Rápida (Quickselect / Selección de Hoare):
-    * quickselect_hoare(a, k)    O(n) promedio, O(n²) peor caso, espacio extra O(1)
-      Evaluado sobre datasets de enteros de 32 bits (`array('i')`, 4 bytes/elem) y
-      enteros de 64 bits (`array('q')`, 8 bytes/elem) en permutación pseudoaleatoria
-      con valores en [1, 10^7].
+  * quickselect_hoare(a, k)    O(n) promedio, O(n²) peor caso, espacio extra O(1)
+    Evaluado sobre datasets de enteros de 32 bits y 64 bits en permutación pseudoaleatoria.
 
 Parte 2 — Multiplicación de Matrices Cuadradas (n x n):
-    * multiplicar_tradicional_2d(A, B, n)   O(n³)       Arreglo 2D (`list[list[int]]`)
-    * multiplicar_tradicional_1d(A, B, n)   O(n³)       Arreglo 1D contiguo (`array('i')`)
-    * multiplicar_strassen_2d(A, B, n)      O(n^2.807)  Arreglo 2D (`list[list[int]]`)
-    * multiplicar_strassen_1d(A, B, n)      O(n^2.807)  Arreglo 1D contiguo (`array('i')`)
+  * multiplicar_tradicional_2d(A, B, n)   O(n³)       Arreglo 2D (`list[list[int]]`)
+  * multiplicar_tradicional_1d(A, B, n)   O(n³)       Arreglo 1D contiguo (`array('i')`)
+  * multiplicar_strassen_2d(A, B, n)      O(n^2.807)  Arreglo 2D (`list[list[int]]`)
+  * multiplicar_strassen_1d(A, B, n)      O(n^2.807)  Arreglo 1D contiguo (`array('i')`)
 
 Modo benchmark (invocado por benchmark.py):
-    python divide_venceras.py --problema quickselect --bits 32 --n 1000000
-    python divide_venceras.py --problema matrices --variante strassen_1d --n 256
-Imprime una línea: RESULTADO {json}
+  python divide_venceras.py --problema quickselect --bits 32 --n 1000000
+  python divide_venceras.py --problema matrices --variante strassen_1d --n 256
 """
 from __future__ import annotations
 

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Práctica 2 — Algoritmos de Ordenamiento (Python).
+Práctica 2 — Algoritmos de Ordenamiento
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Implementaciones en Python puro (sin sorted(), sin numpy) de:
-    1. Bubble Sort      O(n²)          espacio extra O(1)
-    2. Merge Sort       O(n log n)     espacio extra O(n)
-    3. Tree Sort        O(n log n)*    espacio extra O(nodos)
-    4. Heap Sort        O(n log n)     espacio extra O(1)
-    5. Counting Sort    O(n + k)       espacio extra O(n + k)
+Implementación canónica en Python puro (sin sorted(), sin numpy) de:
+  1. Bubble Sort      O(n²)          espacio extra O(1)
+  2. Merge Sort       O(n log n)     espacio extra O(n)
+  3. Tree Sort        O(n log n)*    espacio extra O(nodos)
+  4. Heap Sort        O(n log n)     espacio extra O(1)
+  5. Counting Sort    O(n + k)       espacio extra O(n + k)
 
-Todas las funciones ordenan IN-PLACE una secuencia mutable de floats
-(se usa `array('d')`: 8 bytes por elemento, frente a ~32 bytes en un `list`,
-lo que permite trabajar con 10^8 elementos en un equipo de 8 GB).
+Todas las funciones ordenan in-place una secuencia mutable de floats (`array('d')`).
 
 Modo benchmark (una sola corrida, la usa benchmark.py):
     python ordenamiento.py --algoritmo merge --n 1000000

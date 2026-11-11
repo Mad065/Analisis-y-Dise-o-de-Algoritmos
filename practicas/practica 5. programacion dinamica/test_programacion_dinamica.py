@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Práctica 5 — Suite de Pruebas Unitarias y Verificación de Optimalidad
-Materia: Análisis y Diseño de Algoritmos (ESCOM - IPN)
+Práctica 5 — Programación Dinámica
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Verifica:
-  1. Consistencia matemática: recursiva == memo == tabulacion.
-  2. Optimalidad y validez de las soluciones reconstruidas (restricciones satisfechas).
-  3. Demostración formal y empírica del fracaso de la heurística voraz en cambio no canónico.
-  4. Casos borde y de estrés (cadenas vacías, montos imposibles, pesos cero, capacidades nulas).
+Suite de pruebas unitarias y verificación de optimalidad:
+  1. Consistencia matemática: recursiva == memo == tabulacion
+  2. Optimalidad y validez de las soluciones reconstruidas (restricciones satisfechas)
+  3. Demostración formal y empírica del fracaso de la heurística voraz en cambio no canónico
+  4. Casos borde y de estrés (cadenas vacías, montos imposibles, pesos cero, capacidades nulas)
 """
 import json
 import os

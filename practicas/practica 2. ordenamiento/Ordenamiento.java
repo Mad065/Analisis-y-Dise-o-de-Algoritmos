@@ -1,3 +1,18 @@
+/**
+ * Práctica 2 — Algoritmos de Ordenamiento
+ * Escuela Superior de Cómputo (ESCOM - IPN)
+ * Materia: Análisis y Diseño de Algoritmos
+ *
+ * Implementación en Java de algoritmos de ordenamiento in-place:
+ *   1. Bubble Sort      O(n²)          espacio extra O(1)
+ *   2. Merge Sort       O(n log n)     espacio extra O(n)
+ *   3. Tree Sort        O(n log n)*    espacio extra O(nodos)
+ *   4. Heap Sort        O(n log n)     espacio extra O(1)
+ *   5. Counting Sort    O(n + k)       espacio extra O(n + k)
+ *
+ * Todos los algoritmos ordenan in-place un arreglo primitivo double[].
+ */
+
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;

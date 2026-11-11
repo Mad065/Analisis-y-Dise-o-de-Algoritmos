@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """
-Pruebas unitarias automatizadas para la Práctica 3 (Divide y Vencerás).
+Práctica 3 — Divide y Vencerás
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Ejecutar:
-    python3 -m unittest test_divide_venceras -v
+Suite de pruebas unitarias automatizadas para verificar:
+  - Correctitud de Quickselect frente a ordenamiento canónico.
+  - Correctitud de Strassen frente a multiplicación tradicional.
+  - Compatibilidad de arreglos 2D y representaciones 1D contiguas.
 """
 from __future__ import annotations
 

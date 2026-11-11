@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 """
-Práctica 5 — Orquestador de Benchmarking y Evaluación Empírica
-Materia: Análisis y Diseño de Algoritmos (ESCOM - IPN)
+Práctica 5 — Programación Dinámica
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Ejecuta suites de pruebas para medir con alta precisión:
-  - Tiempo de CPU (nanosegundos / milisegundos con time.perf_counter_ns)
-  - Memoria pico (tracemalloc en KiB)
-  - Llamadas recursivas y tamaño del espacio de estados
-  - Escalabilidad de Memoización vs Tabulación (y desbordamiento de pila)
-  - Optimalidad cuantitativa: DP vs Heurística Voraz
-
-Genera:
-  - resultados/resultados.json
-  - resultados/tablas.md
+Orquestador de benchmarking y evaluación empírica de alto rendimiento:
+  - Tiempo de CPU de alta resolución (time.perf_counter_ns)
+  - Memoria pico en heap con tracemalloc
+  - Conteo de llamadas recursivas y tamaño del espacio de estados evaluado
+  - Escalabilidad de Memoización vs Tabulación
+  - Demostración cuantitativa de optimalidad: DP vs Heurística Voraz
 """
 from __future__ import annotations
 

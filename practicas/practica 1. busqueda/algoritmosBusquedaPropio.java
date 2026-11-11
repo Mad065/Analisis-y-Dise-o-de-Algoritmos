@@ -1,3 +1,15 @@
+/**
+ * Práctica 1 — Algoritmos de Búsqueda
+ * Escuela Superior de Cómputo (ESCOM - IPN)
+ * Materia: Análisis y Diseño de Algoritmos
+ *
+ * Implementación canónica en Java de algoritmos de búsqueda:
+ *   1. Búsqueda Secuencial (Sequential Search)
+ *   2. Búsqueda Binaria (Binary Search)
+ *
+ * Versión base para evaluación y comparación de rendimiento.
+ */
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

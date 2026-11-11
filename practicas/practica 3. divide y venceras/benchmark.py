@@ -1,27 +1,14 @@
 #!/usr/bin/env python3
 """
-Orquestador del benchmark de la Práctica 3 (Divide y Vencerás).
+Práctica 3 — Divide y Vencerás
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Ejecuta de manera aislada (un subproceso por corrida, midiendo RSS pico real
-mediante `os.wait4`) los dos experimentos de la práctica en Python y Java:
-
-1. Quickselect (Selección de Hoare):
-   - n in {1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000}
-   - Datasets de 32 bits (int32) y 64 bits (int64) en permutación pseudoaleatoria [1, 10^7].
-   - Posición buscada: mediana k = floor(n/2) + 1.
-
-2. Multiplicación de Matrices Cuadradas (Tradicional vs Strassen, 2D vs 1D Contiguo):
-   - n in {16, 32, 64, 128, 256, 512}
-   - Variantes: tradicional_2d, tradicional_1d, strassen_2d, strassen_1d.
-
-3. Prueba de Estrés de Recursos (Evidencia de agotamiento de memoria/cómputo en Strassen):
-   - Ejecuta Strassen con restricción de heap / extrapolación a n >= 1024 para
-     capturar y documentar el desbordamiento de memoria (`OutOfMemoryError`) y
-     la explosión combinatoria de $7^{\\log_2 n}$ llamadas recursivas.
-
-Uso:
-    python3 benchmark.py                # benchmark completo
-    python3 benchmark.py --reanudar     # continúa donde se quedó
+Orquestador del benchmark de la Práctica 3.
+Ejecuta de manera aislada (subprocesos con os.wait4) las pruebas en Python y Java:
+  1. Quickselect (Hoare): 32 bits vs 64 bits para n in [1K .. 10M].
+  2. Multiplicación de Matrices: Tradicional vs Strassen (2D vs 1D contiguo).
+  3. Prueba de estrés de recursos y evidencia empírica de OutOfMemoryError.
 """
 from __future__ import annotations
 

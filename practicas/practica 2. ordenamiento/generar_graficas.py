@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Generador de gráficas y tablas para la Práctica 2 (Algoritmos de Ordenamiento).
+Práctica 2 — Algoritmos de Ordenamiento
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Lee `resultados/resultados.json` (producido por benchmark.py) y genera:
-  * graficas/*.png         — 8 gráficas comparativas
-  * resultados/tablas.md   — tablas Markdown listas para el reporte
-
-Convención visual: valores MEDIDOS = línea sólida + marcador relleno;
-valores ESTIMADOS = línea punteada + marcador hueco.
+Generador de gráficas y tablas comparativas para la Práctica 2.
+Lee `resultados/resultados.json` y genera:
+  * graficas/*.png: 8 gráficas comparativas de tiempo y memoria
+  * resultados/tablas.md: tablas consolidadas en formato Markdown
 """
 import json
 import math

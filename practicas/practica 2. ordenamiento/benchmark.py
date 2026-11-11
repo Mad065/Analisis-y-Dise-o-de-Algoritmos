@@ -1,24 +1,14 @@
 #!/usr/bin/env python3
 """
+Práctica 2 — Algoritmos de Ordenamiento
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
+
 Orquestador del benchmark de la Práctica 2.
-
-Para cada lenguaje × algoritmo × n lanza UN subproceso (Python o Java) que
-carga el dataset, ordena, verifica y reporta tiempo y memoria. Además:
-
-  * Revisa la RAM antes de ejecutar (modelo teórico de memoria): si la corrida
-    necesitaría más del 75 % de la RAM física se omite  -> estado 'omitido_ram'.
-  * Predice el tiempo a partir del tamaño anterior medido (×f(n)/f(n_prev)):
-    si supera el límite se omite                        -> estado 'omitido_tiempo'.
-  * Si una corrida excede el límite (30 min) se mata    -> estado 'timeout'.
-  * Mide el RSS máximo REAL del subproceso con os.wait4().
-  * Repite 3 veces las corridas que tardan < 10 s y reporta la mediana.
-  * Guarda cada resultado inmediatamente (se puede reanudar con --reanudar).
-  * Al final estima (T = c·f(n)) las corridas no ejecutadas, marcadas 'estimado'.
-
-Uso:
-    python benchmark.py                 # benchmark completo
-    python benchmark.py --reanudar      # continúa donde se quedó
-    python benchmark.py --solo-estimar  # recalcula solo las estimaciones
+Para cada lenguaje × algoritmo × n lanza subprocesos independientes midiendo:
+  - Tiempo de ejecución con repeticiones y cálculo de mediana
+  - Consumo de memoria real RSS máximo con os.wait4()
+  - Modelo predictivo de tiempo y memoria para evitar OOM / Timeout
 """
 import argparse
 import datetime

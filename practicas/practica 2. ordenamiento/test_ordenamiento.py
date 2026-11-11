@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Pruebas unitarias de los 5 algoritmos de ordenamiento (Python).
+"""
+Práctica 2 — Algoritmos de Ordenamiento
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Ejecutar:  python -m unittest test_ordenamiento -v
+Suite de pruebas unitarias para verificar la correctitud y estabilidad
+de los 5 algoritmos de ordenamiento implementados en Python.
 """
 import random
 import unittest

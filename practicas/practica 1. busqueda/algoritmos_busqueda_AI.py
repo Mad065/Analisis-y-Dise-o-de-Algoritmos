@@ -1,29 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-============================================================================
- PRÁCTICA 1: ALGORITMOS DE BÚSQUEDA
- Análisis y Diseño de Algoritmos - ESCOM IPN
-============================================================================
+Práctica 1 — Algoritmos de Búsqueda
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
- Este programa implementa y compara cuatro algoritmos de búsqueda:
-   1. Búsqueda Secuencial (Sequential Search / Linear Search)
-   2. Búsqueda Binaria (Binary Search)
-   3. Búsqueda por Interpolación (Interpolation Search)
-   4. Búsqueda con Tabla Hash (Hash Table Search)
+Implementación y evaluación comparativa en Python de cuatro algoritmos de búsqueda:
+  1. Búsqueda Secuencial (Sequential Search / Linear Search)
+  2. Búsqueda Binaria (Binary Search)
+  3. Búsqueda por Interpolación (Interpolation Search)
+  4. Búsqueda con Tabla Hash (Hash Table Search)
 
- Se generan datasets aleatorios de tamaños: 1K, 10K, 100K, 1M, 10M
- Se evalúan cuatro escenarios para cada algoritmo:
-   - Caso ideal (mejor caso específico para cada algoritmo)
-   - Peor caso (peor caso específico para cada algoritmo)
-   - Elemento no existente (el objetivo no está en el dataset)
-   - Caso normal (búsqueda de un elemento en posición aleatoria)
+Se generan datasets aleatorios de tamaños: 1K, 10K, 100K, 1M, 10M.
+Se evalúan cuatro escenarios para cada algoritmo:
+  - Caso ideal (mejor caso específico para cada algoritmo)
+  - Peor caso (peor caso específico para cada algoritmo)
+  - Elemento no existente (el objetivo no está en el dataset)
+  - Caso normal (búsqueda de un elemento en posición aleatoria)
 
- Se mide por separado:
-   - El tiempo de ordenamiento (requerido por búsqueda binaria e interpolación)
-   - El tiempo de construcción de la tabla hash
-   - El tiempo de búsqueda para cada algoritmo en cada caso
-============================================================================
+Se mide por separado:
+  - El tiempo de ordenamiento (requerido por búsqueda binaria e interpolación)
+  - El tiempo de construcción de la tabla hash
+  - El tiempo de búsqueda para cada algoritmo en cada caso
 """
 
 import random    # Para generar números aleatorios

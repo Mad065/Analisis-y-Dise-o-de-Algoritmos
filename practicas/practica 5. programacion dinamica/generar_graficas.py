@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
-Práctica 5 — Generador de Gráficas Estadísticas y Comparativas
-Materia: Análisis y Diseño de Algoritmos (ESCOM - IPN)
+Práctica 5 — Programación Dinámica
+Escuela Superior de Cómputo (ESCOM - IPN)
+Materia: Análisis y Diseño de Algoritmos
 
-Genera visualizaciones de alto impacto con matplotlib:
-  1. 01_mochila_tiempo_comparativa.png: Curva semilogarítmica Recursivo vs Memo vs Tabulación.
-  2. 02_cambio_tiempo_comparativa.png: Explosión exponencial en Cambio de Monedas.
-  3. 03_cadenas_tiempo_comparativa.png: Comparativa en LCSq y Subcadena LCS.
-  4. 04_escalabilidad_memo_vs_tabulacion.png: Rendimiento a gran escala (Memo vs Tabulación).
-  5. 05_consumo_memoria_comparativa.png: Huella de memoria (Hash Map vs Matriz DP).
-  6. 06_cambio_optimalidad_dp_vs_voraz.png: Demostración cuantitativa DP vs Voraz.
+Generador de gráficas estadísticas y comparativas en alta resolución (matplotlib):
+  1. 01_mochila_tiempo_comparativa.png: Curva semilogarítmica Recursivo vs Memo vs Tabulación
+  2. 02_cambio_tiempo_comparativa.png: Crecimiento exponencial en Cambio de Monedas
+  3. 03_cadenas_tiempo_comparativa.png: Comparativa en LCSq y Subcadena LCS
+  4. 04_escalabilidad_memo_vs_tabulacion.png: Rendimiento a gran escala (Memo vs Tabulación)
+  5. 05_consumo_memoria_comparativa.png: Huella de memoria (Hash Map vs Matriz DP)
+  6. 06_cambio_optimalidad_dp_vs_voraz.png: Demostración cuantitativa DP vs Voraz
 """
 from __future__ import annotations
 
