@@ -38,6 +38,7 @@ Aquí puedes acceder rápidamente a las notas teóricas más importantes:
 8. 📄 [Teorema Maestro](./apuntes/Teorema%20Maestro.md)
 9. 📄 [Algoritmos voraces](./apuntes/Algoritmos%20voraces.md)
 10. 📄 [Codificación de Huffman](./apuntes/Codificacion%20de%20Huffman.md)
+11. 📄 [Programación dinámica](./apuntes/Programacion%20dinamica.md)
 
 *(Más apuntes se irán agregando conforme avance el curso)*
 
